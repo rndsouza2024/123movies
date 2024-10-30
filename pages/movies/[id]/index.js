@@ -760,7 +760,6 @@ export default function MovieDetail({ movie }) {
                   </p>
                 </div>
               </div>
-
               <div className={`${moviesStyles.imageGrid} mt-5`}>
                 <img
                   className={`${moviesStyles.image} img-fluid lazyload `}
@@ -859,7 +858,6 @@ export default function MovieDetail({ movie }) {
                   layout="responsive"
                 />
               </div>
-
               <div className="flex flex-col items-center justify-center relative z-10 mt-4 space-y-4 ">
                 <h2
                   className="px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl hover:text-blue-800 font-bold mt-2"
@@ -873,15 +871,33 @@ export default function MovieDetail({ movie }) {
                   Official Trailer {movie.name}
                 </h2>
               </div>
-              {/* Container for the video players */}
-
-              {/* Render the Dailymotion iframe if `traileritem` exists and has content*/}
-              {movie.traileritem && movie.traileritem.length > 0 && (
+              {/* Container for the iframe */}
+              {/* <div className={styles.iframeContainer}>
+                <iframe
+                  className={styles.iframe}
+                  frameBorder="0"
+                  src={`https://geo.dailymotion.com/player/xjrxe.html?video=${movie.traileritem}&mute=true&Autoquality=1080p`}
+                  allowFullScreen
+                  title="Dailymotion Video Player"
+                  allow="autoplay; encrypted-media"
+                  style={{
+                    margin: "auto",
+                    borderRadius: "50px",
+                    boxShadow: "0 0 10px 0 #fff",
+                    marginBottom: "15px",
+                    filter:
+                      "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
+                  }}
+                ></iframe>
+              </div> */}
+              {/* Conditional rendering to prioritize traileritem over source */}
+              {/* If `traileritem` exists, render the Dailymotion iframe*/}
+              {movie.traileritem ? (
                 <div className={styles.iframeContainer}>
                   <iframe
                     className={styles.iframe}
                     frameBorder="0"
-                    src={`https://geo.dailymotion.com/player/xjrxe.html?video=${movie.traileritem[0]}&mute=true&Autoquality=1080p`}
+                    src={`https://geo.dailymotion.com/player/xjrxe.html?video=${movie.traileritem}&mute=true&Autoquality=1080p`}
                     allowFullScreen
                     title="Dailymotion Video Player"
                     allow="autoplay; encrypted-media"
@@ -895,30 +911,29 @@ export default function MovieDetail({ movie }) {
                     }}
                   ></iframe>
                 </div>
+              ) : (
+                // If `traileritem` does not exist, render the HTML5 video player with `source`
+                movie.source && (
+                  <div className={styles.iframeContainer}>
+                    <video
+                      className={styles.iframe}
+                      src={movie.source}
+                      controls
+                      autoPlay
+                      style={{
+                        margin: "auto",
+                        borderRadius: "50px",
+                        boxShadow: "0 0 10px 0 #fff",
+                        marginBottom: "15px",
+                        filter:
+                          "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
+                        width: "100%", // Adjust the width as needed
+                        height: "auto", // Adjust the height as needed
+                      }}
+                    />
+                  </div>
+                )
               )}
-
-              {/*Render the HTML5 video player if `source` exists and has content */}
-              {movie.source && movie.source.length > 0 && (
-                <div className={styles.iframeContainer}>
-                  <video
-                    className={styles.iframe}
-                    src={movie.source[0]}
-                    controls
-                    autoPlay
-                    style={{
-                      margin: "auto",
-                      borderRadius: "50px",
-                      boxShadow: "0 0 10px 0 #fff",
-                      marginBottom: "15px",
-                      filter:
-                        "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
-                      width: "100%", // Adjust the width as needed
-                      height: "auto", // Adjust the height as needed
-                    }}
-                  />
-                </div>
-              )}
-
               <div className="flex flex-col items-center justify-center relative z-10 mt-4 space-y-4 ">
                 <h2
                   className="px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl hover:text-blue-800 font-bold mt-2"
@@ -972,7 +987,6 @@ export default function MovieDetail({ movie }) {
                   ></iframe>
                 </div>
               </div> */}
-
               {/* <div className="flex flex-col items-center justify-center relative z-10 mt-4 space-y-4 ">
                 <button
                   onClick={handlePreviousEpisode}
