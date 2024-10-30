@@ -203,10 +203,6 @@ const HomePage = ({ categorizedItems }) => {
           name="google-site-verification"
           content="4gdbnCGat0T4Ow3Y_RYzPM4vwtsXvhUel5Q-2yULK6k"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: tvshowSchema }}
-        />
        
       </Head>
       <div
@@ -266,13 +262,9 @@ const HomePage = ({ categorizedItems }) => {
 
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: freeSchema }}
+          dangerouslySetInnerHTML={{ __html: tvshowSchema }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: rankMathSchema }}
-        />
-
+       
         {/* Movie Grid */}
         <div className="flex flex-wrap">{renderItems()}</div>
 
