@@ -917,7 +917,7 @@ export default function MovieDetail({ movie }) {
                   <div className={styles.iframeContainer}>
                     <video
                       className={styles.iframe}
-                      src={movie.source}
+                      src={movie.source[0]}  {/* Access the first element in the array */}
                       controls
                       autoPlay
                       style={{
@@ -925,8 +925,7 @@ export default function MovieDetail({ movie }) {
                         borderRadius: "50px",
                         boxShadow: "0 0 10px 0 #fff",
                         marginBottom: "15px",
-                        filter:
-                          "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
+                        filter: "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
                         width: "100%", // Adjust the width as needed
                         height: "auto", // Adjust the height as needed
                       }}
