@@ -920,6 +920,7 @@ export default function MovieDetail({ movie }) {
                       src={movie.source[0]} // Access the first element in the array
                       controls
                       autoPlay
+                      muted // Enable muted autoplay
                       style={{
                         margin: "auto",
                         borderRadius: "50px",
