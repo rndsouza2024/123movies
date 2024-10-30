@@ -910,6 +910,7 @@ export default function MovieDetail({ movie }) {
                         controls
                         autoPlay
                         muted // Enable muted autoplay
+                        loop
                         style={{
                           margin: "auto",
                           backgroundColor: "black", 
