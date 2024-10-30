@@ -265,14 +265,7 @@ export default function MovieDetail({ movie }) {
           ? `https://vidsrc.me/embed/tv?imdb=${id}&season=${itemSeason}&episode=${itemEpisode}`
           : `https://vidsrc.me/embed/movie?imdb=${id}`,
         isItemMovies
-          ? `https://embed.su/embed/tv/${id}/${itemSeason}/${itemEpisode}`
-          : `https://embed.su/embed/movie/${id}`,
-
-        isItemMovies
-          ? `https://vidsrc.cc/v2/embed/tv/${id}/${itemSeason}/${itemEpisode}`
-          : `https://vidsrc.cc/v2/embed/movie/${id}`,
-        isItemMovies
-          ? `https://ffmovies.lol/series/?imdb=${id}`
+          ? `https://ffmovies.lol/series/?imdb=${id}/${itemSeason}/${itemEpisode}`
           : `https://ffmovies.lol/movies/?imdb=${id}`,
         isItemMovies
           ? `https://autoembed.co/tv/imdb/${id}-${itemSeason}-${itemEpisode}`
@@ -280,6 +273,12 @@ export default function MovieDetail({ movie }) {
         isItemMovies
           ? `https://multiembed.mov/directstream.php?video_id=${id}&s=${itemSeason}&e=${itemEpisode}`
           : `https://multiembed.mov/directstream.php?video_id=${id}`,
+        isItemMovies
+          ? `https://www.2embed.cc/embed/${id}`
+          : `https://www.2embed.cc/embedtvfull/${id}`,
+        isItemMovies
+          ? `https://embed.su/embed/tv/${id}/${itemSeason}/${itemEpisode}`
+          : `https://embed.su/embed/movie/${id}`,
       ],
     };
   });
