@@ -283,6 +283,7 @@ export default function MovieDetail({ movie }) {
     };
   });
 
+  
   const handleNextEpisode = () => {
     setCurrentEpisodeIndex((prevIndex) => {
       const nextIndex = (prevIndex + 1) % videoSources.length;
