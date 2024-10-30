@@ -264,9 +264,9 @@ export default function MovieDetail({ movie }) {
         isItemMovies
           ? `https://vidsrc.me/embed/tv?imdb=${id}&season=${itemSeason}&episode=${itemEpisode}`
           : `https://vidsrc.me/embed/movie?imdb=${id}`,
-        isItemMovies
-          ? `https://vidsrc.pro/embed/tv/${id}/${itemSeason}/${itemEpisode}`
-          : `https://vidsrc.pro/embed/movie/${id}`,
+        // isItemMovies
+        //   ? `https://vidsrc.pro/embed/tv/${id}/${itemSeason}/${itemEpisode}`
+        //   : `https://vidsrc.pro/embed/movie/${id}`,
         isItemMovies
           ? `https://vidsrc.cc/v2/embed/tv/${id}/${itemSeason}/${itemEpisode}`
           : `https://vidsrc.cc/v2/embed/movie/${id}`,
@@ -283,7 +283,7 @@ export default function MovieDetail({ movie }) {
     };
   });
 
-  
+
   const handleNextEpisode = () => {
     setCurrentEpisodeIndex((prevIndex) => {
       const nextIndex = (prevIndex + 1) % videoSources.length;
