@@ -913,11 +913,13 @@ export default function MovieDetail({ movie }) {
                 </div>
               ) : (
                 // If `traileritem` does not exist, render the HTML5 video player with `source`
+                <VideoPlayerAds adTagUrl={adTagUrl} />
                 movie.source && (
                   <div className={styles.container}>
                   <div className={styles.iframeContainer}>
                     <video
                       className={styles.iframe}
+                      adTagUrl={adTagUrl}
                       src={movie.source[0]} // Access the first element in the array
                       controls
                       autoPlay
