@@ -967,8 +967,7 @@ export default function MovieDetail({ movie }) {
                     src={src}
                     adTagUrl={adTagUrl}
                     width="100%"
-                    // height="600px"
-                    height="100%"
+                    height="600px"
                     allowFullScreen
                     allow="fullscreen; picture-in-picture"
                     webkitAllowFullScreen={true}
