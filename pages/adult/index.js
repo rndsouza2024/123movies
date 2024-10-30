@@ -206,12 +206,9 @@ const HomePage = ({ categorizedItems }) => {
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: freeSchema }}
+          dangerouslySetInnerHTML={{ __html: adultSchema }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: rankMathSchema }}
-        />
+      
       </Head>
       <div
         className="container mx-auto mt-3 text-center"
