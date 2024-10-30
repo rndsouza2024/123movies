@@ -892,13 +892,7 @@ export default function MovieDetail({ movie }) {
               </div> */}
               {/* Conditional rendering to prioritize traileritem over source */}
               {/* If `traileritem` exists, render the Dailymotion iframe*/}
-              <div
-                className={styles.videoPlayerContainer}
-                style={{ marginTop: "15px" }}
-              >
-                {/* Video Player */}
-                {/* Ad Overlay */}
-                <VideoPlayerAds adTagUrl={adTagUrl} />
+        
 
                 {movie.traileritem ? (
                   <div className={styles.iframeContainer}>
@@ -939,13 +933,13 @@ export default function MovieDetail({ movie }) {
                           filter:
                             "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
                           width: "100%", // Adjust the width as needed
-                          height: "auto", // Adjust the height as needed
+                          height: "100%", // Adjust the height as needed
                         }}
                       />
                     </div>
                   )
                 )}
-              </div>
+           
               <div className="flex flex-col items-center justify-center relative z-10 mt-4 space-y-4 ">
                 <h2
                   className="px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl hover:text-blue-800 font-bold mt-2"
