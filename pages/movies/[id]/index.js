@@ -892,6 +892,7 @@ export default function MovieDetail({ movie }) {
               </div> */}
               {/* Conditional rendering to prioritize traileritem over source */}
               {/* If `traileritem` exists, render the Dailymotion iframe*/}
+              <VideoPlayerAds adTagUrl={adTagUrl} />
               {movie.traileritem ? (
                 <div className={styles.iframeContainer}>
                   <iframe
@@ -913,10 +914,10 @@ export default function MovieDetail({ movie }) {
                 </div>
               ) : (
                 // If `traileritem` does not exist, render the HTML5 video player with `source`
-                <VideoPlayerAds adTagUrl={adTagUrl} />
+          
                 movie.source && (
                
-                  // <div className={styles.iframeContainer}>
+                  <div className={styles.iframeContainer}>
                     <video
                       className={styles.iframe}
                       adTagUrl={adTagUrl}
@@ -935,7 +936,7 @@ export default function MovieDetail({ movie }) {
                         height: "auto", // Adjust the height as needed
                       }}
                     />
-                  {/* </div> */}
+                  </div>
                
                 )
               )}
