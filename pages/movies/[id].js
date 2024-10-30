@@ -474,7 +474,7 @@ export default function MovieDetail({ movie }) {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          minHeight: "100vh",
+          // minHeight: "100vh",
           padding: "20px",
           fontFamily: "Poppins, sans-serif",
           fontWeight: 500,
@@ -607,9 +607,7 @@ export default function MovieDetail({ movie }) {
           <i className="fab fa-telegram telegram-icon"></i>
         </p>
       </a>
-      <span className="px-0 bg-clip-text text-sm text-black font-bold mt-2">
-        <SearchComponent />
-      </span>
+   
       <div
         className="shadow-lg flex items-center justify-center"
         role="navigation"
