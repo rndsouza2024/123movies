@@ -594,20 +594,7 @@ export default function MovieDetail({ movie }) {
           </>
         )}
       </div>
-      <a
-        href="https://t.me/watchmovietvshow/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="telegram-link"
-        style={{ display: "block", textAlign: "center", margin: "0 auto" }}
-      >
-        <p style={{ display: "inline-block" }}>
-          For Request or Demand <br />
-          Movies & TV Series Join Telegram
-          <i className="fab fa-telegram telegram-icon"></i>
-        </p>
-      </a>
-   
+      
       <div
         className="shadow-lg flex items-center justify-center"
         role="navigation"
