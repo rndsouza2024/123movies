@@ -914,6 +914,7 @@ export default function MovieDetail({ movie }) {
               ) : (
                 // If `traileritem` does not exist, render the HTML5 video player with `source`
                 movie.source && (
+                  <div className={styles.container}>
                   <div className={styles.iframeContainer}>
                     <video
                       className={styles.iframe}
@@ -932,6 +933,7 @@ export default function MovieDetail({ movie }) {
                         height: "auto", // Adjust the height as needed
                       }}
                     />
+                  </div>
                   </div>
                 )
               )}
