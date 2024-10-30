@@ -920,13 +920,13 @@ export default function MovieDetail({ movie }) {
                     <div className={styles.iframeContainer}>
                       <video
                         className={styles.iframe}
-                        adTagUrl={adTagUrl}
                         src={movie.source[0]} // Access the first element in the array
                         controls
                         autoPlay
                         muted // Enable muted autoplay
                         style={{
                           margin: "auto",
+                          backgroundColor: "black", 
                           borderRadius: "50px",
                           boxShadow: "0 0 10px 0 #fff",
                           marginBottom: "15px",
