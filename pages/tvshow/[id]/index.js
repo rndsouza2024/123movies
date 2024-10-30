@@ -267,6 +267,7 @@ export default function MovieDetail({ movie }) {
         isItemMovies
           ? `https://embed.su/embed/tv/${id}/${itemSeason}/${itemEpisode}`
           : `https://embed.su/embed/movie/${id}`,
+          
         isItemMovies
           ? `https://vidsrc.cc/v2/embed/tv/${id}/${itemSeason}/${itemEpisode}`
           : `https://vidsrc.cc/v2/embed/movie/${id}`,
