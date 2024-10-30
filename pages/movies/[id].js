@@ -610,19 +610,57 @@ export default function MovieDetail({ movie }) {
       <span className="px-0 bg-clip-text text-sm text-black font-bold mt-2">
         <SearchComponent />
       </span>
-      {/* <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          route='home'
-          style={{
-            marginTop: '50px',
-            marginBottom: '50px',
-            borderRadius: '50px',
-            boxShadow: '0 0 10px 0 #fff',
-            filter:
-              'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
-          }}
-        /> */}
+      <div
+        className="shadow-lg flex items-center justify-center"
+        role="navigation"
+      >
+        <ul
+          id="menu-header-menu"
+          className="menu flex flex-wrap justify-center"
+        >
+          <button className="border border-black p-2 m-1 hover:bg-orange-100">
+            <li id="menu-item-248" className="menu-operating-systems">
+              <a
+                href="/"
+                className="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Home<span className="p"></span>
+              </a>
+            </li>
+          </button>
+          <button className="border border-black p-2 m-1 hover:bg-orange-100">
+            <li id="menu-item-248" className="menu-operating-systems">
+              <a
+                href="../movies/"
+                className="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Movies<span className="p"></span>
+              </a>
+            </li>
+          </button>
+          <button className="border border-black p-2 m-1 hover:bg-orange-100">
+            <li id="menu-item-11605" className="menu-3dcad">
+              <a
+                href="../tvshow/"
+                className="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Tv Show<span className="p"></span>
+              </a>
+            </li>
+          </button>
+          <button className="border border-black p-2 m-1 hover:bg-orange-100">
+            <li id="menu-item-11610" className="menu-graphicdesign">
+              <a
+                href="../adult/"
+                className="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Adult<span className="p"></span>
+              </a>
+            </li>
+          </button>
+         
+        </ul>
+      </div>
       <div className="flex-container">
         <div className="category-container">
           <Image
