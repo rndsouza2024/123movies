@@ -58,7 +58,9 @@ export default function MovieDetail({ movie }) {
   // Function to fetch data and set state
   const fetchData = async () => {
     try {
-      const response = await fetch("https://moviefree.vercel.app/moviesfull.json");
+      const response = await fetch(
+        "https://moviefree.vercel.app/moviesfull.json"
+      );
       const data = await response.json();
 
       // Get 6 random TV Series s
@@ -263,8 +265,8 @@ export default function MovieDetail({ movie }) {
           ? `https://vidsrc.me/embed/tv?imdb=${id}&season=${itemSeason}&episode=${itemEpisode}`
           : `https://vidsrc.me/embed/movie?imdb=${id}`,
         isItemMovies
-        ? `https://embed.su/embed/tv/${id}/${itemSeason}/${itemEpisode}`
-        : `https://embed.su/embed/movie/${id}`,
+          ? `https://embed.su/embed/tv/${id}/${itemSeason}/${itemEpisode}`
+          : `https://embed.su/embed/movie/${id}`,
         isItemMovies
           ? `https://vidsrc.cc/v2/embed/tv/${id}/${itemSeason}/${itemEpisode}`
           : `https://vidsrc.cc/v2/embed/movie/${id}`,
@@ -366,8 +368,10 @@ export default function MovieDetail({ movie }) {
         <meta name="keywords" content={movie.keywords} />
         <meta
           name="keywords"
-          content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
+          content="moviefree, movie free 2024, free movie, free tv shows, movies, tv shows, streaming, reviews, API, actors, actresses, photos, user ratings, synopsis, trailers, teasers, credits, cast"
         />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/webp" />
@@ -387,6 +391,8 @@ export default function MovieDetail({ movie }) {
           name="google-site-verification"
           content="4gdbnCGat0T4Ow3Y_RYzPM4vwtsXvhUel5Q-2yULK6k"
         />
+        <meta property="og:type" content="video.tv_show" />
+        <meta property="fb:app_id" content="141280979243998" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: orgSchema }}
@@ -456,7 +462,7 @@ export default function MovieDetail({ movie }) {
       <span className="px-0 bg-clip-text text-sm text-black font-bold mt-2">
         <SearchComponent />
       </span>
-    
+
       {/* <div className='flex flex-col items-center justify-center'> */}
       <div
         className={`w-full`}
@@ -860,7 +866,7 @@ export default function MovieDetail({ movie }) {
                   style={{
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: "bold",
-                    marginBottom:"20px",
+                    marginBottom: "20px",
                     textAlign: "center",
                   }}
                 >
