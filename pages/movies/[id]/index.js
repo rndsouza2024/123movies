@@ -916,7 +916,7 @@ export default function MovieDetail({ movie }) {
                 <VideoPlayerAds adTagUrl={adTagUrl} />
                 movie.source && (
                
-                  <div className={styles.iframeContainer}>
+                  // <div className={styles.iframeContainer}>
                     <video
                       className={styles.iframe}
                       adTagUrl={adTagUrl}
@@ -935,7 +935,7 @@ export default function MovieDetail({ movie }) {
                         height: "auto", // Adjust the height as needed
                       }}
                     />
-                  </div>
+                  {/* </div> */}
                
                 )
               )}
