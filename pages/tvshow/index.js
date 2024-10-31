@@ -2,7 +2,8 @@ import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
-
+import SocialSharing from "../../components/SocialSharing";
+import Script from "next/script";
 // Sample JSON import (this will now be fetched in getStaticProps)
 import movies from "../../public/tvshow.json";
 
@@ -162,13 +163,14 @@ const HomePage = ({ categorizedItems }) => {
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://moviefree.vercel.app/home" />
+        <link rel="canonical" href="https://moviefree.vercel.app/tvshow" />
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="alternate"
-          href="https://moviefree.vercel.app/home"
+          href="https://moviefree.vercel.app/tvshow"
           hreflang="en-us"
         />
+          <meta property="og:url" content="https://moviefree.vercel.app/tvshow" />
         <meta
           property="og:image"
           content="https://moviefree.vercel.app/og_image.jpg"
@@ -205,6 +207,9 @@ const HomePage = ({ categorizedItems }) => {
         />
        
       </Head>
+      <SocialSharing />
+      <Script src="../../../propler/ads.js" defer />
+      <Script src="../../../propler/ads2.js" defer />
       <div
         className="container mx-auto mt-3 text-center"
         style={{ marginTop: "50px", textShadow: "1px 1px 0px #000" }}

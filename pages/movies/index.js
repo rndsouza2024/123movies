@@ -2,7 +2,8 @@ import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
-
+import SocialSharing from "../../components/SocialSharing";
+import Script from "next/script";
 // Sample JSON import (this will now be fetched in getStaticProps)
 import movies from "../../public/movies.json";
 
@@ -156,24 +157,25 @@ const HomePage = ({ categorizedItems }) => {
   return (
     <>
       <Head>
-        <title>Moviesfree™ - Home Page.</title>
+        <title>Moviesfree™ - Movies Page.</title>
         <meta
           name="description"
           content="Watch and download movies, TV shows, and adult content online for free. Join the Moviesfree™ community now!"
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://moviefree.vercel.app/home" />
+        <link rel="canonical" href="https://moviefree.vercel.app/movies" />
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="alternate"
-          href="https://moviefree.vercel.app/home"
+          href="https://moviefree.vercel.app/movies"
           hreflang="en-us"
         />
         <meta
           property="og:image"
           content="https://moviefree.vercel.app/og_image.jpg"
         />
+          <meta property="og:url" content="https://moviefree.vercel.app/movies" />
           <meta
             name='keywords'
             content='moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free'
@@ -206,6 +208,9 @@ const HomePage = ({ categorizedItems }) => {
         />
               
       </Head>
+      <SocialSharing />
+      <Script src="../../../propler/ads.js" defer />
+      <Script src="../../../propler/ads2.js" defer />
       <div
         className="container mx-auto mt-3 text-center"
         style={{ marginTop: "50px", textShadow: "1px 1px 0px #000" }}
