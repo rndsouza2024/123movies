@@ -272,10 +272,7 @@ export default function HomePage() {
           name="facebook-domain-verification"
           content="du918bycikmo1jw78wcl9ih6ziphd7"
         />
-        <meta
-          name="dailymotion-domain-verification"
-          content="dm0x7o2qx13altq75"
-        />
+       <meta name='dailymotion-domain-verification' content='dm3bs67ukdegz9qik' />
         <meta name="monetag" content="98a412cb5612b9188cd76b9744304b6c" />
 
         <script
