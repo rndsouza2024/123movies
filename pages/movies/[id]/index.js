@@ -237,7 +237,7 @@ export default function MovieDetail({ movie }) {
 
   if (!movie) return <div>Loading...</div>;
 
-  const { videomovieitem, videomovies, image1 } = movie;
+  const { videomovieitem, videomovies, image1, dailymovies } = movie;
 
   // Check if videomovies contains episode data
   const isMovies = videomovies[0] && videomovies[0].includes("/");
@@ -261,6 +261,9 @@ export default function MovieDetail({ movie }) {
       name: isItemMovies ? `Episode ${itemEpisode}` : "Movie",
       urls: [
         `https://short.ink/${currentVideoId}?thumbnail=${image1}`,
+        isItemMovies
+        ? `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`
+        : `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`,
         isItemMovies
           ? `https://vidsrc.me/embed/tv?imdb=${id}&season=${itemSeason}&episode=${itemEpisode}`
           : `https://vidsrc.me/embed/movie?imdb=${id}`,
