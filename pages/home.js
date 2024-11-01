@@ -176,17 +176,31 @@ const rankMathSchema = JSON.stringify({
 
 const HomePage = ({ categorizedItems }) => {
   const [currentCategory, setCurrentCategory] = useState("movie"); // Current tab
-  const [currentPage, setCurrentPage] = useState(1); // Current page for pagination
+  const [pageStates, setPageStates] = useState({
+    movie: 1,
+    tvshow: 1,
+    adult: 1,
+  }); // Separate page states for each category
+
   const itemsPerPage = 24; // 24 items per page
 
-  // Handle page change
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
+  // Handle category change
+  const handleCategoryChange = (category) => {
+    setCurrentCategory(category);
   };
 
-  // Get paginated items based on the current page
+  // Handle page change for each category
+  const handlePageChange = (category, newPage) => {
+    setPageStates((prevState) => ({
+      ...prevState,
+      [category]: newPage,
+    }));
+  };
+
+  // Get paginated items based on the current page and current category
   const getPaginatedItems = () => {
-    const categoryItems = categorizedItems[currentCategory] || []; // Ensure categoryItems is always an array
+    const categoryItems = categorizedItems[currentCategory] || [];
+    const currentPage = pageStates[currentCategory];
     const startIndex = (currentPage - 1) * itemsPerPage;
     return categoryItems.slice(startIndex, startIndex + itemsPerPage);
   };
@@ -252,18 +266,18 @@ const HomePage = ({ categorizedItems }) => {
           href="https://moviefree.vercel.app/home"
           hreflang="en-us"
         />
-          <meta property="og:url" content="https://moviefree.vercel.app/home" />
+        <meta property="og:url" content="https://moviefree.vercel.app/home" />
         <meta
           property="og:image"
           content="https://moviefree.vercel.app/og_image.jpg"
         />
-          <meta
-            name='keywords'
-            content='moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free'
-          />
         <meta
-          name='description'
-          content='Stream HD movies and TV series for free on Moviesfree. Explore, stream, and download full-length movies and shows in HD quality without registration.'
+          name="keywords"
+          content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
+        />
+        <meta
+          name="description"
+          content="Stream HD movies and TV series for free on Moviesfree. Explore, stream, and download full-length movies and shows in HD quality without registration."
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -361,7 +375,57 @@ const HomePage = ({ categorizedItems }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: rankMathSchema }}
         />
+        {/* Category Tabs */}
+        <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
+          {["movie", "tvshow", "adult"].map((category) => (
+            <li key={category} className="flex-1">
+              <button
+                className={`py-2 ${
+                  currentCategory === category
+                    ? "text-blue-600 border-b-2 border-blue-600"
+                    : "text-gray-600"
+                } w-full font-bold`}
+                onClick={() => handleCategoryChange(category)}
+                style={{ marginTop: "50px" }}
+              >
+                {category.toUpperCase()}
+              </button>
+            </li>
+          ))}
+        </ul>
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={() =>
+                handlePageChange(
+                  currentCategory,
+                  pageStates[currentCategory] - 1
+                )
+              }
+              disabled={pageStates[currentCategory] === 1}
+              className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-green-500 text-white hover:bg-green-800"
+              style={{ textShadow: "1px 1px 0px #000" }}
+            >
+              Prev
+            </button>
 
+            <span className="px-4">{`Page ${pageStates[currentCategory]} of ${totalPages}`}</span>
+            <button
+              onClick={() =>
+                handlePageChange(
+                  currentCategory,
+                  pageStates[currentCategory] + 1
+                )
+              }
+              disabled={pageStates[currentCategory] === totalPages}
+              className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-blue-500 text-white hover:bg-blue-800"
+              style={{ textShadow: "1px 1px 0px #000" }}
+            >
+              Next
+            </button>
+          </div>
+        )}
         {/* Movie Grid */}
         <div className="flex flex-wrap">{renderItems()}</div>
 
@@ -369,19 +433,28 @@ const HomePage = ({ categorizedItems }) => {
         {totalPages > 1 && (
           <div className="flex justify-center mt-4">
             <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
+              onClick={() =>
+                handlePageChange(
+                  currentCategory,
+                  pageStates[currentCategory] - 1
+                )
+              }
+              disabled={pageStates[currentCategory] === 1}
               className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-green-500 text-white hover:bg-green-800"
               style={{ textShadow: "1px 1px 0px #000" }}
             >
               Prev
             </button>
 
-            {/* Font is bold */}
-            <span className="px-4">{`Page ${currentPage} of ${totalPages}`}</span>
+            <span className="px-4">{`Page ${pageStates[currentCategory]} of ${totalPages}`}</span>
             <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
+              onClick={() =>
+                handlePageChange(
+                  currentCategory,
+                  pageStates[currentCategory] + 1
+                )
+              }
+              disabled={pageStates[currentCategory] === totalPages}
               className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-blue-500 text-white hover:bg-blue-800"
               style={{ textShadow: "1px 1px 0px #000" }}
             >
