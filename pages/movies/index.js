@@ -209,7 +209,7 @@ const HomePage = ({ categorizedItems }) => {
               
       </Head>
       <SocialSharing />
-      <Script src="../../../propler/ads.js" defer />
+      {/* <Script src="../../../propler/ads.js" defer /> */}
       <Script src="../../../propler/ads2.js" defer />
       <div
         className="container mx-auto mt-3 text-center"

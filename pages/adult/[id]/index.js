@@ -420,7 +420,7 @@ export default function MovieDetail({ movie }) {
       </Head>
       <SocialSharing />
       <AdultSkipAds />
-      <Script src="../../../propler/ads.js" defer />
+      {/* <Script src="../../../propler/ads.js" defer /> */}
       <Script src="../../../propler/ads2.js" defer />
       <a
         href="https://t.me/watchmovietvshow/"
