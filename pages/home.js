@@ -361,57 +361,6 @@ const HomePage = ({ categorizedItems }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: rankMathSchema }}
         />
-    {/* Category Tabs */}
-    <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
-          {["movie", "tvshow", "adult"].map((category) => (
-            <li key={category} className="flex-1">
-              <button
-                className={`py-2 ${
-                  currentCategory === category
-                    ? "text-blue-600 border-b-2 border-blue-600"
-                    : "text-gray-600"
-                } w-full font-bold`}
-                onClick={() => handleCategoryChange(category)}
-                style={{ marginTop: "50px" }}
-              >
-                {category.toUpperCase()}
-              </button>
-            </li>
-          ))}
-        </ul>
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="flex justify-center mt-4">
-            <button
-              onClick={() =>
-                handlePageChange(
-                  currentCategory,
-                  pageStates[currentCategory] - 1
-                )
-              }
-              disabled={pageStates[currentCategory] === 1}
-              className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-green-500 text-white hover:bg-green-800"
-              style={{ textShadow: "1px 1px 0px #000" }}
-            >
-              Prev
-            </button>
-
-            <span className="px-4">{`Page ${pageStates[currentCategory]} of ${totalPages}`}</span>
-            <button
-              onClick={() =>
-                handlePageChange(
-                  currentCategory,
-                  pageStates[currentCategory] + 1
-                )
-              }
-              disabled={pageStates[currentCategory] === totalPages}
-              className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-blue-500 text-white hover:bg-blue-800"
-              style={{ textShadow: "1px 1px 0px #000" }}
-            >
-              Next
-            </button>
-          </div>
-        )}
 
         {/* Movie Grid */}
         <div className="flex flex-wrap">{renderItems()}</div>
@@ -420,28 +369,19 @@ const HomePage = ({ categorizedItems }) => {
         {totalPages > 1 && (
           <div className="flex justify-center mt-4">
             <button
-              onClick={() =>
-                handlePageChange(
-                  currentCategory,
-                  pageStates[currentCategory] - 1
-                )
-              }
-              disabled={pageStates[currentCategory] === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
               className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-green-500 text-white hover:bg-green-800"
               style={{ textShadow: "1px 1px 0px #000" }}
             >
               Prev
             </button>
 
-            <span className="px-4">{`Page ${pageStates[currentCategory]} of ${totalPages}`}</span>
+            {/* Font is bold */}
+            <span className="px-4">{`Page ${currentPage} of ${totalPages}`}</span>
             <button
-              onClick={() =>
-                handlePageChange(
-                  currentCategory,
-                  pageStates[currentCategory] + 1
-                )
-              }
-              disabled={pageStates[currentCategory] === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
               className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-blue-500 text-white hover:bg-blue-800"
               style={{ textShadow: "1px 1px 0px #000" }}
             >
