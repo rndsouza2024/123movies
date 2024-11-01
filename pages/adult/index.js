@@ -274,6 +274,30 @@ const HomePage = ({ categorizedItems }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: adultSchema }}
         />
+            {/* Pagination */}
+            {totalPages > 1 && (
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-green-500 text-white hover:bg-green-800"
+              style={{ textShadow: "1px 1px 0px #000" }}
+            >
+              Prev
+            </button>
+
+            {/* Font is bold */}
+            <span className="px-4">{`Page ${currentPage} of ${totalPages}`}</span>
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-blue-500 text-white hover:bg-blue-800"
+              style={{ textShadow: "1px 1px 0px #000" }}
+            >
+              Next
+            </button>
+          </div>
+        )}
               {/* Movie Grid */}
         <div className="flex flex-wrap">{renderItems()}</div>
 
