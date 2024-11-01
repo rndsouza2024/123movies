@@ -348,24 +348,6 @@ const HomePage = ({ categorizedItems }) => {
           </div>
         </div>
 
-        {/* Category Tabs */}
-        <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
-          {["movie", "tvshow", "adult"].map((category) => (
-            <li key={category} className="flex-1">
-              <button
-                className={`py-2 ${
-                  currentCategory === category
-                    ? "text-blue-600 border-b-2 border-blue-600"
-                    : "text-gray-600"
-                } w-full font-bold`}
-                onClick={() => setCurrentCategory(category)}
-                style={{ marginTop: "50px" }}
-              >
-                {category.toUpperCase()}
-              </button>
-            </li>
-          ))}
-        </ul>
 
         <script
           type="application/ld+json"
@@ -375,8 +357,8 @@ const HomePage = ({ categorizedItems }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: rankMathSchema }}
         />
-        {/* Category Tabs */}
-        <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
+              {/* Category Tabs */}
+              <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
           {["movie", "tvshow", "adult"].map((category) => (
             <li key={category} className="flex-1">
               <button
@@ -426,6 +408,7 @@ const HomePage = ({ categorizedItems }) => {
             </button>
           </div>
         )}
+
         {/* Movie Grid */}
         <div className="flex flex-wrap">{renderItems()}</div>
 
@@ -506,6 +489,7 @@ const HomePage = ({ categorizedItems }) => {
     </>
   );
 };
+
 
 // SSG: Get static props at build time
 export async function getStaticProps() {
