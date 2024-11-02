@@ -136,6 +136,49 @@ export default function MovieDetail({ movie }) {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
+  const loadYouTubeAPI = () => {
+    const onYouTubeIframeAPIReady = () => setPlayerReady(true);
+    if (typeof window !== "undefined" && typeof YT === "undefined") {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+    } else {
+      onYouTubeIframeAPIReady();
+    }
+  };
+
+  useEffect(() => {
+    loadYouTubeAPI();
+  }, []);
+
+  useEffect(() => {
+    if (playerReady && currentVideoId) {
+      if (currentVideoId.length === 11) {
+        playerRef.current = new window.YT.Player("youtube-player", {
+          width: "100%",
+          height: "100%",
+          videoId: currentVideoId,
+          playerVars: {
+            autoplay: 1,
+            mute: 0,
+            enablejsapi: 1,
+            modestbranding: 1,
+          },
+          events: {
+            onReady: (event) => {
+              event.target.playVideo();
+              setShowMessage(true); // Show message when the player is ready
+            },
+          },
+        });
+      } else {
+        loadDailymotionPlayer(currentVideoId);
+      }
+    }
+  }, [playerReady, currentVideoId]);
+
   const orgSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -262,8 +305,8 @@ export default function MovieDetail({ movie }) {
       urls: [
         `https://short.ink/${currentVideoId}?thumbnail=${image1}`,
         isItemMovies
-        ? `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`
-        : `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`,
+          ? `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`
+          : `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`,
         isItemMovies
           ? `https://vidsrc.me/embed/tv?imdb=${id}&season=${itemSeason}&episode=${itemEpisode}`
           : `https://vidsrc.me/embed/movie?imdb=${id}`,
@@ -875,75 +918,47 @@ export default function MovieDetail({ movie }) {
                 </h2>
               </div>
               {/* Container for the iframe */}
-              {/* <div className={styles.iframeContainer}>
-                <iframe
-                  className={styles.iframe}
-                  frameBorder="0"
-                  src={`https://geo.dailymotion.com/player/xjrxe.html?video=${movie.traileritem}&mute=true&Autoquality=1080p`}
-                  allowFullScreen
-                  title="Dailymotion Video Player"
-                  allow="autoplay; encrypted-media"
-                  style={{
-                    margin: "auto",
-                    borderRadius: "50px",
-                    boxShadow: "0 0 10px 0 #fff",
-                    marginBottom: "15px",
-                    filter:
-                      "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
-                  }}
-                ></iframe>
-              </div> */}
-              {/* Conditional rendering to prioritize traileritem over source */}
-              {/* If `traileritem` exists, render the Dailymotion iframe*/}
-        
-
-                {movie.traileritem ? (
-                  <div className={styles.iframeContainer}>
-                    <iframe
-                      className={styles.iframe}
-                      frameBorder="0"
-                      src={`https://geo.dailymotion.com/player/xjrxe.html?video=${movie.traileritem}&mute=true&Autoquality=1080p`}
-                      allowFullScreen
-                      title="Dailymotion Video Player"
-                      allow="autoplay; encrypted-media"
-                      style={{
-                        margin: "auto",
-                        borderRadius: "50px",
-                        boxShadow: "0 0 10px 0 #fff",
-                        marginBottom: "15px",
-                        filter:
-                          "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
-                      }}
-                    ></iframe>
-                  </div>
+              <div className={styles.iframeContainer}>
+                {movie.videoitem && movie.videoitem[0].length === 11 ? (
+                  // YouTube iframe
+                  <div
+                    id="youtube-player"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      margin: "auto",
+                      borderRadius: "50px",
+                      boxShadow: "0 0 10px 0 #fff",
+                      marginBottom: "15px",
+                      filter:
+                        "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
+                    }}
+                  ></div>
+                ) : movie.traileritem ? (
+                  // Dailymotion iframe
+                  <iframe
+                    className={styles.iframe}
+                    frameBorder="0"
+                    src={`https://geo.dailymotion.com/player/xjrxe.html?video=${movie.traileritem}&mute=true&Autoquality=1080p`}
+                    allowFullScreen
+                    title="Dailymotion Video Player"
+                    allow="autoplay; encrypted-media"
+                    style={{
+                      margin: "auto",
+                      borderRadius: "50px",
+                      boxShadow: "0 0 10px 0 #fff",
+                      marginBottom: "15px",
+                      filter:
+                        "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
+                    }}
+                  ></iframe>
                 ) : (
-                  // If `traileritem` does not exist, render the HTML5 video player with `source`
-
-                  movie.source && (
-                    <div className={styles.iframeContainer}>
-                      <video
-                        className={styles.iframe}
-                        src={movie.source[0]} // Access the first element in the array
-                        controls
-                        autoPlay
-                        muted // Enable muted autoplay
-                        loop
-                        style={{
-                          margin: "auto",
-                          backgroundColor: "black", 
-                          borderRadius: "50px",
-                          boxShadow: "0 0 10px 0 #fff",
-                          marginBottom: "15px",
-                          filter:
-                            "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
-                          width: "100%", // Adjust the width as needed
-                          height: "100%", // Adjust the height as needed
-                        }}
-                      />
-                    </div>
-                  )
+                  <p className="text-center text-gray-500">
+                    No trailer available
+                  </p>
                 )}
-           
+              </div>
+
               <div className="flex flex-col items-center justify-center relative z-10 mt-4 space-y-4 ">
                 <h2
                   className="px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl hover:text-blue-800 font-bold mt-2"
@@ -983,7 +998,7 @@ export default function MovieDetail({ movie }) {
                     // }}
                     style={{
                       margin: "auto",
-                      backgroundColor: "black", 
+                      backgroundColor: "black",
                       borderRadius: "15px",
                       boxShadow: "0 0 10px 0 #fff",
                       filter:
