@@ -45,7 +45,7 @@ export default function MovieDetail({ movie }) {
   const [seconds, setSeconds] = useState(30); // Example timer duration
   const [isMobileDevice, setIsMobileDevice] = useState(false);
   const [accordionExpanded, setAccordionExpanded] = useState(false);
-
+  const ytsource = movie.ytsource || null; // Get the ytsource ID from the movie prop
   // Show a loading state if page is not ready
   if (router.isFallback) {
     return <div>Loading...</div>;
@@ -261,7 +261,7 @@ export default function MovieDetail({ movie }) {
       name: isItemMovies ? `Episode ${itemEpisode}` : "Movie",
       urls: [
         `https://short.ink/${currentVideoId}?thumbnail=${image1}`,
-        isItemMovies
+           isItemMovies
         ? `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`
         : `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`,
         isItemMovies
@@ -314,17 +314,44 @@ export default function MovieDetail({ movie }) {
   const prevEpisodeNumber = episode - 1 < 1 ? videoSources.length : episode - 1;
   const nextEpisodeNumber = (episode % videoSources.length) + 1;
 
-  // const toggleIframeAccordion = () => {
-  //   setIframeAccordionExpanded((prev) => !prev);
-  // };
+  useEffect(() => {
+    const loadYouTubeAPI = () => {
+      const onYouTubeIframeAPIReady = () => {
+        playerRef.current = new window.YT.Player('youtube-player', {
+          width: "100%",
+          height: "100%",
+          videoId: movie.ytsource, // Use the correct source from the movie object
+          playerVars: {
+            autoplay: 1,
+            mute: 1,
+            loop: 1, // Loop the video
+            enablejsapi: 1,
+            modestbranding: 1,
+            // Add the playlist parameter with the same videoId to enable looping
+            playlist: movie.ytsource,
+          },
+  
+          events: {
+            onReady: (event) => {
+              event.target.playVideo(); // Automatically play the video when ready
+            },
+          },
+        });
+      };
 
-  // // State to manage the visibility of additional download links
-  // const [showAdditionalLinks, setShowAdditionalLinks] = useState(false);
+      if (typeof window !== 'undefined' && typeof window.YT === 'undefined') {
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+      } else {
+        onYouTubeIframeAPIReady();
+      }
+    };
 
-  // // Function to toggle additional download links
-  // const handleToggleLinks = () => {
-  //   setShowAdditionalLinks((prev) => !prev);
-  // };
+    loadYouTubeAPI();
+  }, [ytsource]);
 
   useEffect(() => {
     let timer;
@@ -356,6 +383,7 @@ export default function MovieDetail({ movie }) {
     setAccordionExpanded(true);
   };
 
+  
   return (
     <div>
       <Head>
@@ -445,23 +473,7 @@ export default function MovieDetail({ movie }) {
           ></i>
         </p>
       </a>
-      {/* <div
-        className={`w-full`}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: '20px',
-          fontFamily: 'Poppins, sans-serif',
-          fontWeight: 500,
-          textAlign: 'center',
-          // backgroundColor: '#D3D3D3'
-          // backgroundColor: '#000'
-        }}
-      >
-        <GoogleTranslate />
-      </div> */}
+
       <span className="px-0 bg-clip-text text-sm text-black font-bold mt-2">
         <SearchComponent />
       </span>
@@ -874,25 +886,43 @@ export default function MovieDetail({ movie }) {
                   Official Trailer {movie.name}
                 </h2>
               </div>
-              {/* Container for the iframe */}
               <div className={styles.iframeContainer}>
-                <iframe
-                  className={styles.iframe}
-                  frameBorder="0"
-                  src={`https://geo.dailymotion.com/player/xjrxe.html?video=${movie.traileritem}&mute=true&Autoquality=1080p`}
-                  allowFullScreen
-                  title="Dailymotion Video Player"
-                  allow="autoplay; encrypted-media"
-                  style={{
-                    margin: "auto",
-                    borderRadius: "50px",
-                    boxShadow: "0 0 10px 0 #fff",
-                    marginBottom: "15px",
-                    filter:
-                      "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
-                  }}
-                ></iframe>
-              </div>
+  {/* Check for the presence of ytsource or traileritem */}
+  {movie.ytsource ? (
+    // Placeholder for YouTube player
+    <div
+      id="youtube-player"
+      className={styles.iframe}
+      style={{
+        margin: "auto",
+        borderRadius: "50px",
+        boxShadow: "0 0 10px 0 #fff",
+        marginBottom: "15px",
+        filter: "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
+      }}
+    ></div>
+  ) : movie.traileritem && movie.traileritem.length > 0 ? (
+    // Dailymotion iframe if trailer item exists
+    <iframe
+      className={styles.iframe}
+      frameBorder="0"
+      src={`https://geo.dailymotion.com/player/xjrxe.html?video=${movie.traileritem[0]}&mute=true&Autoquality=1080p`}
+      allowFullScreen
+      title="Dailymotion Video Player"
+      allow="autoplay; encrypted-media"
+      style={{
+        margin: "auto",
+        borderRadius: "50px",
+        boxShadow: "0 0 10px 0 #fff",
+        marginBottom: "15px",
+        filter: "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
+      }}
+    ></iframe>
+  ) : (
+    // Fallback message if neither source is available
+    <p>No trailer available for this movie.</p>
+  )}
+</div>
             
         
 
