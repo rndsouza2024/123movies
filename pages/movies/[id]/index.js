@@ -919,7 +919,7 @@ export default function MovieDetail({ movie }) {
               </div>
               {/* Container for the iframe */}
               <div className={styles.iframeContainer}>
-                {movie.videoitem && movie.videoitem[0].length === 11 ? (
+                {movie.videoitem && movie.videoitem.length === 11 ? (
                   // YouTube iframe
                   <div
                     id="youtube-player"
@@ -934,12 +934,12 @@ export default function MovieDetail({ movie }) {
                         "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
                     }}
                   ></div>
-                ) : movie.traileritem ? (
+                ) : movie.videoitem ? (
                   // Dailymotion iframe
                   <iframe
                     className={styles.iframe}
                     frameBorder="0"
-                    src={`https://geo.dailymotion.com/player/xjrxe.html?video=${movie.traileritem}&mute=true&Autoquality=1080p`}
+                    src={`https://geo.dailymotion.com/player/xjrxe.html?video=${movie.videoitem}&mute=true&Autoquality=1080p`}
                     allowFullScreen
                     title="Dailymotion Video Player"
                     allow="autoplay; encrypted-media"
@@ -958,7 +958,6 @@ export default function MovieDetail({ movie }) {
                   </p>
                 )}
               </div>
-
               <div className="flex flex-col items-center justify-center relative z-10 mt-4 space-y-4 ">
                 <h2
                   className="px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl hover:text-blue-800 font-bold mt-2"
