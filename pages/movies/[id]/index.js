@@ -875,7 +875,7 @@ export default function MovieDetail({ movie }) {
                 </h2>
               </div>
               {/* Container for the iframe */}
-              {/* <div className={styles.iframeContainer}>
+              <div className={styles.iframeContainer}>
                 <iframe
                   className={styles.iframe}
                   frameBorder="0"
@@ -892,57 +892,10 @@ export default function MovieDetail({ movie }) {
                       "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
                   }}
                 ></iframe>
-              </div> */}
-              {/* Conditional rendering to prioritize traileritem over source */}
-              {/* If `traileritem` exists, render the Dailymotion iframe*/}
+              </div>
+            
         
 
-                {movie.traileritem ? (
-                  <div className={styles.iframeContainer}>
-                    <iframe
-                      className={styles.iframe}
-                      frameBorder="0"
-                      src={`https://geo.dailymotion.com/player/xjrxe.html?video=${movie.traileritem}&mute=true&Autoquality=1080p`}
-                      allowFullScreen
-                      title="Dailymotion Video Player"
-                      allow="autoplay; encrypted-media"
-                      style={{
-                        margin: "auto",
-                        borderRadius: "50px",
-                        boxShadow: "0 0 10px 0 #fff",
-                        marginBottom: "15px",
-                        filter:
-                          "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
-                      }}
-                    ></iframe>
-                  </div>
-                ) : (
-                  // If `traileritem` does not exist, render the HTML5 video player with `source`
-
-                  movie.source && (
-                    <div className={styles.iframeContainer}>
-                      <video
-                        className={styles.iframe}
-                        src={movie.source[0]} // Access the first element in the array
-                        controls
-                        autoPlay
-                        muted // Enable muted autoplay
-                        loop
-                        style={{
-                          margin: "auto",
-                          backgroundColor: "black", 
-                          borderRadius: "50px",
-                          boxShadow: "0 0 10px 0 #fff",
-                          marginBottom: "15px",
-                          filter:
-                            "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
-                          width: "100%", // Adjust the width as needed
-                          height: "100%", // Adjust the height as needed
-                        }}
-                      />
-                    </div>
-                  )
-                )}
            
               <div className="flex flex-col items-center justify-center relative z-10 mt-4 space-y-4 ">
                 <h2

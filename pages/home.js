@@ -348,6 +348,7 @@ const HomePage = ({ categorizedItems }) => {
           </div>
         </div>
 
+   
 
         <script
           type="application/ld+json"
@@ -357,8 +358,8 @@ const HomePage = ({ categorizedItems }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: rankMathSchema }}
         />
-              {/* Category Tabs */}
-              <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
+        {/* Category Tabs */}
+        <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
           {["movie", "tvshow", "adult"].map((category) => (
             <li key={category} className="flex-1">
               <button
@@ -408,7 +409,6 @@ const HomePage = ({ categorizedItems }) => {
             </button>
           </div>
         )}
-
         {/* Movie Grid */}
         <div className="flex flex-wrap">{renderItems()}</div>
 
@@ -489,7 +489,6 @@ const HomePage = ({ categorizedItems }) => {
     </>
   );
 };
-
 
 // SSG: Get static props at build time
 export async function getStaticProps() {
