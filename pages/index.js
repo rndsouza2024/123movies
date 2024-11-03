@@ -205,8 +205,7 @@ export default function HomePage() {
             MoviesFree™ - Online. Stream. Download.
           </h1>
           <h2 className="highlight">
-            Discover the Top Best New Movies and TV Shows to Stream on Soap2Day
-            HD™
+            Discover the Top Best New Movies and TV Shows to Stream on MoviesFree™
           </h2>
           <p className="description">
             Welcome to <strong>MoviesFree™</strong>, your premier destination
