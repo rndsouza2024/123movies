@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import SocialSharing from "../components/SocialSharing";
+import SearchComponent from "../components/SearchComponent";
 import Script from "next/script";
 import movies from "../public/moviesfull.json";
 
@@ -266,6 +267,9 @@ const HomePage = ({ categorizedItems }) => {
             </a>
           </div>
         </div>
+        <span className="px-0 bg-clip-text text-sm text-black font-bold mt-2">
+        <SearchComponent />
+      </span>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: homeSchema }}
