@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import SocialSharing from "../../components/SocialSharing";
+import SearchComponent from "../../components/SearchComponent";
 import Script from "next/script";
 // Sample JSON import (this will now be fetched in getStaticProps)
 import movies from "../../public/movies.json";
@@ -252,7 +253,9 @@ const HomePage = ({ categorizedItems }) => {
             </a>
           </div>
         </div>
-
+        <span className="px-0 bg-clip-text text-sm text-black font-bold mt-2">
+        <SearchComponent />
+      </span>
         {/* Category Tabs */}
         <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
           {/* {["movie", "tvshow", "adult"].map((category) => ( */}
