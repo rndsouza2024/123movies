@@ -53,19 +53,22 @@
     justify-content: center; /* Center-align the flex items */
   }
   /* Navigation container styling */
-.shadow-lg {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  background-color: #ffffff;
-  padding: 1rem;
-  border-radius: 12px;
+.nav-container {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
 }
 
 /* Menu styling */
 .menu {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -73,46 +76,46 @@
 
 /* Button styles */
 .nav-button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.25rem;
   font-size: 1.1rem;
   font-weight: bold;
   color: #ffffff;
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
   border: none;
-  border-radius: 8px;
-  text-transform: uppercase;
+  border-radius: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  min-width: 120px;
+  box-shadow: 0px 4px 10px rgba(255, 154, 158, 0.3);
+}
+
+.nav-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 15px rgba(255, 154, 158, 0.4);
+}
+
+.nav-button:active {
+  transform: translateY(1px);
+  box-shadow: 0px 3px 8px rgba(255, 154, 158, 0.3);
 }
 
 /* Gradient text effect */
-.nav-button .menu-item {
+.nav-button a {
   color: transparent;
-  background: linear-gradient(to right, #ffbf00, #ff4081);
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
   -webkit-background-clip: text;
   background-clip: text;
   font-weight: bold;
 }
 
-/* Button hover effect */
-.nav-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 4px 15px rgba(255, 126, 95, 0.3);
-}
-
-/* Active link styles */
-.nav-button.active {
-  background: linear-gradient(to right, #ff4081, #ff7e5f);
-  box-shadow: 0px 4px 15px rgba(255, 64, 129, 0.4);
-}
-
-/* Mobile adjustments */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .nav-button {
-    padding: 0.6rem 1.2rem;
+    padding: 0.6rem 1rem;
     font-size: 1rem;
   }
 }
