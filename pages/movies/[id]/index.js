@@ -595,56 +595,31 @@ export default function MovieDetail({ movie }) {
         )}
       </div>
 
-      <div
-        className="shadow-lg flex items-center justify-center"
-        role="navigation"
-      >
-        <ul
-          id="menu-header-menu"
-          className="menu flex flex-wrap justify-center"
-        >
-          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100">
-            <li id="menu-item-248" className="menu-operating-systems">
-              <a
-                href="../home/"
-                className="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
-              >
-                Home<span className="p"></span>
-              </a>
-            </li>
-          </button>
-          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100">
-            <li id="menu-item-248" className="menu-operating-systems">
-              <a
-                href="../movies/"
-                className="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
-              >
-                Movies<span className="p"></span>
-              </a>
-            </li>
-          </button>
-          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100">
-            <li id="menu-item-11605" className="menu-3dcad">
-              <a
-                href="../tvshow/"
-                className="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
-              >
-                Tv Show<span className="p"></span>
-              </a>
-            </li>
-          </button>
-          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100">
-            <li id="menu-item-11610" className="menu-graphicdesign">
-              <a
-                href="../adult/"
-                className="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
-              >
-                Adult<span className="p"></span>
-              </a>
-            </li>
-          </button>
-        </ul>
-      </div>
+      <div className="navbar shadow-lg flex items-center justify-center p-4" role="navigation">
+  <ul id="menu-header-menu" className="menu flex flex-wrap justify-center space-x-2">
+    <li>
+      <a href="../home/" className="menu-item">
+        Home
+      </a>
+    </li>
+    <li>
+      <a href="../movies/" className="menu-item">
+        Movies
+      </a>
+    </li>
+    <li>
+      <a href="../tvshow/" className="menu-item">
+        TV Show
+      </a>
+    </li>
+    <li>
+      <a href="../adult/" className="menu-item">
+        Adult
+      </a>
+    </li>
+  </ul>
+</div>
+
       <div className="flex-container">
         <div className="category-container">
           <Image
