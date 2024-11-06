@@ -595,31 +595,56 @@ export default function MovieDetail({ movie }) {
         )}
       </div>
 
-      <div class="nav-container shadow-lg flex items-center justify-center" role="navigation">
-  <ul id="menu-header-menu" class="menu flex flex-wrap justify-center">
-    <li class="nav-item">
-      <button class="nav-button">
-        <a href="../home/" class="nav-link">Home</a>
-      </button>
-    </li>
-    <li class="nav-item">
-      <button class="nav-button">
-        <a href="../movies/" class="nav-link">Movies</a>
-      </button>
-    </li>
-    <li class="nav-item">
-      <button class="nav-button">
-        <a href="../tvshow/" class="nav-link">TV Show</a>
-      </button>
-    </li>
-    <li class="nav-item">
-      <button class="nav-button">
-        <a href="../adult/" class="nav-link">Adult</a>
-      </button>
-    </li>
-  </ul>
-</div>
-
+      <div
+        className="shadow-lg flex items-center justify-center"
+        role="navigation"
+      >
+        <ul
+          id="menu-header-menu"
+          className="menu flex flex-wrap justify-center"
+        >
+          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded">
+            <li id="menu-item-248" className="menu-operating-systems">
+              <a
+                href="../home/"
+                className="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Home<span className="p"></span>
+              </a>
+            </li>
+          </button>
+          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded">
+            <li id="menu-item-248" className="menu-operating-systems">
+              <a
+                href="../movies/"
+                className="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Movies<span className="p"></span>
+              </a>
+            </li>
+          </button>
+          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded">
+            <li id="menu-item-11605" className="menu-3dcad">
+              <a
+                href="../tvshow/"
+                className="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Tv Show<span className="p"></span>
+              </a>
+            </li>
+          </button>
+          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded">
+            <li id="menu-item-11610" className="menu-graphicdesign">
+              <a
+                href="../adult/"
+                className="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Adult<span className="p"></span>
+              </a>
+            </li>
+          </button>
+        </ul>
+      </div>
       <div className="flex-container">
         <div className="category-container">
           <Image
