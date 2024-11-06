@@ -145,31 +145,6 @@
 
 // export default VideoPlayerWithAds;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useEffect, useRef, useState } from "react";
 import youtubeStyles from "@styles/MovieDetail.module.css"; // Import CSS for the MovieDetail component
 
@@ -188,7 +163,8 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
       const xmlDoc = parser.parseFromString(xml, "application/xml");
 
       // Extract media file URL from VAST XML
-      const mediaFileUrl = xmlDoc.getElementsByTagName("MediaFile")[0].textContent;
+      const mediaFileUrl =
+        xmlDoc.getElementsByTagName("MediaFile")[0].textContent;
       playAd(mediaFileUrl);
     } catch (error) {
       console.error("Error fetching VAST:", error);
@@ -278,7 +254,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
             justifyContent: "center",
             alignItems: "center",
             color: "white",
-            marginTop:"300px",
+            marginTop: "300px",
             zIndex: 2,
           }}
         >
@@ -300,7 +276,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                   fontWeight: "bold",
                   fontSize: "20px",
                   padding: "8px 16px",
-                  marginTop:"300px",
+                  marginTop: "300px",
                   color: "white",
                   border: "none",
                   borderRadius: "5px",
@@ -318,18 +294,21 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
       )}
 
       {!isAdPlaying && src && (
-        <iframe
-          ref={playerRef}
-          src={src}
-          width="100%"
-          height="100%"
-          allowFullScreen
-          autoplay
-          allow="fullscreen; picture-in-picture"
-          webkitAllowFullScreen={true}
-          mozAllowFullScreen={true}
-          style={{ borderRadius: "15px",  marginTop:"300px", zIndex: 1 }}
-        />
+     
+          <iframe
+            ref={playerRef}
+            src={src}
+            width="100%"
+            height="100%"
+            allowFullScreen
+            autoplay
+            allow="fullscreen; picture-in-picture"
+            webkitAllowFullScreen={true}
+            mozAllowFullScreen={true}
+            style={{ borderRadius: "15px", marginTop: "300px", zIndex: 1 }}
+          />
+          <br/><br/><a href="https://grbounty.link/resources/hit/1375/fnMNCPrrcr"><img src="https://grbounty.link/resources/view/1375/fnMNCPrrcr" alt="GetResponse Marketing Automation | E-commerce conditions!"/>
+        </a>
       )}
     </div>
   );
