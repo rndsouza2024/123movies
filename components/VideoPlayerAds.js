@@ -195,12 +195,29 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
     }
   };
 
+  // const playAd = (adUrl) => {
+  //   adOverlayRef.current.style.display = "flex";
+  //   const adVideo = document.createElement("video");
+  //   adVideo.src = adUrl;
+  //   adVideo.controls = true;
+  //   adVideo.autoplay = true;
+  //   adVideo.style.position = "absolute";
+  //   adVideo.style.zIndex = "1";
+  //   adVideo.onended = () => {
+  //     adOverlayRef.current.style.display = "none";
+  //     setIsAdPlaying(false);
+  //     adVideo.remove();
+  //   };
+  //   adOverlayRef.current.appendChild(adVideo);
+  // };
+
   const playAd = (adUrl) => {
     adOverlayRef.current.style.display = "flex";
     const adVideo = document.createElement("video");
     adVideo.src = adUrl;
     adVideo.controls = true;
     adVideo.autoplay = true;
+    adVideo.muted = true; // Add muted to enable autoplay in most browsers
     adVideo.style.position = "absolute";
     adVideo.style.zIndex = "1";
     adVideo.onended = () => {
@@ -210,7 +227,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
     };
     adOverlayRef.current.appendChild(adVideo);
   };
-
+  
   useEffect(() => {
     fetchVastAd();
 
@@ -307,7 +324,6 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
           width="100%"
           height="100%"
           allowFullScreen
-          autoplay
           allow="fullscreen; picture-in-picture"
           webkitAllowFullScreen={true}
           mozAllowFullScreen={true}
