@@ -227,7 +227,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
     };
     adOverlayRef.current.appendChild(adVideo);
   };
-  
+
   useEffect(() => {
     fetchVastAd();
 
@@ -324,6 +324,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
           width="100%"
           height="100%"
           allowFullScreen
+          autoplay
           allow="fullscreen; picture-in-picture"
           webkitAllowFullScreen={true}
           mozAllowFullScreen={true}
