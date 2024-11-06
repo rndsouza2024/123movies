@@ -597,26 +597,18 @@ export default function MovieDetail({ movie }) {
 
       <div className="navbar shadow-lg flex items-center justify-center p-4" role="navigation">
   <ul id="menu-header-menu" className="menu flex flex-wrap justify-center space-x-2">
-    <li>
-      <a href="../home/" className="menu-item">
-        Home
-      </a>
-    </li>
-    <li>
-      <a href="../movies/" className="menu-item">
-        Movies
-      </a>
-    </li>
-    <li>
-      <a href="../tvshow/" className="menu-item">
-        TV Show
-      </a>
-    </li>
-    <li>
-      <a href="../adult/" className="menu-item">
-        Adult
-      </a>
-    </li>
+    <button className="nav-button">
+      <a href="../home/">Home</a>
+    </button>
+    <button className="nav-button">
+      <a href="../movies/">Movies</a>
+    </button>
+    <button className="nav-button">
+      <a href="../tvshow/">TV Show</a>
+    </button>
+    <button className="nav-button">
+      <a href="../adult/">Adult</a>
+    </button>
   </ul>
 </div>
 
