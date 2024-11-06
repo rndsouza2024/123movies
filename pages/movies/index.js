@@ -181,10 +181,12 @@ const HomePage = ({ categorizedItems }) => {
           property="og:image"
           content="https://moviefree.vercel.app/og_image.jpg"
         />
-        <meta
+        {/* <meta
           name="keywords"
            content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
-        />
+        /> */}
+          <meta name="keywords"
+        content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free" />
         <meta
           property="og:description"
           content="Watch free movies and TV shows online—explore top titles, discover new releases, and start streaming now!"

@@ -61,8 +61,7 @@ const adultSchema = JSON.stringify({
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate:
-              "https://moviefree.vercel.app/?s={search_term_string}",
+            urlTemplate: "https://moviefree.vercel.app/?s={search_term_string}",
           },
           "query-input": {
             "@type": "PropertyValueSpecification",
@@ -178,9 +177,13 @@ const HomePage = ({ categorizedItems }) => {
           property="og:image"
           content="https://moviefree.vercel.app/og_image.jpg"
         />
-        <meta
+        {/* <meta
           name="keywords"
           content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
+        /> */}
+        <meta
+          name="keywords"
+          content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
         />
         <meta
           name="description"
@@ -255,8 +258,8 @@ const HomePage = ({ categorizedItems }) => {
           </div>
         </div>
         <span className="px-0 bg-clip-text text-sm text-black font-bold mt-2">
-        <SearchComponent />
-      </span>
+          <SearchComponent />
+        </span>
         {/* Category Tabs */}
         <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
           {/* {["movie", "tvshow", "adult"].map((category) => ( */}

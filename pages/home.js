@@ -194,9 +194,13 @@ const HomePage = ({ categorizedItems }) => {
           content="https://moviefree.vercel.app/og_image.jpg"
         />
         <meta property="og:site_name" content="MoviesFree™" />
-        <meta
+        {/* <meta
           name="keywords"
            content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
+        /> */}
+        <meta
+          name="keywords"
+          content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
         />
         <meta
           property="og:description"
@@ -230,7 +234,7 @@ const HomePage = ({ categorizedItems }) => {
         />
       </Head>
       <SocialSharing />
-      
+
       {/* <Script src="../../../propler/ads.js" defer /> */}
       <Script src="../../../propler/ads2.js" defer />
       <div
@@ -268,8 +272,8 @@ const HomePage = ({ categorizedItems }) => {
           </div>
         </div>
         <span className="px-0 bg-clip-text text-sm text-black font-bold mt-2">
-        <SearchComponent />
-      </span>
+          <SearchComponent />
+        </span>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: homeSchema }}

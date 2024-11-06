@@ -262,12 +262,12 @@ export default function MovieDetail({ movie }) {
       urls: [
         `https://short.ink/${currentVideoId}?thumbnail=${image1}`,
         isItemMovies
-        ? `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`
-        : `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`,
+          ? `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`
+          : `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`,
         isItemMovies
           ? `https://vidsrc.me/embed/tv?imdb=${id}&season=${itemSeason}&episode=${itemEpisode}`
           : `https://vidsrc.me/embed/movie?imdb=${id}`,
-          isItemMovies
+        isItemMovies
           ? `https://embed.su/embed/tv/${id}/${itemSeason}/${itemEpisode}`
           : `https://embed.su/embed/movie/${id}`,
         isItemMovies
@@ -282,7 +282,6 @@ export default function MovieDetail({ movie }) {
         isItemMovies
           ? `https://www.2embed.cc/embed/${id}`
           : `https://www.2embed.cc/embedtvfull/${id}`,
-      
       ],
     };
   });
@@ -370,9 +369,13 @@ export default function MovieDetail({ movie }) {
         <meta property="og:description" content={movie.synopsis} />
         <meta property="og:image" content={movie.image1} />
         <meta name="keywords" content={movie.keywords} />
-        <meta
+        {/* <meta
           name="keywords"
            content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
+        /> */}
+        <meta
+          name="keywords"
+          content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
         />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -384,7 +387,10 @@ export default function MovieDetail({ movie }) {
           name="twitter:title"
           content="MoviesFree™ - Explore. Discover. Online."
         />
-        <meta property="og:description" content="Watch free movies and TV shows online—explore top titles, discover new releases, and start streaming now!" />
+        <meta
+          property="og:description"
+          content="Watch free movies and TV shows online—explore top titles, discover new releases, and start streaming now!"
+        />
         <meta
           name="twitter:description"
           content="Stream HD movies and TV series for free on MoviesFree™. Online. Stream. Download. full-length movies and shows in HD quality without registration."
@@ -603,49 +609,49 @@ export default function MovieDetail({ movie }) {
         )}
       </div>
       <div class="shadow-lg flex items-center justify-center" role="navigation">
-  <ul id="menu-header-menu" class="menu flex flex-wrap justify-center">
-    <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
-      <li id="menu-item-248" class="menu-operating-systems">
-        <a
-          href="../home/"
-          class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
-        >
-          Home<span class="p"></span>
-        </a>
-      </li>
-    </button>
-    <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
-      <li id="menu-item-248" class="menu-operating-systems">
-        <a
-          href="../movies/"
-          class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
-        >
-          Movies<span class="p"></span>
-        </a>
-      </li>
-    </button>
-    <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
-      <li id="menu-item-11605" class="menu-3dcad">
-        <a
-          href="../tvshow/"
-          class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
-        >
-          Tv Show<span class="p"></span>
-        </a>
-      </li>
-    </button>
-    <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
-      <li id="menu-item-11610" class="menu-graphicdesign">
-        <a
-          href="../adult/"
-          class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
-        >
-          Adult<span class="p"></span>
-        </a>
-      </li>
-    </button>
-  </ul>
-</div>
+        <ul id="menu-header-menu" class="menu flex flex-wrap justify-center">
+          <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
+            <li id="menu-item-248" class="menu-operating-systems">
+              <a
+                href="../home/"
+                class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Home<span class="p"></span>
+              </a>
+            </li>
+          </button>
+          <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
+            <li id="menu-item-248" class="menu-operating-systems">
+              <a
+                href="../movies/"
+                class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Movies<span class="p"></span>
+              </a>
+            </li>
+          </button>
+          <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
+            <li id="menu-item-11605" class="menu-3dcad">
+              <a
+                href="../tvshow/"
+                class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Tv Show<span class="p"></span>
+              </a>
+            </li>
+          </button>
+          <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
+            <li id="menu-item-11610" class="menu-graphicdesign">
+              <a
+                href="../adult/"
+                class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Adult<span class="p"></span>
+              </a>
+            </li>
+          </button>
+        </ul>
+      </div>
 
       <div className="flex-container">
         <div className="category-container">
@@ -877,8 +883,8 @@ export default function MovieDetail({ movie }) {
                   Official Trailer {movie.name}
                 </h2>
               </div>
-            {/* Container for the iframe */}
-            <div
+              {/* Container for the iframe */}
+              <div
                 className={styles.iframeContainer}
                 style={{ margin: 0, padding: 0 }}
               >

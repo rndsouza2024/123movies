@@ -15,7 +15,9 @@ export default function HomePage() {
         name: "MoviesFree™",
         isPartOf: { "@id": "https://moviefree.vercel.app/#website" },
         about: { "@id": "https://moviefree.vercel.app/#organization" },
-        primaryImageOfPage: { "@id": "https://moviefree.vercel.app/#primaryimage" },
+        primaryImageOfPage: {
+          "@id": "https://moviefree.vercel.app/#primaryimage",
+        },
         image: { "@id": "https://moviefree.vercel.app/#primaryimage" },
         thumbnailUrl: "https://moviefree.vercel.app/og_image.jpg",
         datePublished: "2023-07-02T18:30:00+00:00",
@@ -52,7 +54,8 @@ export default function HomePage() {
             "@type": "SearchAction",
             target: {
               "@type": "EntryPoint",
-              urlTemplate: "https://moviefree.vercel.app/?s={search_term_string}",
+              urlTemplate:
+                "https://moviefree.vercel.app/?s={search_term_string}",
             },
             "query-input": {
               "@type": "PropertyValueSpecification",
@@ -121,11 +124,18 @@ export default function HomePage() {
           name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
-        <meta
+        {/* <meta
           name="keywords"
           content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
+        /> */}
+        <meta
+          name="keywords"
+          content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
         />
-        <meta property="og:description" content="Watch free movies and TV shows online—explore top titles, discover new releases, and start streaming now!" />
+        <meta
+          property="og:description"
+          content="Watch free movies and TV shows online—explore top titles, discover new releases, and start streaming now!"
+        />
         <meta
           name="description"
           content="Stream HD movies and TV series for free on MoviesFree. Explore, stream, and download full-length movies and shows in HD quality without registration."
@@ -195,7 +205,6 @@ export default function HomePage() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: soap2daySchema }}
         />
-       
       </Head>
       <SocialSharing />
       {/* <div className='container'> */}
@@ -205,7 +214,8 @@ export default function HomePage() {
             MoviesFree™ - Online. Stream. Download.
           </h1>
           <h2 className="highlight">
-            Discover the Top Best New Movies and TV Shows to Stream on MoviesFree™
+            Discover the Top Best New Movies and TV Shows to Stream on
+            MoviesFree™
           </h2>
           <p className="description">
             Welcome to <strong>MoviesFree™</strong>, your premier destination
@@ -229,8 +239,8 @@ export default function HomePage() {
             top-notch streaming service that meets all your entertainment needs.
             Join us today and explore the vast world of movies and TV shows
             available at your fingertips. Whether you're a casual viewer or a
-            dedicated binge-watcher, <strong>MoviesFree™</strong> is the
-            perfect place to stream online and stay entertained.
+            dedicated binge-watcher, <strong>MoviesFree™</strong> is the perfect
+            place to stream online and stay entertained.
           </p>
 
           <a

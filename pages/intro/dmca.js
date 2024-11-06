@@ -1,272 +1,282 @@
-import React from 'react'
-import Head from 'next/head'
-import Script from 'next/script'
+import React from "react";
+import Head from "next/head";
+import Script from "next/script";
 
 const dmca = () => {
   const containerStyle = {
-    margin: '24px auto',
-    padding: '0 24px',
-    maxWidth: '960px'
-  }
+    margin: "24px auto",
+    padding: "0 24px",
+    maxWidth: "960px",
+  };
 
   const sectionStyle = {
-    marginBottom: '32px',
-    color: '#333'
-  }
+    marginBottom: "32px",
+    color: "#333",
+  };
 
   const headingStyle = {
-    fontSize: '2rem',
-    fontWeight: 'bold',
-    marginBottom: '1.5rem'
-  }
+    fontSize: "2rem",
+    fontWeight: "bold",
+    marginBottom: "1.5rem",
+  };
 
   const listItemStyle = {
-    marginLeft: '20px'
-  }
+    marginLeft: "20px",
+  };
 
   const linkStyle = {
-    fontWeight: 'bold',
-    color: '#007bff',
-    textDecoration: 'none'
-  }
+    fontWeight: "bold",
+    color: "#007bff",
+    textDecoration: "none",
+  };
 
   const rankMathSchema = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@graph': [
+    "@context": "https://schema.org",
+    "@graph": [
       {
-        '@type': 'Person',
-        '@id': 'https://gravatar.com/drtrailer2022',
-        name: 'Dr Trailer',
-        url: 'https://gravatar.com/drtrailer2022',
+        "@type": "Person",
+        "@id": "https://gravatar.com/drtrailer2022",
+        name: "Dr Trailer",
+        url: "https://gravatar.com/drtrailer2022",
         image: {
-          '@type': 'ImageObject',
-          '@id': 'https://gravatar.com/drtrailer2022',
-          url: 'https://gravatar.com/drtrailer2022',
-          caption: 'Dr Trailer',
-          inLanguage: 'en-US'
-        }
+          "@type": "ImageObject",
+          "@id": "https://gravatar.com/drtrailer2022",
+          url: "https://gravatar.com/drtrailer2022",
+          caption: "Dr Trailer",
+          inLanguage: "en-US",
+        },
       },
       {
-        '@type': 'Organization',
-        '@id': 'https://moviefree.vercel.app/#organization',
-        name: 'MoviesFree™ - Online. Stream. Download.',
-        url: 'https://moviefree.vercel.app'
+        "@type": "Organization",
+        "@id": "https://moviefree.vercel.app/#organization",
+        name: "MoviesFree™ - Online. Stream. Download.",
+        url: "https://moviefree.vercel.app",
       },
       {
-        '@type': 'WebSite',
-        '@id': 'https://moviefree.vercel.app/#website',
-        url: 'https://moviefree.vercel.app',
-        name: 'MoviesFree™ - Online. Stream. Download.',
+        "@type": "WebSite",
+        "@id": "https://moviefree.vercel.app/#website",
+        url: "https://moviefree.vercel.app",
+        name: "MoviesFree™ - Online. Stream. Download.",
         publisher: {
-          '@type': 'Organization',
-          '@id': 'https://moviefree.vercel.app/#organization'
+          "@type": "Organization",
+          "@id": "https://moviefree.vercel.app/#organization",
         },
         potentialAction: {
-          '@type': 'SearchAction',
-          target: 'https://moviefree.vercel.app/?s={search_term_string}',
-          'query-input': 'required name=search_term_string'
-        }
+          "@type": "SearchAction",
+          target: "https://moviefree.vercel.app/?s={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
       },
       {
-        '@type': 'WebPage',
-        '@id': 'https://moviefree.vercel.app/#webpage',
-        url: 'https://moviefree.vercel.app/',
-        name: 'Movie',
-        datePublished: '2024-01-13T13:00:00+00:00',
-        dateModified: '2024-01-13T13:13:00+00:00',
+        "@type": "WebPage",
+        "@id": "https://moviefree.vercel.app/#webpage",
+        url: "https://moviefree.vercel.app/",
+        name: "Movie",
+        datePublished: "2024-01-13T13:00:00+00:00",
+        dateModified: "2024-01-13T13:13:00+00:00",
         about: {
-          '@type': 'Person',
-          '@id': 'https://gravatar.com/drtrailer2022',
-          name: 'Dr Trailer',
-          url: 'https://gravatar.com/drtrailer2022',
+          "@type": "Person",
+          "@id": "https://gravatar.com/drtrailer2022",
+          name: "Dr Trailer",
+          url: "https://gravatar.com/drtrailer2022",
           image: {
-            '@type': 'ImageObject',
-            '@id': 'https://gravatar.com/drtrailer2022',
-            url: 'https://gravatar.com/drtrailer2022',
-            caption: 'Dr Trailer',
-            inLanguage: 'en-US'
-          }
+            "@type": "ImageObject",
+            "@id": "https://gravatar.com/drtrailer2022",
+            url: "https://gravatar.com/drtrailer2022",
+            caption: "Dr Trailer",
+            inLanguage: "en-US",
+          },
         },
         isPartOf: {
-          '@id': 'https://moviefree.vercel.app/#website'
+          "@id": "https://moviefree.vercel.app/#website",
         },
-        inLanguage: 'en-US',
+        inLanguage: "en-US",
         mainEntity: [
           {
-            '@type': 'Article',
-            '@id': 'https://moviefree.vercel.app/',
-            url: 'https://moviefree.vercel.app/',
-            headline: 'Movie',
-            datePublished: '2024-01-13T13:00:00+00:00',
-            dateModified: '2024-01-13T13:13:00+00:00',
+            "@type": "Article",
+            "@id": "https://moviefree.vercel.app/",
+            url: "https://moviefree.vercel.app/",
+            headline: "Movie",
+            datePublished: "2024-01-13T13:00:00+00:00",
+            dateModified: "2024-01-13T13:13:00+00:00",
             author: {
-              '@type': 'Person',
-              '@id': 'https://gravatar.com/drtrailer2022',
-              name: 'Dr Trailer',
-              url: 'https://gravatar.com/drtrailer2022',
+              "@type": "Person",
+              "@id": "https://gravatar.com/drtrailer2022",
+              name: "Dr Trailer",
+              url: "https://gravatar.com/drtrailer2022",
               image: {
-                '@type': 'ImageObject',
-                '@id': 'https://gravatar.com/drtrailer2022',
-                url: 'https://gravatar.com/drtrailer2022',
-                caption: 'Dr Trailer',
-                inLanguage: 'en-US'
-              }
+                "@type": "ImageObject",
+                "@id": "https://gravatar.com/drtrailer2022",
+                url: "https://gravatar.com/drtrailer2022",
+                caption: "Dr Trailer",
+                inLanguage: "en-US",
+              },
             },
             publisher: {
-              '@type': 'Organization',
-              '@id': 'https://moviefree.vercel.app/#organization',
-              name: 'MoviesFree™ - Online. Stream. Download.',
-              url: 'https://moviefree.vercel.app'
-            }
+              "@type": "Organization",
+              "@id": "https://moviefree.vercel.app/#organization",
+              name: "MoviesFree™ - Online. Stream. Download.",
+              url: "https://moviefree.vercel.app",
+            },
           },
           {
-            '@type': 'Article',
-            '@id': 'https://moviefree.vercel.app/',
-            url: 'https://moviefree.vercel.app/',
-            headline: 'Tvshow',
-            datePublished: '2024-01-13T13:00:00+00:00',
-            dateModified: '2024-01-13T13:13:00+00:00',
+            "@type": "Article",
+            "@id": "https://moviefree.vercel.app/",
+            url: "https://moviefree.vercel.app/",
+            headline: "Tvshow",
+            datePublished: "2024-01-13T13:00:00+00:00",
+            dateModified: "2024-01-13T13:13:00+00:00",
             author: {
-              '@type': 'Person',
-              '@id': 'https://gravatar.com/drtrailer2022',
-              name: 'Dr Trailer',
-              url: 'https://gravatar.com/drtrailer2022',
+              "@type": "Person",
+              "@id": "https://gravatar.com/drtrailer2022",
+              name: "Dr Trailer",
+              url: "https://gravatar.com/drtrailer2022",
               image: {
-                '@type': 'ImageObject',
-                '@id': 'https://gravatar.com/drtrailer2022',
-                url: 'https://gravatar.com/drtrailer2022',
-                caption: 'Dr Trailer',
-                inLanguage: 'en-US'
-              }
+                "@type": "ImageObject",
+                "@id": "https://gravatar.com/drtrailer2022",
+                url: "https://gravatar.com/drtrailer2022",
+                caption: "Dr Trailer",
+                inLanguage: "en-US",
+              },
             },
             publisher: {
-              '@type': 'Organization',
-              '@id': 'https://moviefree.vercel.app/#organization',
-              name: 'MoviesFree™ - Online. Stream. Download.',
-              url: 'https://moviefree.vercel.app'
-            }
+              "@type": "Organization",
+              "@id": "https://moviefree.vercel.app/#organization",
+              name: "MoviesFree™ - Online. Stream. Download.",
+              url: "https://moviefree.vercel.app",
+            },
           },
           {
-            '@type': 'Article',
-            '@id': 'https://moviefree.vercel.app/',
-            url: 'https://moviefree.vercel.app/',
-            headline: 'Adult',
-            datePublished: '2024-01-13T13:00:00+00:00',
-            dateModified: '2024-01-13T13:13:00+00:00',
+            "@type": "Article",
+            "@id": "https://moviefree.vercel.app/",
+            url: "https://moviefree.vercel.app/",
+            headline: "Adult",
+            datePublished: "2024-01-13T13:00:00+00:00",
+            dateModified: "2024-01-13T13:13:00+00:00",
             author: {
-              '@type': 'Person',
-              '@id': 'https://gravatar.com/drtrailer2022',
-              name: 'Dr Trailer',
-              url: 'https://gravatar.com/drtrailer2022',
+              "@type": "Person",
+              "@id": "https://gravatar.com/drtrailer2022",
+              name: "Dr Trailer",
+              url: "https://gravatar.com/drtrailer2022",
               image: {
-                '@type': 'ImageObject',
-                '@id': 'https://gravatar.com/drtrailer2022',
-                url: 'https://gravatar.com/drtrailer2022',
-                caption: 'Dr Trailer',
-                inLanguage: 'en-US'
-              }
+                "@type": "ImageObject",
+                "@id": "https://gravatar.com/drtrailer2022",
+                url: "https://gravatar.com/drtrailer2022",
+                caption: "Dr Trailer",
+                inLanguage: "en-US",
+              },
             },
             publisher: {
-              '@type': 'Organization',
-              '@id': 'https://moviefree.vercel.app/#organization',
-              name: 'MoviesFree™ - Online. Stream. Download.',
-              url: 'https://moviefree.vercel.app'
-            }
-          }
-        ]
-      }
-    ]
-  })
+              "@type": "Organization",
+              "@id": "https://moviefree.vercel.app/#organization",
+              name: "MoviesFree™ - Online. Stream. Download.",
+              url: "https://moviefree.vercel.app",
+            },
+          },
+        ],
+      },
+    ],
+  });
 
   return (
     <div>
       <Head>
         <title>MoviesFree™ | DMCA</title>
         <link
-          rel='sitemap'
-          type='application/xml'
-          title='Sitemap'
-          href='https://moviefree.vercel.app/sitemap.xml'
+          rel="sitemap"
+          type="application/xml"
+          title="Sitemap"
+          href="https://moviefree.vercel.app/sitemap.xml"
         />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link
-          rel='apple-touch-icon'
-          sizes='180x180'
-          href='/apple-touch-icon.png'
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          sizes='32x32'
-          href='/favicon-32x32.png'
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
         />
         <link
-          rel='icon'
-          type='image/png'
-          sizes='16x16'
-          href='/favicon-16x16.png'
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
         />
-        <link rel='manifest' href='/site.webmanifest' />
-        <meta name='googlebot' content='index,follow' />
-        <meta name='revisit-after' content='1 days' />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="googlebot" content="index,follow" />
+        <meta name="revisit-after" content="1 days" />
         <meta
-          name='robots'
-          content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
-        <meta
+        {/* <meta
           name='keywords'
           content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
+        /> */}
+        <meta
+          name="keywords"
+          content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
         />
         <meta
-          property='description'
-          content='MoviesFree™ - Stream HD movies and TV series for free on MoviesFree Online. Online. Stream. Download. full-length movies and shows in HD quality without registration.'
+          property="description"
+          content="MoviesFree™ - Stream HD movies and TV series for free on MoviesFree Online. Online. Stream. Download. full-length movies and shows in HD quality without registration."
         />
 
-        <link rel='canonical' href='https://moviefree.vercel.app/intro/tearms' />
-        <meta property='og:locale' content='en_US' />
-        <meta property='og:type' content='website' />
-        <meta property='og:title' content='MoviesFree™ ' />
-        <meta
-          property='og:description'
-          content='MoviesFree™ - Stream HD movies and TV series for free on MoviesFree Online. Online. Stream. Download. full-length movies and shows in HD quality without registration.'
+        <link
+          rel="canonical"
+          href="https://moviefree.vercel.app/intro/tearms"
         />
-        <meta property='og:url' content='https://moviefree.vercel.app/intro/tearms/' />
-        <meta property='og:site_name' content='MoviesFree™ ' />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="MoviesFree™ " />
         <meta
-          property='og:image'
-          content='https://moviefree.vercel.app/og_image.jpg'
+          property="og:description"
+          content="MoviesFree™ - Stream HD movies and TV series for free on MoviesFree Online. Online. Stream. Download. full-length movies and shows in HD quality without registration."
         />
-        <meta property='og:image:width' content='1280' />
-        <meta property='og:image:height' content='720' />
-        <meta property='og:image:type' content='image/jpg' />
-        <meta name='application-name' content='MoviesFree™ ' />
         <meta
-          property='article:modified_time'
-          content='2024-01-01T13:13:13+00:00'
+          property="og:url"
+          content="https://moviefree.vercel.app/intro/tearms/"
+        />
+        <meta property="og:site_name" content="MoviesFree™ " />
+        <meta
+          property="og:image"
+          content="https://moviefree.vercel.app/og_image.jpg"
+        />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="720" />
+        <meta property="og:image:type" content="image/jpg" />
+        <meta name="application-name" content="MoviesFree™ " />
+        <meta
+          property="article:modified_time"
+          content="2024-01-01T13:13:13+00:00"
         />
         <link
-          rel='sitemap'
-          type='application/xml'
-          title='Sitemap'
-          href='https://moviefree.vercel.app/sitemap.xml'
+          rel="sitemap"
+          type="application/xml"
+          title="Sitemap"
+          href="https://moviefree.vercel.app/sitemap.xml"
         />
-        <meta name='twitter:card' content='summary_large_image' />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta
-          name='google-site-verification'
+          name="google-site-verification"
           content="4gdbnCGat0T4Ow3Y_RYzPM4vwtsXvhUel5Q-2yULK6k"
         />
         <meta
-          name='facebook-domain-verification'
-          content='du918bycikmo1jw78wcl9ih6ziphd7'
+          name="facebook-domain-verification"
+          content="du918bycikmo1jw78wcl9ih6ziphd7"
         />
         <meta
-          name='dailymotion-domain-verification'
-          content='dmdzuqt3p027t2adn'
+          name="dailymotion-domain-verification"
+          content="dmdzuqt3p027t2adn"
         />
-        <meta name='monetag' content='35a75bbdeae678c82776e64fb78cdac5' />
+        <meta name="monetag" content="35a75bbdeae678c82776e64fb78cdac5" />
         <script
-          type='application/ld+json'
+          type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: rankMathSchema }}
         />
       </Head>
@@ -274,32 +284,32 @@ const dmca = () => {
       <div style={containerStyle}>
         <section style={sectionStyle}>
           <a
-            href='https://t.me/watchmovietvshow/'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='telegram-link'
+            href="https://t.me/watchmovietvshow/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="telegram-link"
           >
             <h3>
               For Request or Demand Movies & TV Series Join Telegram
-              <i className='fab fa-telegram telegram-icon'></i>
+              <i className="fab fa-telegram telegram-icon"></i>
             </h3>
           </a>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
             <div
               style={{
                 flexGrow: 1,
                 flexShrink: 0,
-                flexBasis: 'auto',
-                marginBottom: '12px',
-                width: '100%',
-                padding: '0 12px'
+                flexBasis: "auto",
+                marginBottom: "12px",
+                width: "100%",
+                padding: "0 12px",
               }}
             >
               <h1 style={headingStyle}>
                 DMCA Copyright Infringement Notification
               </h1>
-              <p style={{ color: '#666', marginBottom: '24px' }}>
+              <p style={{ color: "#666", marginBottom: "24px" }}>
                 All trademarks, registered trademarks, product names, and
                 company names or logos appearing on the site are the property of
                 their respective owners. Filepuma complies with the federal
@@ -313,7 +323,7 @@ const dmca = () => {
                 opportunity to present a counter notification as outlined by the
                 DMCA.
               </p>
-              <p style={{ color: '#666', marginBottom: '24px' }}>
+              <p style={{ color: "#666", marginBottom: "24px" }}>
                 Before proceeding with either a Notice of Infringing Material or
                 Counter-Notification, it is recommended to seek legal advice to
                 fully comprehend your rights and obligations under the DMCA and
@@ -327,8 +337,8 @@ const dmca = () => {
               <ul
                 style={{
                   ...listItemStyle,
-                  color: '#666',
-                  marginBottom: '24px'
+                  color: "#666",
+                  marginBottom: "24px",
                 }}
               >
                 <li>
@@ -376,11 +386,11 @@ const dmca = () => {
 
               <h2 style={headingStyle}>Contact Infringement Notice</h2>
 
-              <p style={{ color: '#666' }}>
+              <p style={{ color: "#666" }}>
                 Please review these terms and conditions carefully before using
                 our website. If you have any questions or concerns, please
-                contact us at{' '}
-                <a style={linkStyle} href='mailto:drtrailer2022@gmail.com.com'>
+                contact us at{" "}
+                <a style={linkStyle} href="mailto:drtrailer2022@gmail.com.com">
                   drtrailer2022@gmail.com
                 </a>
                 .
@@ -390,7 +400,7 @@ const dmca = () => {
         </section>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default dmca
+export default dmca;

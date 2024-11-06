@@ -56,7 +56,9 @@ export default function MovieDetail({ movie }) {
   // Function to fetch data and set state
   const fetchData = async () => {
     try {
-      const response = await fetch("https://moviefree.vercel.app/moviesfull.json");
+      const response = await fetch(
+        "https://moviefree.vercel.app/moviesfull.json"
+      );
       const data = await response.json();
 
       // Get 6 random TV Series s
@@ -365,9 +367,13 @@ export default function MovieDetail({ movie }) {
         <meta property="og:description" content={movie.synopsis} />
         <meta property="og:image" content={movie.image1} />
         <meta name="keywords" content={movie.keywords} />
-        <meta
+        {/* <meta
           name="keywords"
           content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
+        /> */}
+        <meta
+          name="keywords"
+          content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
         />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -579,49 +585,49 @@ export default function MovieDetail({ movie }) {
         )}
       </div>
       <div class="shadow-lg flex items-center justify-center" role="navigation">
-  <ul id="menu-header-menu" class="menu flex flex-wrap justify-center">
-    <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
-      <li id="menu-item-248" class="menu-operating-systems">
-        <a
-          href="../home/"
-          class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
-        >
-          Home<span class="p"></span>
-        </a>
-      </li>
-    </button>
-    <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
-      <li id="menu-item-248" class="menu-operating-systems">
-        <a
-          href="../movies/"
-          class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
-        >
-          Movies<span class="p"></span>
-        </a>
-      </li>
-    </button>
-    <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
-      <li id="menu-item-11605" class="menu-3dcad">
-        <a
-          href="../tvshow/"
-          class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
-        >
-          Tv Show<span class="p"></span>
-        </a>
-      </li>
-    </button>
-    <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
-      <li id="menu-item-11610" class="menu-graphicdesign">
-        <a
-          href="../adult/"
-          class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
-        >
-          Adult<span class="p"></span>
-        </a>
-      </li>
-    </button>
-  </ul>
-</div>
+        <ul id="menu-header-menu" class="menu flex flex-wrap justify-center">
+          <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
+            <li id="menu-item-248" class="menu-operating-systems">
+              <a
+                href="../home/"
+                class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Home<span class="p"></span>
+              </a>
+            </li>
+          </button>
+          <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
+            <li id="menu-item-248" class="menu-operating-systems">
+              <a
+                href="../movies/"
+                class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Movies<span class="p"></span>
+              </a>
+            </li>
+          </button>
+          <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
+            <li id="menu-item-11605" class="menu-3dcad">
+              <a
+                href="../tvshow/"
+                class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Tv Show<span class="p"></span>
+              </a>
+            </li>
+          </button>
+          <button class="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded-2xl w-36 h-14">
+            <li id="menu-item-11610" class="menu-graphicdesign">
+              <a
+                href="../adult/"
+                class="text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl"
+              >
+                Adult<span class="p"></span>
+              </a>
+            </li>
+          </button>
+        </ul>
+      </div>
 
       <div className="flex-container">
         <div className="category-container">
