@@ -595,26 +595,26 @@ export default function MovieDetail({ movie }) {
         )}
       </div>
 
-      <div class="nav-container" role="navigation">
-  <ul class="menu">
-    <li>
+      <div class="nav-container shadow-lg flex items-center justify-center" role="navigation">
+  <ul id="menu-header-menu" class="menu flex flex-wrap justify-center">
+    <li class="nav-item">
       <button class="nav-button">
-        <a href="../home/">Home</a>
+        <a href="../home/" class="nav-link">Home</a>
       </button>
     </li>
-    <li>
+    <li class="nav-item">
       <button class="nav-button">
-        <a href="../movies/">Movies</a>
+        <a href="../movies/" class="nav-link">Movies</a>
       </button>
     </li>
-    <li>
+    <li class="nav-item">
       <button class="nav-button">
-        <a href="../tvshow/">TV Show</a>
+        <a href="../tvshow/" class="nav-link">TV Show</a>
       </button>
     </li>
-    <li>
+    <li class="nav-item">
       <button class="nav-button">
-        <a href="../adult/">Adult</a>
+        <a href="../adult/" class="nav-link">Adult</a>
       </button>
     </li>
   </ul>
