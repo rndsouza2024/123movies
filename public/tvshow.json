@@ -1,5 +1,93 @@
 [
     {
+        "id": "watch-stags-season-1-tv-series",
+        "startDate": " August 15, 2024",
+        "contentRating": " United States: TV-MA.",
+        "Originalnetwork": "Paramount+  . ",
+        "year": " August 15, 2024",
+        "rating": "5.2",
+        "avgTime": "  45 Min.",
+        "time": " 01H43M00S.",
+        "group": "Dr Trailer",
+        "badge": " [ TV Show ] ",
+        "lang": " [ English ] ",
+        "episode": "10",
+        "seasons": [
+            {
+                "datePublished": "2024-07-01",
+                "name": "Season 2"
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.2",
+            "bestRating": "10",
+            "worstRating": "0",
+            "ratingCount": "1",
+            "reviewCount": "13"
+        },
+        "title": "Watch Stags Season 1 (2024)",
+        "name": "Stags Season 1 (2024) Tv Series",
+        "image": "https://res.cloudinary.com/db36kfuq3/image/upload/c_scale,h_750,w_500/v1730880488/Stags_2024_hg41cs.webp",
+         "synopsis": " Stags Season 1 - 2024 On Moviesfree, Here to watch Stags Season 1 Full Series online Streaming for free in HD 1080p. Follows groom-to-be Stu and his friends on his stag do in South America.",
+        "videomovieitem": [
+            "z7MMQvwXq",
+            "ljQ_CB_eh",
+            "4-2Uv9L_CHn",
+            "APrYv3ddB",
+            "X0zHyWTnl",
+            "cG4e2jbR3"       
+        ],
+        "imdb": "tt30005404",
+        "videomovies": [
+            "tt30005404/1/1",
+            "tt30005404/1/2",
+            "tt30005404/1/3",
+            "tt30005404/1/4",
+            "tt30005404/1/5",
+            "tt30005404/1/6"           
+        ],
+        "ytsource": "rbaO9pHOVUg",
+        "videourl": "https://geo.dailymotion.com/player/xkdl0.html?video=x92v0t4",       
+        "datePublished": "2024-04-05",
+        "dateModified": "31-05-2024",
+        "siteurl": "https://moviefree.vercel.app/tvshow/watch-stags-season-1-tv-series",
+        "keywords": "Stags Season 1, Stags Season 1 2024, Stags Season 1 streaming, Stags Season 1 online, download Stags Season 1, watch Stags Season 1, stream Stags Season 1",
+        "image1": "https://res.cloudinary.com/db36kfuq3/image/upload/c_scale,h_720,w_1280/v1730880488/Stags_2024_1_moeinl.webp",
+        "downloadlink": "https://hellabyte.one/drive/s/672b27a9a3fb848ac130bf43",
+        "downloadlink2": "https://hellabyte.one/drive/s/672b2784a3fb848ac130b923",
+        "downloadlink3": "https://hellabyte.one/drive/s/672b275fa3fb848ac130b1f7",
+        "downloadlink4": "https://hellabyte.one/drive/s/672b273ba3fb848ac130ab32",
+        "downloadlink5": "https://hellabyte.one/drive/s/672b2717a3fb848ac130a47b",
+        "downloadlink6": "https://hellabyte.one/drive/s/672b26f5a3fb848ac1309e1c",
+        "genre": [
+            "Action, ",
+            "Drama, ",
+            "Thriller."
+        ],
+        "directorname": "David Kerr, Giancarlo Sanchez.",
+        "country": "United Kingdom.",
+        "language": "English.",
+        "starring": [
+            "Nico Mirallegro, ",
+            "Corin Silva, ",
+            "Sophie Lenglinger, ",
+            "Jojo Macari, ",
+            "Paulina Gálvez."
+        ],
+        "actor1": "Nico Mirallegro.",
+        "actor2": "Corin Silva.",
+        "actor3": "Sophie Lenglinger.",
+        "actor4": "Jojo Macari.",
+        "actor5": "Paulina Gálvez. ",
+        "directorimg": "https://m.media-amazon.com/images/M/MV5BYWI3YmIxOTgtNmIyZC00MTNmLWExYTktYmMzMzcyOGIzZmUyXkEyXkFqcGc@._V1_.jpg",
+        "actor1img": " https://static.kinoafisha.info/k/persons/1080x1920/upload/persons/674150677948.jpg",
+        "actor2img": " https://m.media-amazon.com/images/M/MV5BYmU5MDQ0NzMtNTk2MC00ODkyLTlmMTQtMGU2NzVjYmI2NzEyXkEyXkFqcGc@._V1_.jpg",
+        "actor3img": " https://m.media-amazon.com/images/M/MV5BMDY4MzZkNmItYzk1My00MWNmLWFkYWMtMDEyMmQ0MTYzMzhiXkEyXkFqcGc@._V1_.jpg",
+        "actor4img": " https://ntvb.tmsimg.com/assets/assets/1114783_v9_bb.jpg",
+        "actor5img": " https://m.media-amazon.com/images/M/MV5BZTNkODJmYWItZWNiOC00YWMxLWI1NWQtZDUyYjY4N2QyZGJhXkEyXkFqcGc@._V1_.jpg"
+    },
+    {
         "id": "watch-warrior-nun-season-2-tv-series",
         "startDate": " July 22, 2020",
         "contentRating": " United States: TV-MA.",
