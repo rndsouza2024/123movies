@@ -616,7 +616,7 @@ export default function MovieDetail({ movie }) {
           id="menu-header-menu"
           className="menu flex flex-wrap justify-center"
         >
-          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded">
+          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded  w-36 h-14">
             <li id="menu-item-248" className="menu-operating-systems">
               <a
                 href="../home/"
@@ -626,7 +626,7 @@ export default function MovieDetail({ movie }) {
               </a>
             </li>
           </button>
-          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100">
+          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded  w-36 h-14">
             <li id="menu-item-248" className="menu-operating-systems">
               <a
                 href="../movies/"
@@ -636,7 +636,7 @@ export default function MovieDetail({ movie }) {
               </a>
             </li>
           </button>
-          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100">
+          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded  w-36 h-14">
             <li id="menu-item-11605" className="menu-3dcad">
               <a
                 href="../tvshow/"
@@ -646,7 +646,7 @@ export default function MovieDetail({ movie }) {
               </a>
             </li>
           </button>
-          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100">
+          <button className="border border-orange-600 p-2 m-1 hover:bg-orange-100 rounded  w-36 h-14">
             <li id="menu-item-11610" className="menu-graphicdesign">
               <a
                 href="../adult/"
