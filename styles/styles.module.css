@@ -52,5 +52,47 @@
     gap: 20px;
     justify-content: center; /* Center-align the flex items */
   }
-  
+  /* Base styling for the navigation buttons */
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px; /* Uniform button width */
+  height: 60px; /* Uniform button height */
+  background-color: transparent;
+  border: 2px solid #ff6600;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(255, 102, 0, 0.1);
+  transform: scale(1.05);
+}
+
+/* Link styling inside the buttons */
+a {
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+  background-image: linear-gradient(to right, #ffbf00, #ff4081);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Hover effect for links */
+a:hover {
+  color: #ff6600;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  button {
+    width: 100%; /* Buttons take full width on small screens */
+    height: 50px; /* Slightly smaller height for mobile */
+  }
+}
+
 }
