@@ -52,86 +52,68 @@
     gap: 20px;
     justify-content: center; /* Center-align the flex items */
   }
-  /* Base styling for navigation container */
+  /* Navigation container styling */
 .shadow-lg {
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
 }
 
-/* Layout styling for the menu */
+/* Menu styling */
 .menu {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 0.5rem;
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-/* Button styling */
-.border {
-  border-width: 2px;
+/* Button styles */
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  border: none;
+  border-radius: 8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.border-orange-600 {
-  border-color: #ff6600;
-}
-
-.p-2 {
-  padding: 0.5rem;
-}
-
-.m-1 {
-  margin: 0.25rem;
+/* Gradient text effect */
+.nav-button .menu-item {
+  color: transparent;
+  background: linear-gradient(to right, #ffbf00, #ff4081);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: bold;
 }
 
 /* Button hover effect */
-.hover\:bg-orange-100:hover {
-  background-color: #ffefe7;
+.nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 15px rgba(255, 126, 95, 0.3);
 }
 
-/* Gradient text styling */
-.bg-gradient-to-r {
-  background: linear-gradient(to right, #ffbf00, #ff4081);
+/* Active link styles */
+.nav-button.active {
+  background: linear-gradient(to right, #ff4081, #ff7e5f);
+  box-shadow: 0px 4px 15px rgba(255, 64, 129, 0.4);
 }
 
-.bg-clip-text {
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
-.text-transparent {
-  color: transparent;
-}
-
-/* Additional font and color styling for button text */
-.text-black {
-  color: #000;
-}
-
-.font-black {
-  font-weight: 900;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-}
-
-.text-bg {
-  font-size: 1.1rem;
-}
-
-.hover\:px-0:hover {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* Responsive adjustments */
+/* Mobile adjustments */
 @media (max-width: 768px) {
-  .text-xl {
+  .nav-button {
+    padding: 0.6rem 1.2rem;
     font-size: 1rem;
-  }
-  .p-2 {
-    padding: 0.4rem;
   }
 }
 
