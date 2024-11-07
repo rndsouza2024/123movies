@@ -349,6 +349,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
             height="100%"
             allowFullScreen
             autoplay
+            controls
             allow="fullscreen; picture-in-picture"
             webkitAllowFullScreen={true}
             mozAllowFullScreen={true}
