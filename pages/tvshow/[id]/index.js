@@ -966,22 +966,32 @@ export default function MovieDetail({ movie }) {
                   </button>
                 </div>
                 {src ? (
-                  <iframe
-                    ref={playerRef}
-                    src={src}
-                    adTagUrl={adTagUrl}
-                    width="100%"
-                    height="600px"
-                    allowFullScreen
-                    allow="fullscreen; picture-in-picture"
-                    webkitAllowFullScreen={true}
-                    mozAllowFullScreen={true}
-                    style={{
-                      borderRadius: "15px",
-                      filter:
-                        "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
-                    }}
-                  />
+                           <iframe
+                           ref={playerRef}
+                           src={src}
+                           adTagUrl={adTagUrl}
+                           width="100%"
+                           height="600px"
+                           allowFullScreen
+                           allow="fullscreen; picture-in-picture"
+                           webkitAllowFullScreen={true}
+                           mozAllowFullScreen={true}
+                           // style={{
+                           //   borderRadius: "15px",
+                           //   filter:
+                           //     "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
+                           // }}
+                           style={{
+                             margin: "auto",
+                             backgroundColor: "black", 
+                             borderRadius: "15px",
+                             boxShadow: "0 0 10px 0 #fff",
+                             filter:
+                               "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)",
+                             // width: "100%", // Adjust the width as needed
+                             // height: "100%", // Adjust the height as needed
+                           }}
+                         />
                 ) : (
                   <p>Loading video...</p>
                 )}
