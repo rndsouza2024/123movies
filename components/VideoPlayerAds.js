@@ -294,7 +294,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
       )}
 
       {!isAdPlaying && src && (
-     
+           <a href="https://grbounty.link/resources/hit/1375/fnMNCPrrcr">
           <iframe
             ref={playerRef}
             src={src}
@@ -307,8 +307,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
             mozAllowFullScreen={true}
             style={{ borderRadius: "15px", marginTop: "300px", zIndex: 1 }}
           />
-          <br/><br/><a href="https://grbounty.link/resources/hit/1375/fnMNCPrrcr"><img src="https://grbounty.link/resources/view/1375/fnMNCPrrcr" alt="GetResponse Marketing Automation | E-commerce conditions!"/>
-        </a>
+          </a>
       )}
     </div>
   );
