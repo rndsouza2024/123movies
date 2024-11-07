@@ -277,7 +277,9 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
               
        
           </div>
-          <a
+      
+        </div>
+            <a
             href="https://grbounty.link/resources/hit/1375/fnMNCPrrcr"
             target="_blank"
             rel="noopener noreferrer"
@@ -297,7 +299,6 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
           >
             Click Now
           </a>
-        </div>
       )}
 
       {!isAdPlaying && src && (
