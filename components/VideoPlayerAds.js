@@ -324,8 +324,8 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                 backgroundColor: "rgba(0, 0, 0, 0.6)",
                 color: "white",
                 borderRadius: "5px",
-                fontSize: "16px",
                 fontWeight: "bold",
+                fontSize: "20px",
                 textDecoration: "none",
                 zIndex: 3,
                 marginTop: "10px", // Added margin for spacing below "Skip Ad"
