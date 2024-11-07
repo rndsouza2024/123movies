@@ -185,202 +185,6 @@
 
 
 
-// import React, { useEffect, useRef, useState } from "react";
-// import youtubeStyles from "@styles/MovieDetail.module.css"; // Import CSS for the MovieDetail component
-
-// const VideoPlayerWithAds = ({ adTagUrl, src }) => {
-//   const adOverlayRef = useRef(null);
-//   const playerRef = useRef(null);
-//   const [isAdPlaying, setIsAdPlaying] = useState(true);
-//   const [countdown, setCountdown] = useState(10); // 10-second countdown for skip option
-//   const [showSkipButton, setShowSkipButton] = useState(false);
-
-//   const fetchVastAd = async () => {
-//     try {
-//       const response = await fetch(adTagUrl);
-//       const xml = await response.text();
-//       const parser = new DOMParser();
-//       const xmlDoc = parser.parseFromString(xml, "application/xml");
-
-//       // Extract media file URL from VAST XML
-//       const mediaFileUrl =
-//         xmlDoc.getElementsByTagName("MediaFile")[0].textContent;
-//       playAd(mediaFileUrl);
-//     } catch (error) {
-//       console.error("Error fetching VAST:", error);
-//     }
-//   };
-
-//   const playAd = (adUrl) => {
-//     adOverlayRef.current.style.display = "flex";
-//     const adVideo = document.createElement("video");
-//     adVideo.src = adUrl;
-//     adVideo.controls = true;
-//     adVideo.autoplay = true;
-//     adVideo.muted = true; // Add muted to enable autoplay in most browsers
-//     adVideo.style.position = "absolute";
-//     adVideo.style.zIndex = "1";
-//     adVideo.onended = () => {
-//       adOverlayRef.current.style.display = "none";
-//       setIsAdPlaying(false);
-//       adVideo.remove();
-//     };
-//     adOverlayRef.current.appendChild(adVideo);
-//   };
-
-//   useEffect(() => {
-//     fetchVastAd();
-
-//     const countdownTimer = setInterval(() => {
-//       setCountdown((prev) => {
-//         if (prev <= 1) {
-//           clearInterval(countdownTimer);
-//           setShowSkipButton(true);
-//           return 0;
-//         }
-//         return prev - 1;
-//       });
-//     }, 1000);
-
-//     return () => {
-//       clearInterval(countdownTimer);
-//       if (adOverlayRef.current) {
-//         adOverlayRef.current.innerHTML = "";
-//       }
-//     };
-//   }, [adTagUrl]);
-
-//   const handleSkipAd = () => {
-//     setIsAdPlaying(false);
-//     if (adOverlayRef.current) {
-//       adOverlayRef.current.style.display = "none";
-//       adOverlayRef.current.innerHTML = "";
-//     }
-//   };
-
-//   return (
-//     <div
-//       className={`${youtubeStyles.videoPlayerContainer} ${youtubeStyles.responsivePlayer}`}
-//       style={{ marginTop: "30px", position: "relative" }}
-//     >
-//       {/* Ad Overlay */}
-//       {isAdPlaying && (
-//         <div
-//           ref={adOverlayRef}
-//           className={youtubeStyles.adOverlay}
-//           style={{
-//             position: "absolute",
-//             top: 0,
-//             left: 0,
-//             width: "100%",
-//             height: "100%",
-//             display: "flex",
-//             justifyContent: "center",
-//             alignItems: "center",
-//             color: "white",
-//             marginTop: "300px",
-//             zIndex: 2,
-//           }}
-//         >
-//           <div style={{ textAlign: "center", zIndex: 3 }}>
-//             {!showSkipButton ? (
-//               <p
-//                 style={{
-//                   fontWeight: "bold",
-//                   fontSize: "20px",
-//                   textShadow: "1px 1px 0px #000",
-//                 }}
-//               >
-//                 Skip in {countdown} seconds
-//               </p>
-
-//             ) : (
-//               <button
-//                 onClick={handleSkipAd}
-//                 style={{
-//                   fontWeight: "bold",
-//                   fontSize: "20px",
-//                   padding: "8px 16px",
-//                   marginTop: "300px",
-//                   color: "white",
-//                   border: "none",
-//                   borderRadius: "5px",
-//                   cursor: "pointer",
-//                   textShadow: "1px 1px 0px #000",
-//                   zIndex: 4,
-//                   position: "relative",
-//                 }}
-//               >
-//                 Skip Ad
-//               </button>
-//             )}
-//             <a
-//             href="https://grbounty.link/resources/hit/1375/fnMNCPrrcr"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//             style={{
-//               marginTop:"20px",
-//               position: "relative",
-//               top: "10px",
-//               right: "10px",
-//               padding: "8px 16px",
-//               backgroundColor: "rgba(0, 0, 0, 0.6)",
-//               color: "white",
-//               borderRadius: "5px",
-//               fontSize: "16px",
-//               fontWeight: "bold",
-//               textDecoration: "none",
-//               zIndex: 3,
-//             }}
-//           >
-//             Click Now
-//           </a>      
-       
-//           </div>
-      
-//         </div>
-        
-//       )}
-
-//       {!isAdPlaying && src && (
-   
-//           <iframe
-//             ref={playerRef}
-//             src={src}
-//             width="100%"
-//             height="100%"
-//             allowFullScreen
-//             autoplay
-//             allow="fullscreen; picture-in-picture"
-//             webkitAllowFullScreen={true}
-//             mozAllowFullScreen={true}
-//             style={{ borderRadius: "15px", marginTop: "300px", zIndex: 1 }}
-//           />
-          
-//       )}
-//     </div>
-//   );
-// };
-
-// export default VideoPlayerWithAds;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useEffect, useRef, useState } from "react";
 import youtubeStyles from "@styles/MovieDetail.module.css"; // Import CSS for the MovieDetail component
 
@@ -399,7 +203,8 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
       const xmlDoc = parser.parseFromString(xml, "application/xml");
 
       // Extract media file URL from VAST XML
-      const mediaFileUrl = xmlDoc.getElementsByTagName("MediaFile")[0].textContent;
+      const mediaFileUrl =
+        xmlDoc.getElementsByTagName("MediaFile")[0].textContent;
       playAd(mediaFileUrl);
     } catch (error) {
       console.error("Error fetching VAST:", error);
@@ -470,10 +275,10 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
             width: "100%",
             height: "100%",
             display: "flex",
-            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             color: "white",
+            marginTop: "300px",
             zIndex: 2,
           }}
         >
@@ -488,6 +293,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
               >
                 Skip in {countdown} seconds
               </p>
+
             ) : (
               <button
                 onClick={handleSkipAd}
@@ -495,19 +301,20 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                   fontWeight: "bold",
                   fontSize: "20px",
                   padding: "8px 16px",
+                  marginTop: "300px",
                   color: "white",
                   border: "none",
                   borderRadius: "5px",
                   cursor: "pointer",
                   textShadow: "1px 1px 0px #000",
                   zIndex: 4,
-                  marginBottom: "10px", // Added margin to separate buttons
+                  position: "relative",
                 }}
               >
                 Skip Ad
               </button>
             )}
-            <a
+             <a
               href="https://grbounty.link/resources/hit/1375/fnMNCPrrcr"
               target="_blank"
               rel="noopener noreferrer"
@@ -526,27 +333,49 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
             >
               Click Now
             </a>
+       
           </div>
+      
         </div>
+        
       )}
 
       {!isAdPlaying && src && (
-        <iframe
-          ref={playerRef}
-          src={src}
-          width="100%"
-          height="100%"
-          allowFullScreen
-          allow="fullscreen; picture-in-picture"
-          webkitAllowFullScreen={true}
-          mozAllowFullScreen={true}
-          style={{ borderRadius: "15px", zIndex: 1 }}
-        />
+   
+          <iframe
+            ref={playerRef}
+            src={src}
+            width="100%"
+            height="100%"
+            allowFullScreen
+            autoplay
+            allow="fullscreen; picture-in-picture"
+            webkitAllowFullScreen={true}
+            mozAllowFullScreen={true}
+            style={{ borderRadius: "15px", marginTop: "300px", zIndex: 1 }}
+          />
+          
       )}
     </div>
   );
 };
 
 export default VideoPlayerWithAds;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
