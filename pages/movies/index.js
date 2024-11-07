@@ -259,9 +259,9 @@ const HomePage = ({ categorizedItems }) => {
         <SearchComponent />
       </span>
        
-
+      <div className="flex justify-center mt-4">
       <a href="https://grbounty.link/resources/hit/1983/fnMNCPrrcr"><img src="https://grbounty.link/resources/view/1983/fnMNCPrrcr" alt="GetResponse: Content Monetization"/></a>
-
+      </div>
         {/* Category Tabs */}
         <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
           {/* {["movie", "tvshow", "adult"].map((category) => ( */}
