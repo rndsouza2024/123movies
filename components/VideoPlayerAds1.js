@@ -211,7 +211,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
     adVideo.autoplay = true;
     adVideo.muted = true; // Add muted to enable autoplay in most browsers
     adVideo.style.position = "absolute";
-    adVideo.style.zIndex = "1";
+    adVideo.style.zIndex = "1"; // Make sure the ad video stays below the skip button
     adVideo.onended = () => {
       adOverlayRef.current.style.display = "none";
       setIsAdPlaying(false);
@@ -253,7 +253,11 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
   return (
     <div
       className={`${youtubeStyles.videoPlayerContainer} ${youtubeStyles.responsivePlayer}`}
-      style={{ marginTop: "30px", position: "relative" }}
+      style={{
+        marginTop: "30px",
+        position: "relative",
+        zIndex: 0, // Set initial z-index to 0 for the container
+      }}
     >
       {/* Ad Overlay */}
       {isAdPlaying && (
@@ -270,11 +274,10 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
             justifyContent: "center",
             alignItems: "center",
             color: "white",
-            marginTop: "300px",
-            zIndex: 2, // Ad overlay should have a z-index above the video
+            zIndex: 10, // Make sure the ad overlay has higher z-index than the video player
           }}
         >
-          <div style={{ textAlign: "center", zIndex: 3 }}>
+          <div style={{ textAlign: "center" }}>
             {!showSkipButton ? (
               <p
                 style={{
@@ -292,13 +295,13 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                   fontWeight: "bold",
                   fontSize: "20px",
                   padding: "8px 16px",
-                  marginTop: "300px",
+                  marginTop: "20px",
                   color: "white",
                   border: "none",
                   borderRadius: "5px",
                   cursor: "pointer",
                   textShadow: "1px 1px 0px #000",
-                  zIndex: 4,
+                  zIndex: 11, // Ensure the skip button is above other overlay content
                   position: "relative",
                 }}
               >
@@ -318,7 +321,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                 fontWeight: "bold",
                 fontSize: "20px",
                 textDecoration: "none",
-                zIndex: 3,
+                zIndex: 9,
                 marginTop: "10px", // Added margin for spacing below "Skip Ad"
               }}
             >
@@ -342,8 +345,8 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
           mozAllowFullScreen={true}
           style={{
             borderRadius: "15px",
-            marginTop: "300px",
-            zIndex: 1, // Ensure video player has lower z-index than ad overlay
+            marginTop: "30px", // Adjust margin to make space below the ad overlay
+            zIndex: 0, // Ensure the video player stays below the ad overlay when it's visible
           }}
         />
       )}
@@ -352,13 +355,3 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
 };
 
 export default VideoPlayerWithAds;
-
-
-
-
-
-
-
-
-
-
