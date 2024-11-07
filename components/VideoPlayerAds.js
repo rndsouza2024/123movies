@@ -253,6 +253,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
               >
                 Skip in {countdown} seconds
               </p>
+
             ) : (
               <button
                 onClick={handleSkipAd}
@@ -273,25 +274,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                 Skip Ad
               </button>
             )}
-          </div>
-        </div>
-      )}
-
-      {!isAdPlaying && src && (
-      <>
-          <iframe
-            ref={playerRef}
-            src={src}
-            width="100%"
-            height="100%"
-            allowFullScreen
-            autoplay
-            allow="fullscreen; picture-in-picture"
-            webkitAllowFullScreen={true}
-            mozAllowFullScreen={true}
-            style={{ borderRadius: "15px", marginTop: "300px", zIndex: 1 }}
-          />
-               <a
+                 <a
             href="https://grbounty.link/resources/hit/1375/fnMNCPrrcr"
             target="_blank"
             rel="noopener noreferrer"
@@ -311,7 +294,26 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
           >
             Click Now
           </a>
-          </>
+       
+          </div>
+        </div>
+      )}
+
+      {!isAdPlaying && src && (
+   
+          <iframe
+            ref={playerRef}
+            src={src}
+            width="100%"
+            height="100%"
+            allowFullScreen
+            autoplay
+            allow="fullscreen; picture-in-picture"
+            webkitAllowFullScreen={true}
+            mozAllowFullScreen={true}
+            style={{ borderRadius: "15px", marginTop: "300px", zIndex: 1 }}
+          />
+          
       )}
     </div>
   );
