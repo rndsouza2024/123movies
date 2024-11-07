@@ -211,7 +211,9 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
     adVideo.autoplay = true;
     adVideo.muted = true; // Add muted to enable autoplay in most browsers
     adVideo.style.position = "absolute";
-    adVideo.style.zIndex = "1"; // Make sure the ad video stays below the skip button
+    adVideo.style.zIndex = "2"; // Ensure the ad video appears above other content
+    adVideo.style.width = "100%";
+    adVideo.style.height = "100%";
     adVideo.onended = () => {
       adOverlayRef.current.style.display = "none";
       setIsAdPlaying(false);
@@ -253,11 +255,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
   return (
     <div
       className={`${youtubeStyles.videoPlayerContainer} ${youtubeStyles.responsivePlayer}`}
-      style={{
-        marginTop: "30px",
-        position: "relative",
-        zIndex: 0, // Set initial z-index to 0 for the container
-      }}
+      style={{ position: "relative", marginTop: "30px" }}
     >
       {/* Ad Overlay */}
       {isAdPlaying && (
@@ -274,7 +272,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
             justifyContent: "center",
             alignItems: "center",
             color: "white",
-            zIndex: 10, // Make sure the ad overlay has higher z-index than the video player
+            zIndex: 3, // Ad overlay should be above the iframe
           }}
         >
           <div style={{ textAlign: "center" }}>
@@ -295,14 +293,12 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                   fontWeight: "bold",
                   fontSize: "20px",
                   padding: "8px 16px",
-                  marginTop: "20px",
+                  marginTop: "10px",
                   color: "white",
                   border: "none",
                   borderRadius: "5px",
                   cursor: "pointer",
                   textShadow: "1px 1px 0px #000",
-                  zIndex: 11, // Ensure the skip button is above other overlay content
-                  position: "relative",
                 }}
               >
                 Skip Ad
@@ -313,7 +309,6 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                position: "relative",
                 padding: "8px 16px",
                 backgroundColor: "rgba(0, 0, 0, 0.6)",
                 color: "white",
@@ -321,8 +316,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                 fontWeight: "bold",
                 fontSize: "20px",
                 textDecoration: "none",
-                zIndex: 9,
-                marginTop: "10px", // Added margin for spacing below "Skip Ad"
+                marginTop: "10px",
               }}
             >
               Click Now 2 BUY !!!
@@ -345,8 +339,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
           mozAllowFullScreen={true}
           style={{
             borderRadius: "15px",
-            marginTop: "30px", // Adjust margin to make space below the ad overlay
-            zIndex: 0, // Ensure the video player stays below the ad overlay when it's visible
+            zIndex: 1, // Ensure video player has lower z-index than ad overlay
           }}
         />
       )}
