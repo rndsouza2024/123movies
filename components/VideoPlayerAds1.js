@@ -180,7 +180,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import youtubeStyles from "@styles/MovieDetail.module.css"; // Import CSS for the MovieDetail component
 
-const VideoPlayerWithAds = ({ adTagUrl, src }) => {
+const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
   const adOverlayRef = useRef(null);
   const playerRef = useRef(null);
   const [isAdPlaying, setIsAdPlaying] = useState(true);
@@ -299,6 +299,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                   borderRadius: "5px",
                   cursor: "pointer",
                   textShadow: "1px 1px 0px #000",
+                  zIndex: 4, // Ensure the skip button is above the overlay
                 }}
               >
                 Skip Ad
@@ -347,4 +348,4 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
   );
 };
 
-export default VideoPlayerWithAds;
+export default VideoPlayerWithAds1;
