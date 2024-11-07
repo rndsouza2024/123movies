@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import youtubeStyles from "@styles/MovieDetail.module.css"; // Import CSS for the MovieDetail component
 
@@ -16,7 +17,8 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
       const xmlDoc = parser.parseFromString(xml, "application/xml");
 
       // Extract media file URL from VAST XML
-      const mediaFileUrl = xmlDoc.getElementsByTagName("MediaFile")[0].textContent;
+      const mediaFileUrl =
+        xmlDoc.getElementsByTagName("MediaFile")[0].textContent;
       playAd(mediaFileUrl);
     } catch (error) {
       console.error("Error fetching VAST:", error);
@@ -29,6 +31,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
     adVideo.src = adUrl;
     adVideo.controls = true;
     adVideo.autoplay = true;
+    adVideo.muted = true; // Add muted to enable autoplay in most browsers
     adVideo.style.position = "absolute";
     adVideo.style.zIndex = "1";
     adVideo.onended = () => {
@@ -89,7 +92,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
             justifyContent: "center",
             alignItems: "center",
             color: "white",
-            marginTop:"365px",
+            marginTop: "300px",
             zIndex: 2,
           }}
         >
@@ -104,6 +107,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
               >
                 Skip in {countdown} seconds
               </p>
+
             ) : (
               <button
                 onClick={handleSkipAd}
@@ -111,7 +115,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                   fontWeight: "bold",
                   fontSize: "20px",
                   padding: "8px 16px",
-                  marginTop:"365px",
+                  marginTop: "300px",
                   color: "white",
                   border: "none",
                   borderRadius: "5px",
@@ -124,25 +128,62 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                 Skip Ad
               </button>
             )}
+             <a
+              href="https://www.amazon.in/JBL-130NC-Active-Cancellation-Earbuds/dp/B09HGSD4TD?crid=GWDPS7LEBLA9&dib=eyJ2IjoiMSJ9.M6O91hr-Aeegum3J8TgcDgF-GS4ug9Qxzn-RolTSIv3GtakQ8r-lZd6Vam0cF4tPv__OHZbWTVeblSfDQFp9xA270oWGNW39Zi8r00Va4Jk3dYktXoq_YLpr5FjY-BfdGt-jJK_SzrqCIRmR1lyAI4s1BA3151kqmTi_vzFIp3iEXfFxTW-QPDuriUMY3U3LhiWbTSIl50J3eS8xTnIIkV44lJ2Qnus0JlqSm62SgmzrftyoEe1UD91ykqJBtFGTIfzrWV2PSX4P2eJExqtPaxGyvDdC9V7yg4g9ZrMYjD4.H5GALnNJEKZtKRh-S29gz2nSyu_4D0KsL8L4Vsu_XFE&dib_tag=se&keywords=headphones%2BBUDS%2Bnoise%2Bcancellation&qid=1730945886&refinements=p_123%3A233043&rnid=91049095031&s=electronics&sprefix=headphones%2Bbuds%2Bnoise%2Bcancellation%2Celectronics%2C194&sr=1-1&th=1&linkCode=ll1&tag=rnd08c-21&linkId=4139e3dedaea1c1d00bac7faed0cf9f3&language=en_IN&ref_=as_li_ss_tl"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                position: "relative",
+                padding: "8px 16px",
+                backgroundColor: "rgba(0, 0, 0, 0.6)",
+                color: "white",
+                borderRadius: "5px",
+                fontSize: "16px",
+                fontWeight: "bold",
+                textDecoration: "none",
+                zIndex: 3,
+                marginTop: "10px", // Added margin for spacing below "Skip Ad"
+              }}
+            >
+              Click Now
+            </a>
+       
           </div>
+      
         </div>
+        
       )}
 
       {!isAdPlaying && src && (
-        <iframe
-          ref={playerRef}
-          src={src}
-          width="100%"
-          height="100%"
-          allowFullScreen
-          allow="fullscreen; picture-in-picture"
-          webkitAllowFullScreen={true}
-          mozAllowFullScreen={true}
-          style={{ borderRadius: "15px",  marginTop:"365px", zIndex: 1 }}
-        />
+   
+          <iframe
+            ref={playerRef}
+            src={src}
+            width="100%"
+            height="100%"
+            allowFullScreen
+            autoplay
+            allow="fullscreen; picture-in-picture"
+            webkitAllowFullScreen={true}
+            mozAllowFullScreen={true}
+            style={{ borderRadius: "15px", marginTop: "300px", zIndex: 1 }}
+          />
+          
       )}
     </div>
   );
 };
 
 export default VideoPlayerWithAds;
+
+
+
+
+
+
+
+
+
+
+
+

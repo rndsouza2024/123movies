@@ -5,7 +5,7 @@ import AdultSkipAds from "../../../components/AdultSkipAds";
 import GoogleTranslate from "../../../components/GoogleTranslate";
 import SocialSharing from "../../../components/SocialSharing";
 import SearchComponent from "../../../components/SearchComponent";
-import VideoPlayerAds from "../../../components/VideoPlayerAds";
+import VideoPlayerAds1 from "../../../components/VideoPlayerAds1";
 import Rating from "../../../components/Rating";
 import buttonStyles from "../../../styles/Button.module.css"; // Rename the import for the button styles
 import HomeStyles from "@styles/styles.module.css";
@@ -52,7 +52,7 @@ export default function MovieDetail({ movie }) {
   }
 
   const adTagUrl =
-    "https://raw.githubusercontent.com/veigasjeff/video-ads/main/vast.xml"; // VAST ad tag URL
+    "https://raw.githubusercontent.com/veigasjeff/video-ads/refs/heads/main/vast1.xml"; // VAST ad tag URL
   const [randommovies, setRandommovies] = useState([]);
 
   // Function to fetch data and set state
@@ -934,7 +934,7 @@ export default function MovieDetail({ movie }) {
               >
                 {/* Video Player */}
                 {/* Ad Overlay */}
-                <VideoPlayerAds adTagUrl={adTagUrl} />
+                <VideoPlayerAds1 adTagUrl={adTagUrl} />
 
                 {src ? (
                   <iframe
