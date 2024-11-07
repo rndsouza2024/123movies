@@ -73,6 +73,13 @@
     color: white;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 2;
+    pointer-events: none; /* Disable pointer events by default */
+    display: none; /* Initially hidden */
+  }
+
+  .adOverlay.active {
+    display: flex; /* Show overlay when ad is playing */
+    pointer-events: all; /* Enable pointer events when active */
   }
 
   .adOverlayContent {
