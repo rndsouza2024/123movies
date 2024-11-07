@@ -279,6 +279,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
             target="_blank"
             rel="noopener noreferrer"
             style={{
+              marginTop:"20px",
               position: "relative",
               top: "10px",
               right: "10px",
