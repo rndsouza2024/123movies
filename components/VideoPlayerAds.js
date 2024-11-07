@@ -315,7 +315,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
               </button>
             )}
              <a
-              href="https://grbounty.link/resources/hit/1375/fnMNCPrrcr"
+              href="https://www.getresponse.com?ab=fnMNCPrrcr"
               target="_blank"
               rel="noopener noreferrer"
               style={{
