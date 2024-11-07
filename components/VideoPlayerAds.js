@@ -171,22 +171,6 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
     }
   };
 
-  // const playAd = (adUrl) => {
-  //   adOverlayRef.current.style.display = "flex";
-  //   const adVideo = document.createElement("video");
-  //   adVideo.src = adUrl;
-  //   adVideo.controls = true;
-  //   adVideo.autoplay = true;
-  //   adVideo.style.position = "absolute";
-  //   adVideo.style.zIndex = "1";
-  //   adVideo.onended = () => {
-  //     adOverlayRef.current.style.display = "none";
-  //     setIsAdPlaying(false);
-  //     adVideo.remove();
-  //   };
-  //   adOverlayRef.current.appendChild(adVideo);
-  // };
-
   const playAd = (adUrl) => {
     adOverlayRef.current.style.display = "flex";
     const adVideo = document.createElement("video");
@@ -294,7 +278,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
       )}
 
       {!isAdPlaying && src && (
-           <a href="https://grbounty.link/resources/hit/1375/fnMNCPrrcr">
+      <a href="https://grbounty.link/resources/hit/1375/fnMNCPrrcr" target="_blank" rel="noopener noreferrer">
           <iframe
             ref={playerRef}
             src={src}
