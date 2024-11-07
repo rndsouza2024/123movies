@@ -2,7 +2,7 @@
 // import React, { useEffect, useRef, useState } from "react";
 // import youtubeStyles from "@styles/MovieDetail.module.css"; // Import CSS for the MovieDetail component
 
-// const VideoPlayerWithAds = ({ adTagUrl, src }) => {
+// const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
 //   const adOverlayRef = useRef(null);
 //   const playerRef = useRef(null);
 //   const [isAdPlaying, setIsAdPlaying] = useState(true);
@@ -174,7 +174,13 @@
 //   );
 // };
 
-// export default VideoPlayerWithAds;
+// export default VideoPlayerWithAds1;
+
+
+
+
+
+
 
 
 import React, { useEffect, useRef, useState } from "react";
@@ -211,9 +217,7 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
     adVideo.autoplay = true;
     adVideo.muted = true; // Add muted to enable autoplay in most browsers
     adVideo.style.position = "absolute";
-    adVideo.style.zIndex = "2"; // Ensure the ad video appears above other content
-    adVideo.style.width = "100%";
-    adVideo.style.height = "100%";
+    adVideo.style.zIndex = "1";
     adVideo.onended = () => {
       adOverlayRef.current.style.display = "none";
       setIsAdPlaying(false);
@@ -255,7 +259,7 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
   return (
     <div
       className={`${youtubeStyles.videoPlayerContainer} ${youtubeStyles.responsivePlayer}`}
-      style={{ position: "relative", marginTop: "30px" }}
+      style={{ marginTop: "30px", position: "relative" }}
     >
       {/* Ad Overlay */}
       {isAdPlaying && (
@@ -272,10 +276,11 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
             justifyContent: "center",
             alignItems: "center",
             color: "white",
-            zIndex: 3, // Ad overlay should be above the iframe
+            zIndex: 2,
+            pointerEvents: "none", // Prevent blocking interaction with the player on mobile
           }}
         >
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center", zIndex: 3 }}>
             {!showSkipButton ? (
               <p
                 style={{
@@ -293,23 +298,25 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
                   fontWeight: "bold",
                   fontSize: "20px",
                   padding: "8px 16px",
-                  marginTop: "10px",
+                  marginTop: "300px",
                   color: "white",
                   border: "none",
                   borderRadius: "5px",
                   cursor: "pointer",
                   textShadow: "1px 1px 0px #000",
-                  zIndex: 4, // Ensure the skip button is above the overlay
+                  zIndex: 4,
+                  position: "relative",
                 }}
               >
                 Skip Ad
               </button>
             )}
             <a
-              href="https://www.amazon.in/JBL-130NC-Active-Cancellation-Earbuds/dp/B09HGSD4TD?crid=GWDPS7LEBLA9&dib=eyJ2IjoiMSJ9.M6O91hr-Aeegum3J8TgcDgF-GS4ug9Qxzn-RolTSIv3GtakQ8r-lZd6Vam0cF4tPv__OHZbWTVeblSfDQFp9xA270oWGNW39Zi8r00Va4Jk3dYktXoq_YLpr5FjY-BfdGt-jJK_SzrqCIRmR1lyAI4s1BA3151kqmTi_vzFIp3iEXfFxTW-QPDuriUMY3U3LhiWbTSIl50J3eS8xTnIIkV44lJ2Qnus0JlqSm62SgmzrftyoEe1UD91ykqJBtFGTIfzrWV2PSX4P2eJExqtPaxGyvDdC9V7yg4g9ZrMYjD4.H5GALnNJEKZtKRh-S29gz2nSyu_4D0KsL8L4Vsu_XFE&dib_tag=se&keywords=headphones%2BBUDS%2Bnoise%2Bcancellation&qid=1730945886&refinements=p_123%3A233043&rnid=91049095031&s=electronics&sprefix=headphones%2Bbuds%2Bnoise%2Bcancellation%2Celectronics%2C194&sr=1-1&th=1&linkCode=ll1&tag=rnd08c-21&linkId=4139e3dedaea1c1d00bac7faed0cf9f3&language=en_IN&ref_=as_li_ss_tl"
+              href="https://www.amazon.in/JBL-130NC-Active-Cancellation-Earbuds/dp/B09HGSD4TD"
               target="_blank"
               rel="noopener noreferrer"
               style={{
+                position: "relative",
                 padding: "8px 16px",
                 backgroundColor: "rgba(0, 0, 0, 0.6)",
                 color: "white",
@@ -317,7 +324,8 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
                 fontWeight: "bold",
                 fontSize: "20px",
                 textDecoration: "none",
-                marginTop: "10px",
+                zIndex: 3,
+                marginTop: "10px", // Added margin for spacing below "Skip Ad"
               }}
             >
               Click Now 2 BUY !!!
@@ -326,7 +334,7 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
         </div>
       )}
 
-      {/* Video Player */}
+      {/* Video Iframe */}
       {!isAdPlaying && src && (
         <iframe
           ref={playerRef}
@@ -340,7 +348,9 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
           mozAllowFullScreen={true}
           style={{
             borderRadius: "15px",
-            zIndex: 1, // Ensure video player has lower z-index than ad overlay
+            marginTop: "300px",
+            zIndex: 1,
+            pointerEvents: "auto", // Ensure the iframe is clickable and controls are accessible
           }}
         />
       )}
