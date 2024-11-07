@@ -96,7 +96,7 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
             zIndex: 2,
           }}
         >
-          <div style={{ textAlign: "center", zIndex: 5 }}>
+          <div style={{ textAlign: "center", zIndex: 2 }}>
             {!showSkipButton ? (
               <p
                 style={{
@@ -139,7 +139,7 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
                 borderRadius: "5px",
                 cursor: "pointer",
                 textShadow: "1px 1px 0px #000",
-                zIndex: 5,
+                zIndex: 2,
                 position: "relative",
               }}
             >
