@@ -259,8 +259,8 @@ const HomePage = ({ categorizedItems }) => {
         <SearchComponent />
       </span>
        
-       
-      <Script src="https://grbounty.link/resources.js?id=1983&name=fnMNCPrrcr" data-affiliate="true" type="text/javascript"></Script>
+
+      <a href="https://grbounty.link/resources/hit/1983/fnMNCPrrcr"><img src="https://grbounty.link/resources/view/1983/fnMNCPrrcr" alt="GetResponse: Content Monetization"/></a>
 
         {/* Category Tabs */}
         <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
