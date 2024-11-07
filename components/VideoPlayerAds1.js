@@ -145,7 +145,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                 marginTop: "10px", // Added margin for spacing below "Skip Ad"
               }}
             >
-              Click Now
+              Click Now 2 BUY !!!
             </a>
        
           </div>
