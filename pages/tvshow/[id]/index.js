@@ -5,7 +5,7 @@ import AdultSkipAds from "../../../components/AdultSkipAds";
 import GoogleTranslate from "../../../components/GoogleTranslate";
 import SocialSharing from "../../../components/SocialSharing";
 import SearchComponent from "../../../components/SearchComponent";
-import VideoPlayerAds1 from "../../../components/VideoPlayerAds1";
+import VideoPlayerAds from "../../../components/VideoPlayerAds";
 import Rating from "../../../components/Rating";
 import buttonStyles from "../../../styles/Button.module.css"; // Rename the import for the button styles
 import HomeStyles from "@styles/styles.module.css";
@@ -949,7 +949,7 @@ export default function MovieDetail({ movie }) {
               >
                 {/* Video Player */}
                 {/* Ad Overlay */}
-                <VideoPlayerAds1 adTagUrl={adTagUrl} />
+                <VideoPlayerAds adTagUrl={adTagUrl} />
 
                 <div className="flex flex-col items-center justify-center relative z-10 mt-4 space-y-4 ">
                   <button
