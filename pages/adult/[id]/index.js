@@ -365,12 +365,10 @@ export default function MovieDetail({ movie }) {
         <meta property="og:description" content={movie.synopsis} />
         <meta property="og:image" content={movie.image1} />
         <meta name="keywords" content={movie.keywords} />
-        {/* <meta
+        <meta
           name="keywords"
           content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
-        /> */}
-          <meta name="keywords"
-        content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free" />
+        />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta property="og:image:width" content="1200" />

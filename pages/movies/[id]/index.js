@@ -371,7 +371,7 @@ export default function MovieDetail({ movie }) {
         <meta name="keywords" content={movie.keywords} />
         <meta
           name="keywords"
-         content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
+          content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
         />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
