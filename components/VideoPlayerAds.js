@@ -289,7 +289,7 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
               fontSize: "16px",
               fontWeight: "bold",
               textDecoration: "none",
-              zIndex: 3,
+              zIndex: 4,
             }}
           >
             Click Now
