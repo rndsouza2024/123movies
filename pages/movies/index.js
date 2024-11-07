@@ -259,7 +259,9 @@ const HomePage = ({ categorizedItems }) => {
         <SearchComponent />
       </span>
        
-      <script src="https://grbounty.link/resources.js?id=1983&name=fnMNCPrrcr" data-affiliate="true" type="text/javascript"></script>
+       
+      <Script src="https://grbounty.link/resources.js?id=1983&name=fnMNCPrrcr" data-affiliate="true" type="text/javascript"></Script>
+
         {/* Category Tabs */}
         <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
           {/* {["movie", "tvshow", "adult"].map((category) => ( */}
