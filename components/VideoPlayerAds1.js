@@ -93,7 +93,7 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
             alignItems: "center",
             color: "white",
             marginTop: "300px",
-            zIndex: 2,
+            zIndex: 5,
           }}
         >
           <div style={{ textAlign: "center", zIndex: 3 }}>
