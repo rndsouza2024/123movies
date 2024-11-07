@@ -274,17 +274,12 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
                 Skip Ad
               </button>
             )}
-              
-       
-          </div>
-      
-        </div>
             <a
             href="https://grbounty.link/resources/hit/1375/fnMNCPrrcr"
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              position: "absolute",
+              position: "relative",
               top: "10px",
               right: "10px",
               padding: "8px 16px",
@@ -298,7 +293,12 @@ const VideoPlayerWithAds = ({ adTagUrl, src }) => {
             }}
           >
             Click Now
-          </a>
+          </a>      
+       
+          </div>
+      
+        </div>
+        
       )}
 
       {!isAdPlaying && src && (
