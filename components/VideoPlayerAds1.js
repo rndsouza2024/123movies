@@ -160,7 +160,7 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
                 fontWeight: "bold",
                 fontSize: "20px",
                 textDecoration: "none",
-                zIndex: 3,
+                zIndex: 2,
                 marginTop: "10px", // Added margin for spacing below "Skip Ad"
               }}
             >
