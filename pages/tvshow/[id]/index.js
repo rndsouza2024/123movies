@@ -943,15 +943,7 @@ export default function MovieDetail({ movie }) {
                   {movie.title}
                 </h2>
               </div>
-              <div
-                className={styles.videoPlayerContainer}
-                style={{ marginTop: "15px" }}
-              >
-                {/* Video Player */}
-                {/* Ad Overlay */}
-                <VideoPlayerAds adTagUrl={adTagUrl} />
-
-                <div className="flex flex-col items-center justify-center relative z-10 mt-4 space-y-4 ">
+              <div className="flex flex-col items-center justify-center relative z-10 mt-4 space-y-4 ">
                   <button
                     onClick={handleNextEpisode}
                     className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -965,6 +957,15 @@ export default function MovieDetail({ movie }) {
                     Next Episode
                   </button>
                 </div>
+              <div
+                className={styles.videoPlayerContainer}
+                style={{ marginTop: "15px" }}
+              >
+                {/* Video Player */}
+                {/* Ad Overlay */}
+                <VideoPlayerAds adTagUrl={adTagUrl} />
+
+             
                 {src ? (
                            <iframe
                            ref={playerRef}
