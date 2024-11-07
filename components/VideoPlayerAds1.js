@@ -109,24 +109,42 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
               </p>
 
             ) : (
+              // <button
+              //   onClick={handleSkipAd}
+              //   style={{
+              //     fontWeight: "bold",
+              //     fontSize: "20px",
+              //     padding: "8px 16px",
+              //     marginTop: "300px",
+              //     color: "white",
+              //     border: "none",
+              //     borderRadius: "5px",
+              //     cursor: "pointer",
+              //     textShadow: "1px 1px 0px #000",
+              //     zIndex: 4,
+              //     position: "relative",
+              //   }}
+              // >
+              //   Skip Ad
+              // </button>
               <button
-                onClick={handleSkipAd}
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "20px",
-                  padding: "8px 16px",
-                  marginTop: "300px",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  textShadow: "1px 1px 0px #000",
-                  zIndex: 4,
-                  position: "relative",
-                }}
-              >
-                Skip Ad
-              </button>
+              onClick={handleSkipAd}
+              style={{
+                fontWeight: "bold",
+                fontSize: "20px",
+                padding: "8px 16px",
+                marginTop: "300px",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+                textShadow: "1px 1px 0px #000",
+                zIndex: 4,
+                position: "relative",
+              }}
+            >
+              Skip Ad
+            </button>
             )}
              <a
               href="https://www.amazon.in/JBL-130NC-Active-Cancellation-Earbuds/dp/B09HGSD4TD?crid=GWDPS7LEBLA9&dib=eyJ2IjoiMSJ9.M6O91hr-Aeegum3J8TgcDgF-GS4ug9Qxzn-RolTSIv3GtakQ8r-lZd6Vam0cF4tPv__OHZbWTVeblSfDQFp9xA270oWGNW39Zi8r00Va4Jk3dYktXoq_YLpr5FjY-BfdGt-jJK_SzrqCIRmR1lyAI4s1BA3151kqmTi_vzFIp3iEXfFxTW-QPDuriUMY3U3LhiWbTSIl50J3eS8xTnIIkV44lJ2Qnus0JlqSm62SgmzrftyoEe1UD91ykqJBtFGTIfzrWV2PSX4P2eJExqtPaxGyvDdC9V7yg4g9ZrMYjD4.H5GALnNJEKZtKRh-S29gz2nSyu_4D0KsL8L4Vsu_XFE&dib_tag=se&keywords=headphones%2BBUDS%2Bnoise%2Bcancellation&qid=1730945886&refinements=p_123%3A233043&rnid=91049095031&s=electronics&sprefix=headphones%2Bbuds%2Bnoise%2Bcancellation%2Celectronics%2C194&sr=1-1&th=1&linkCode=ll1&tag=rnd08c-21&linkId=4139e3dedaea1c1d00bac7faed0cf9f3&language=en_IN&ref_=as_li_ss_tl"
@@ -137,6 +155,7 @@ const VideoPlayerWithAds1 = ({ adTagUrl, src }) => {
                 padding: "8px 16px",
                 backgroundColor: "rgba(0, 0, 0, 0.6)",
                 color: "white",
+                marginTop: "300px",
                 borderRadius: "5px",
                 fontWeight: "bold",
                 fontSize: "20px",
@@ -278,24 +297,24 @@ export default VideoPlayerWithAds1;
 //                 Skip in {countdown} seconds
 //               </p>
 //             ) : (
-//               <button
-//                 onClick={handleSkipAd}
-//                 style={{
-//                   fontWeight: "bold",
-//                   fontSize: "20px",
-//                   padding: "8px 16px",
-//                   marginTop: "10px",
-//                   color: "white",
-//                   border: "none",
-//                   borderRadius: "5px",
-//                   cursor: "pointer",
-//                   textShadow: "1px 1px 0px #000",
-//                   zIndex: 4,
-//                   position: "relative",
-//                 }}
-//               >
-//                 Skip Ad
-//               </button>
+              // <button
+              //   onClick={handleSkipAd}
+              //   style={{
+              //     fontWeight: "bold",
+              //     fontSize: "20px",
+              //     padding: "8px 16px",
+              //     marginTop: "10px",
+              //     color: "white",
+              //     border: "none",
+              //     borderRadius: "5px",
+              //     cursor: "pointer",
+              //     textShadow: "1px 1px 0px #000",
+              //     zIndex: 4,
+              //     position: "relative",
+              //   }}
+              // >
+              //   Skip Ad
+              // </button>
 //             )}
 //           </div>
 //         </div>
