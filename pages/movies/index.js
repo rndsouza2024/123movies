@@ -258,6 +258,8 @@ const HomePage = ({ categorizedItems }) => {
         <span className="px-0 bg-clip-text text-sm text-black font-bold mt-2">
         <SearchComponent />
       </span>
+       
+      <script src="https://grbounty.link/resources.js?id=1983&name=fnMNCPrrcr" data-affiliate="true" type="text/javascript"></script>
         {/* Category Tabs */}
         <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl">
           {/* {["movie", "tvshow", "adult"].map((category) => ( */}
@@ -282,7 +284,7 @@ const HomePage = ({ categorizedItems }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: moviesSchema }}
         />
-        <script src="https://grbounty.link/resources.js?id=1983&name=fnMNCPrrcr" data-affiliate="true" type="text/javascript"></script>
+       
         {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex justify-center mt-4">
