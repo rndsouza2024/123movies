@@ -364,7 +364,7 @@ export default function Home() {
 
   return (
     <div>
-        <Head>
+      <Head>
         <title>MoviesFree™ - Online. Stream. Download.</title>
 
         <link
@@ -400,14 +400,14 @@ export default function Home() {
           name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
-        <meta
-          name="keywords"
-          content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
-        />
         {/* <meta
           name="keywords"
-          content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
+          content="moviefree, movie free 2024, free movie, free tv shows, watch movie online, free movies online, free movie streaming, movie free streaming, download free"
         /> */}
+        <meta
+          name="keywords"
+          content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
+        />
         <meta
           property="og:description"
           content="Watch free movies and TV shows online—explore top titles, discover new releases, and start streaming now!"
@@ -565,7 +565,11 @@ export default function Home() {
             // className={activeTab === "movies" ? "active" : ""}
             className={`bg-blue-500 ${activeTab === "movies" ? "active" : ""}`}
             onClick={() => setActiveTab("movies")}
-            style={{ textShadow: "1px 1px 0px #000", fontWeight: "bold", fontSize:"16px"}}
+            style={{
+              textShadow: "1px 1px 0px #000",
+              fontWeight: "bold",
+              fontSize: "16px",
+            }}
           >
             Movies
           </button>
@@ -573,15 +577,25 @@ export default function Home() {
             // className={activeTab === "adult" ? "active" : ""}
             className={`bg-red-500 ${activeTab === "adult" ? "active" : ""}`}
             onClick={() => setActiveTab("adult")}
-            style={{ textShadow: "1px 1px 0px #000", fontWeight: "bold", fontSize:"16px" }}
+            style={{
+              textShadow: "1px 1px 0px #000",
+              fontWeight: "bold",
+              fontSize: "16px",
+            }}
           >
             Adult
           </button>
           <button
             // className={activeTab === "tvShows" ? "active" : ""}
-            className={`bg-green-500 ${activeTab === "tvShows" ? "active" : ""}`}
+            className={`bg-green-500 ${
+              activeTab === "tvShows" ? "active" : ""
+            }`}
             onClick={() => setActiveTab("tvShows")}
-            style={{ textShadow: "1px 1px 0px #000", fontWeight: "bold",  fontSize:"16px"}}
+            style={{
+              textShadow: "1px 1px 0px #000",
+              fontWeight: "bold",
+              fontSize: "16px",
+            }}
           >
             TV Shows
           </button>
@@ -592,7 +606,12 @@ export default function Home() {
           <section>
             <h2
               className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-blue-500 text-white hover:bg-blue-800"
-              style={{ textShadow: "1px 1px 0px #000", fontWeight: "bold",  fontSize:"20px",textAlign: "center", }} 
+              style={{
+                textShadow: "1px 1px 0px #000",
+                fontWeight: "bold",
+                fontSize: "20px",
+                textAlign: "center",
+              }}
             >
               Movies
             </h2>
@@ -729,9 +748,14 @@ export default function Home() {
         {/* Adult Movies Section */}
         {activeTab === "adult" && (
           <section>
-           <h2
+            <h2
               className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-red-500 text-white hover:bg-red-800"
-              style={{ textShadow: "1px 1px 0px #000", fontWeight: "bold",  fontSize:"20px",textAlign: "center", }} 
+              style={{
+                textShadow: "1px 1px 0px #000",
+                fontWeight: "bold",
+                fontSize: "20px",
+                textAlign: "center",
+              }}
             >
               Adult{" "}
             </h2>
@@ -870,7 +894,12 @@ export default function Home() {
           <section>
             <h2
               className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-green-500 text-white hover:bg-green-800"
-              style={{ textShadow: "1px 1px 0px #000", fontWeight: "bold",  fontSize:"20px",textAlign: "center", }} 
+              style={{
+                textShadow: "1px 1px 0px #000",
+                fontWeight: "bold",
+                fontSize: "20px",
+                textAlign: "center",
+              }}
             >
               TV Shows
             </h2>
@@ -1007,118 +1036,118 @@ export default function Home() {
         {/* Repeat for Adult and TV Shows sections with similar structure */}
 
         {showPopup && popupContent && (
-  <div
-    className="popup-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
-    style={{ zIndex: 9998 }} // Ensure overlay is in front of other elements
-  >
-    {/* Smaller container for better visibility */}
-    <div
-      className="popup-content bg-white rounded-lg p-4 w-full sm:w-3/4 lg:w-2/3 max-w-full max-h-[80vh] relative flex flex-col overflow-auto"
-      style={{ zIndex: 9999 }} // Ensure popup content is in front
-    >
-      {/* Close button with proper visibility and accessibility */}
-      <button
-        onClick={closePopup}
-        className="absolute top-4 right-4 text-3xl font-bold text-black"
-        style={{ zIndex: 10000 }} // Ensure close button stays on top of everything else
-      >
-        &#10005; {/* Close icon */}
-      </button>
+          <div
+            className="popup-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+            style={{ zIndex: 9998 }} // Ensure overlay is in front of other elements
+          >
+            {/* Smaller container for better visibility */}
+            <div
+              className="popup-content bg-white rounded-lg p-4 w-full sm:w-3/4 lg:w-2/3 max-w-full max-h-[80vh] relative flex flex-col overflow-auto"
+              style={{ zIndex: 9999 }} // Ensure popup content is in front
+            >
+              {/* Close button with proper visibility and accessibility */}
+              <button
+                onClick={closePopup}
+                className="absolute top-4 right-4 text-3xl font-bold text-black"
+                style={{ zIndex: 10000 }} // Ensure close button stays on top of everything else
+              >
+                &#10005; {/* Close icon */}
+              </button>
 
-      {/* Check if the content is valid */}
-      {popupContent && (
-        <>
-          {/* <VideoPlayerAds adTagUrl={adTagUrl} /> */}
-          {/* Movie/Show title */}
-          <h2 className="text-gray-800 mb-4 text-center flex-grow px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl hover:text-blue-800 font-bold mt-2">
-            {popupContent.title}
-          </h2>
+              {/* Check if the content is valid */}
+              {popupContent && (
+                <>
+                  {/* <VideoPlayerAds adTagUrl={adTagUrl} /> */}
+                  {/* Movie/Show title */}
+                  <h2 className="text-gray-800 mb-4 text-center flex-grow px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl hover:text-blue-800 font-bold mt-2">
+                    {popupContent.title}
+                  </h2>
 
-          {/* Iframe for video */}
-          <iframe
-            src={src}
-            adTagUrl={adTagUrl}
-            width="100%"
-            height="auto"
-            frameBorder="0"
-            allowFullScreen
-            className="max-w-full aspect-video mb-4"
-            style={{
-              aspectRatio: "16 / 9",
-              maxHeight: "100%",
-              boxShadow: "0 0 10px 0 #000",
-              filter: "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
-              borderRadius: "1%",
-            }}
-          />
+                  {/* Iframe for video */}
+                  <iframe
+                    src={src}
+                    adTagUrl={adTagUrl}
+                    width="100%"
+                    height="auto"
+                    frameBorder="0"
+                    allowFullScreen
+                    className="max-w-full aspect-video mb-4"
+                    style={{
+                      aspectRatio: "16 / 9",
+                      maxHeight: "100%",
+                      boxShadow: "0 0 10px 0 #000",
+                      filter:
+                        "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
+                      borderRadius: "1%",
+                    }}
+                  />
 
-          {/* Player selection buttons */}
-          <div className="flex flex-col items-center mt-4 gap-4">
-            <div className="flex flex-wrap justify-center gap-4">
-              {currentVideoSources.map((source, index) => (
-                <button
-                  key={index}
-                  onClick={() => handlePlayerSelect(index)}
-                  className={`px-4 py-2 rounded-lg font-semibold ${
-                    currentPlayerIndex === index
-                      ? "bg-red-500 text-white"
-                      : "bg-gray-200 text-black"
-                  } hover:bg-green-500 hover:text-white transition duration-300 ease-in-out`}
-                  style={{
-                    border: "none",
-                    fontWeight: "bold",
-                    cursor: "pointer",
-                    textShadow: "1px 1px 0px #000",
-                  }}
-                >
-                  Player {index + 1}
-                </button>
-              ))}
+                  {/* Player selection buttons */}
+                  <div className="flex flex-col items-center mt-4 gap-4">
+                    <div className="flex flex-wrap justify-center gap-4">
+                      {currentVideoSources.map((source, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handlePlayerSelect(index)}
+                          className={`px-4 py-2 rounded-lg font-semibold ${
+                            currentPlayerIndex === index
+                              ? "bg-red-500 text-white"
+                              : "bg-gray-200 text-black"
+                          } hover:bg-green-500 hover:text-white transition duration-300 ease-in-out`}
+                          style={{
+                            border: "none",
+                            fontWeight: "bold",
+                            cursor: "pointer",
+                            textShadow: "1px 1px 0px #000",
+                          }}
+                        >
+                          Player {index + 1}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Conditionally render previous and next episode buttons if it's a TV show */}
+                  {tvshow?.badge === "TV Show" && (
+                    <div className="flex justify-between w-full mt-4 px-4 sm:px-8 mb-4">
+                      <button
+                        onClick={handlePreviousEpisode}
+                        disabled={currentEpisodeIndex === 0}
+                        className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50"
+                        style={{
+                          border: "none",
+                          fontWeight: "bold",
+                          cursor: "pointer",
+                          textShadow: "1px 1px 0px #000",
+                        }}
+                      >
+                        Previous
+                      </button>
+
+                      <h2 className="text-center flex-grow px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl hover:text-blue-800 font-bold mt-2">
+                        Use Only for Episode in TV Show
+                      </h2>
+
+                      <button
+                        onClick={handleNextEpisode}
+                        disabled={false}
+                        className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50"
+                        style={{
+                          border: "none",
+                          fontWeight: "bold",
+                          cursor: "pointer",
+                          textShadow: "1px 1px 0px #000",
+                        }}
+                      >
+                        Next
+                      </button>
+                    </div>
+                  )}
+                </>
+              )}
             </div>
           </div>
-
-          {/* Conditionally render previous and next episode buttons if it's a TV show */}
-          {tvshow?.badge === "TV Show" && (
-            <div className="flex justify-between w-full mt-4 px-4 sm:px-8 mb-4">
-              <button
-                onClick={handlePreviousEpisode}
-                disabled={currentEpisodeIndex === 0}
-                className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50"
-                style={{
-                  border: "none",
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                  textShadow: "1px 1px 0px #000",
-                }}
-              >
-                Previous
-              </button>
-
-              <h2 className="text-center flex-grow px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl hover:text-blue-800 font-bold mt-2">
-                Use Only for Episode in TV Show
-              </h2>
-
-              <button
-                onClick={handleNextEpisode}
-                disabled={false}
-                className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50"
-                style={{
-                  border: "none",
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                  textShadow: "1px 1px 0px #000",
-                }}
-              >
-                Next
-              </button>
-            </div>
-          )}
-        </>
-      )}
-    </div>
-  </div>
-)}
-
+        )}
       </main>
 
       <style jsx>{`
@@ -1138,7 +1167,7 @@ export default function Home() {
           cursor: pointer;
         }
         .tabs button.active {
-          background: #C0C0C0;
+          background: #c0c0c0;
           color: white;
         }
         .movie-list,
