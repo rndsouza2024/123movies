@@ -9,30 +9,30 @@ import Head from 'next/head';
 
 function Application({ Component, pageProps }) {
 
-  // useEffect(() => {
-  //   // Dynamically load the Ko-fi widget script
-  //   const kofiScript = document.createElement('script');
-  //   kofiScript.src = 'https://storage.ko-fi.com/cdn/scripts/overlay-widget.js';
-  //   kofiScript.async = true;
+  useEffect(() => {
+    // Dynamically load the Ko-fi widget script
+    const kofiScript = document.createElement('script');
+    kofiScript.src = 'https://storage.ko-fi.com/cdn/scripts/overlay-widget.js';
+    kofiScript.async = true;
 
-  //   kofiScript.onload = () => {
-  //     console.log("Ko-fi widget loaded.");
-  //     if (typeof kofiWidgetOverlay !== 'undefined') {
-  //       kofiWidgetOverlay.draw('payat', {
-  //         'type': 'floating-chat',
-  //         'floating-chat.donateButton.text': 'Support me',
-  //         'floating-chat.donateButton.background-color': '#00b9fe',
-  //         'floating-chat.donateButton.text-color': '#fff'
-  //       });
-  //     }
-  //   };
+    kofiScript.onload = () => {
+      console.log("Ko-fi widget loaded.");
+      if (typeof kofiWidgetOverlay !== 'undefined') {
+        kofiWidgetOverlay.draw('payat', {
+          'type': 'floating-chat',
+          'floating-chat.donateButton.text': 'Support me',
+          'floating-chat.donateButton.background-color': '#00b9fe',
+          'floating-chat.donateButton.text-color': '#fff'
+        });
+      }
+    };
 
-  //   document.body.appendChild(kofiScript);
+    document.body.appendChild(kofiScript);
 
-  //   return () => {
-  //     document.body.removeChild(kofiScript);
-  //   };
-  // }, []);
+    return () => {
+      document.body.removeChild(kofiScript);
+    };
+  }, []);
 
 
   return (
