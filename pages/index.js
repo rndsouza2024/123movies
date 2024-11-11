@@ -674,7 +674,7 @@ export default function Home() {
                   <Image
                     src={movie.image}
                     alt={movie.title}
-                    className="rounded-xl zoom-image"
+                      className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-110"
                     width={500}
                     height={750}
                     quality={90}
@@ -819,7 +819,7 @@ export default function Home() {
                   <Image
                     src={movie.image}
                     alt={movie.title}
-                    className="rounded-xl zoom-image"
+                    className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-110"
                     width={500}
                     height={750}
                     quality={90}
@@ -968,7 +968,7 @@ export default function Home() {
                     width={500}
                     height={750}
                     quality={90}
-                    className="rounded-xl zoom-image"
+                    className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-110"
                     layout="intrinsic"
                     style={{
                       width: "100%",
@@ -1204,20 +1204,6 @@ export default function Home() {
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
           }
-        }
-        .image-container {
-          overflow: hidden; /* Hides the overflowed part when zoomed */
-          display: inline-block; /* Ensures the image maintains its size */
-        }
-
-        .zoom-image {
-          width: 100%;
-          height: auto;
-          transition: transform 0.3s ease-in-out; /* Smooth transition */
-        }
-
-        .zoom-image:hover {
-          transform: scale(1.2); /* Zoom effect on hover */
         }
       `}</style>
     </div>
