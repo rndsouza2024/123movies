@@ -147,7 +147,7 @@
 //   );
 // }
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -170,8 +170,6 @@ export default function Home() {
   const [popupContent, setPopupContent] = useState(null);
   const itemsPerPage = 30;
   const [tvshow, setTvshow] = useState(null); // Or get it from an API or other state
-  // Filter out adult content from regular movies
-  // const tvShowsWithEpisodes = tvShows.filter((show) => show.episode);
 
   const regularMovies = movies.filter(
     (movie) => !movie.badge || !movie.badge.includes("[ Adult ]")
@@ -1099,7 +1097,10 @@ export default function Home() {
                       </button>
 
                       <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold hover:text-blue-800">
-                        Episode Navigation
+                        Episode Navigation{" "}
+                        {tvShows && tvShows.length > 0 && tvShows[0]?.episode
+                          ? tvShows[0].episode
+                          : "No episode information available"}
                       </h2>
 
                       <button
