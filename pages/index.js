@@ -1097,7 +1097,7 @@ export default function Home() {
                       </button>
 
                       <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold hover:text-blue-800">
-                      Episode Navigation {movie.episode}
+                      Episode Navigation {movies.episode}
                       </h2>
 
                       <button
