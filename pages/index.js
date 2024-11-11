@@ -146,6 +146,7 @@
 //     </div>
 //   );
 // }
+
 import React, { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 import Image from "next/image";
@@ -155,13 +156,10 @@ import styles from "@styles/styles.module.css";
 import SocialSharing from "../components/SocialSharing";
 import VideoPlayerAds from "../components/VideoPlayerAds";
 import SearchComponent from "../components/SearchComponent";
-import fs from "fs";
-import path from "path";
-
-// Importing JSON data dynamically
-import movies from "../public/movies.json";
-import tvShows from "../public/tvshow.json";
-import adultMovies from "../public/adult.json";
+// Importing JSON data directly
+import movies from "../public/movies.json"; // Replace with correct path
+import tvShows from "../public/tvshow.json"; // Replace with correct path
+import adultMovies from "../public/adult.json"; // Replace with correct path
 
 export async function getStaticPaths() {
   // Read Movies Data
@@ -236,7 +234,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function Home({ item }) {
+export default function Home() {
   const [activeTab, setActiveTab] = useState("movies");
   const [moviePage, setMoviePage] = useState(1);
   const [adultPage, setAdultPage] = useState(1);
