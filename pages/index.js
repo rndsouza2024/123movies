@@ -668,13 +668,13 @@ export default function Home() {
               {getPaginatedItems(regularMovies, moviePage).map((movie) => (
                 <div
                   key={movie.id}
-                  className="movie-item"
+                  className="movie-item relative overflow-hidden"
                   onClick={() => handleImageClick(movie)}
                 >
                   <Image
                     src={movie.image}
                     alt={movie.title}
-                      className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-100"
+                      className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-110"
                     width={500}
                     height={750}
                     quality={90}
@@ -813,13 +813,13 @@ export default function Home() {
               {getPaginatedItems(adultMovies, adultPage).map((movie) => (
                 <div
                   key={movie.id}
-                  className="movie-item"
+                  className="movie-item relative overflow-hidden"
                   onClick={() => handleImageClick(movie)}
                 >
                   <Image
                     src={movie.image}
                     alt={movie.title}
-                    className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-100"
+                    className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-110"
                     width={500}
                     height={750}
                     quality={90}
@@ -959,7 +959,7 @@ export default function Home() {
                 // <div key={show.id} className="tv-show-item">
                 <div
                   key={show.id}
-                  className="tv-show-item"
+                  className="tv-show-item relative overflow-hidden"
                   onClick={() => handleImageClick(show)}
                 >
                   <Image
@@ -968,7 +968,7 @@ export default function Home() {
                     width={500}
                     height={750}
                     quality={90}
-                    className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-100"
+                    className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-110"
                     layout="intrinsic"
                     style={{
                       width: "100%",
