@@ -687,6 +687,7 @@ export default function Home() {
                       filter:
                         "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
                     }}
+                    className="zoom-image" // Add a custom class
                   />
                   <h3 style={{ textShadow: "1px 1px 0px #000" }}>
                     {movie.title}{" "}
@@ -832,6 +833,7 @@ export default function Home() {
                       filter:
                         "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
                     }}
+                    className="zoom-image" // Add a custom class
                   />
                   <h3 style={{ textShadow: "1px 1px 0px #000" }}>
                     {movie.title}{" "}
@@ -978,6 +980,7 @@ export default function Home() {
                       filter:
                         "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
                     }}
+                    className="zoom-image" // Add a custom class
                   />
                   <h3 style={{ textShadow: "1px 1px 0px #000" }}>
                     {show.title}
@@ -1204,6 +1207,10 @@ export default function Home() {
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
           }
+        }
+        .zoom-image:hover {
+          transform: scale(1.1); // Zoom effect
+          filter: contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg); // Maintain filter effects
         }
       `}</style>
     </div>
