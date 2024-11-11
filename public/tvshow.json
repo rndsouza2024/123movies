@@ -3,6 +3,7 @@
         "title": "Watch Nautilus Season 1 (2024)",
         "name": "Nautilus Season 1 (2024) Tv Series",
         "image": "https://res.cloudinary.com/db36kfuq3/image/upload/c_scale,h_750,w_500/v1730889637/Nautilus.S01_mogasz.webp",
+        "episode": "8",
         "videomovieitem": [
             "jZoEcO_F_",
             "vjz2IlZH6",
@@ -33,6 +34,7 @@
         "title": "Watch The Office AU Season 1 (2024)",
         "name": "The Office AU Season 1 (2024) Tv Series",
         "image": "https://res.cloudinary.com/db36kfuq3/image/upload/c_scale,h_750,w_500/v1730889636/The.Office.AU.S01_wevf7o.webp",
+        "episode": "8",
         "videomovieitem": [
             "SRty62Dz2",
             "RRe6DoxqB",
@@ -59,6 +61,7 @@
         "title": "Watch Doctor Who Season 1 (2023)",
         "name": "Doctor Who Season 1 (2023) Tv Series",
         "image": "https://res.cloudinary.com/db36kfuq3/image/upload/c_scale,h_750,w_500/v1730889637/Doctor.Who.2023.S01_zpdufe.webp",
+        "episode": "8",
         "videomovieitem": [
             "wA-uR3FEw",
             "wZVoi9qON",
@@ -85,6 +88,7 @@
         "title": "Watch Dead Boy Detectives Season 1 (2024)",
         "name": "Dead Boy Detectives Season 1 (2024) Tv Series",
         "image": "https://res.cloudinary.com/db36kfuq3/image/upload/c_scale,h_750,w_500/v1730889638/Dead.Boy.Detectives.S01_dyftao.webp",
+        "episode": "10",
         "videomovieitem": [
             "pMVbhNVhu",
             "ETXVrBw1z",
@@ -111,6 +115,7 @@
         "title": "Watch Sugar Season 1 (2024)",
         "name": "Sugar Season 1 (2024) Tv Series",
         "image": "https://res.cloudinary.com/db36kfuq3/image/upload/c_scale,h_750,w_500/v1730889635/Sugar.2024.S01_irhljn.webp",
+        "episode": "8",
         "videomovieitem": [
             "spS7Vrli0",
             "84KLIO63W",
@@ -137,6 +142,7 @@
         "title": "Watch Supacell Season 1 (2024)",
         "name": "Supacell Season 1 (2024) Tv Series",
         "image": "https://res.cloudinary.com/db36kfuq3/image/upload/c_scale,h_750,w_500/v1730889633/Supacell.S01_oc2p5h.webp",
+        "episode": "6",
         "videomovieitem": [
             "Vp0cMAsXl",
             "lydGPbGYN",
@@ -159,6 +165,7 @@
         "title": "Watch Constellation Season 1 (2024)",
         "name": "Constellation Season 1 (2024) Tv Series",
         "image": "https://res.cloudinary.com/db36kfuq3/image/upload/c_scale,h_750,w_500/v1730889634/Constellation.S01_lxjelh.webp",
+        "episode": "8",
         "videomovieitem": [
             "jc-C6WYIs",
             "s2vvVVo5e",
@@ -193,7 +200,7 @@
         "group": "Dr Trailer",
         "badge": " [ TV Show ] ",
         "lang": " [ English ] ",
-        "episode": "6",
+        "episode": "10",
         "seasons": [
             {
                 "datePublished": "2024-07-01",
