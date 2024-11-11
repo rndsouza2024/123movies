@@ -146,7 +146,6 @@
 //     </div>
 //   );
 // }
-
 import React, { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 import Image from "next/image";
@@ -156,12 +155,88 @@ import styles from "@styles/styles.module.css";
 import SocialSharing from "../components/SocialSharing";
 import VideoPlayerAds from "../components/VideoPlayerAds";
 import SearchComponent from "../components/SearchComponent";
-// Importing JSON data directly
-import movies from "../public/movies.json"; // Replace with correct path
-import tvShows from "../public/tvshow.json"; // Replace with correct path
-import adultMovies from "../public/adult.json"; // Replace with correct path
+import fs from "fs";
+import path from "path";
 
-export default function Home() {
+// Importing JSON data dynamically
+import movies from "../public/movies.json";
+import tvShows from "../public/tvshow.json";
+import adultMovies from "../public/adult.json";
+
+export async function getStaticPaths() {
+  // Read Movies Data
+  const moviesFilePath = path.join(process.cwd(), "public", "movies.json");
+  const moviesFileContents = fs.readFileSync(moviesFilePath, "utf8");
+  const moviesData = JSON.parse(moviesFileContents);
+
+  // Read TV Shows Data
+  const tvShowsFilePath = path.join(process.cwd(), "public", "tvshow.json");
+  const tvShowsFileContents = fs.readFileSync(tvShowsFilePath, "utf8");
+  const tvShowsData = JSON.parse(tvShowsFileContents);
+
+  // Read Adult Movies Data
+  const adultMoviesFilePath = path.join(process.cwd(), "public", "adult.json");
+  const adultMoviesFileContents = fs.readFileSync(adultMoviesFilePath, "utf8");
+  const adultMoviesData = JSON.parse(adultMoviesFileContents);
+
+  // Combine Paths for all data sources
+  const moviePaths = moviesData.map((movie) => ({
+    params: { id: movie.id.toString() },
+  }));
+
+  const tvShowPaths = tvShowsData.map((show) => ({
+    params: { id: show.id.toString() },
+  }));
+
+  const adultMoviePaths = adultMoviesData.map((movie) => ({
+    params: { id: movie.id.toString() },
+  }));
+
+  // Combine all paths into one array
+  const allPaths = [...moviePaths, ...tvShowPaths, ...adultMoviePaths];
+
+  return {
+    paths: allPaths,
+    fallback: "blocking", // "blocking" ensures the page is generated before it is shown
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { id } = params;
+
+  // Read Movies Data
+  const moviesFilePath = path.join(process.cwd(), "public", "movies.json");
+  const moviesFileContents = fs.readFileSync(moviesFilePath, "utf8");
+  const moviesData = JSON.parse(moviesFileContents);
+
+  // Read TV Shows Data
+  const tvShowsFilePath = path.join(process.cwd(), "public", "tvshow.json");
+  const tvShowsFileContents = fs.readFileSync(tvShowsFilePath, "utf8");
+  const tvShowsData = JSON.parse(tvShowsFileContents);
+
+  // Read Adult Movies Data
+  const adultMoviesFilePath = path.join(process.cwd(), "public", "adult.json");
+  const adultMoviesFileContents = fs.readFileSync(adultMoviesFilePath, "utf8");
+  const adultMoviesData = JSON.parse(adultMoviesFileContents);
+
+  // Combine All Items
+  const allItems = [...moviesData, ...tvShowsData, ...adultMoviesData];
+
+  // Find the specific item by ID
+  const item = allItems.find((i) => i.id.toString() === id);
+
+  if (!item) {
+    return { notFound: true }; // Return a 404 page if the item is not found
+  }
+
+  return {
+    props: {
+      item,
+    },
+  };
+}
+
+export default function Home({ item }) {
   const [activeTab, setActiveTab] = useState("movies");
   const [moviePage, setMoviePage] = useState(1);
   const [adultPage, setAdultPage] = useState(1);
@@ -1209,3 +1284,4 @@ export default function Home() {
     </div>
   );
 }
+
