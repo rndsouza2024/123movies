@@ -1209,8 +1209,8 @@ export default function Home() {
           }
         }
         .zoom-image:hover {
-          transform: scale(1.1); // Zoom effect
-          filter: contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg); // Maintain filter effects
+          transform: scale(1.1); 
+          filter: contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg); 
         }
       `}</style>
     </div>
