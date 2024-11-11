@@ -161,7 +161,6 @@ import movies from "../public/movies.json"; // Replace with correct path
 import tvShows from "../public/tvshow.json"; // Replace with correct path
 import adultMovies from "../public/adult.json"; // Replace with correct path
 
-
 export default function Home() {
   const [activeTab, setActiveTab] = useState("movies");
   const [moviePage, setMoviePage] = useState(1);
@@ -675,7 +674,7 @@ export default function Home() {
                   <Image
                     src={movie.image}
                     alt={movie.title}
-                      className="rounded-xl"
+                    className="rounded-xl"
                     width={500}
                     height={750}
                     quality={90}
@@ -834,7 +833,7 @@ export default function Home() {
                         "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
                     }}
                   />
-                  <h3  style={{ textShadow: "1px 1px 0px #000" }}>
+                  <h3 style={{ textShadow: "1px 1px 0px #000" }}>
                     {movie.title}{" "}
                   </h3>
                 </div>
@@ -1098,7 +1097,8 @@ export default function Home() {
                       </button>
 
                       <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold hover:text-blue-800">
-                      Episode Navigation {tvShows.episode}
+                        Episode Navigation {tvShows[0].episode}{" "}
+                        {/* Or select the right show */}
                       </h2>
 
                       <button
@@ -1210,4 +1210,3 @@ export default function Home() {
     </div>
   );
 }
-
