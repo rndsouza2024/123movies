@@ -172,7 +172,7 @@ export default function Home() {
   const [tvshow, setTvshow] = useState(null); // Or get it from an API or other state
   // Filter out adult content from regular movies
   const tvShow = tvShows[0]; // Assuming you want the first show
-  const episode = tvShow ? tvShow.episode : "No episode info available";
+  // const episode = tvShow ? tvShow.episode : "No episode info available";
 
   const regularMovies = movies.filter(
     (movie) => !movie.badge || !movie.badge.includes("[ Adult ]")
