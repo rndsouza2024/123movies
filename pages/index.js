@@ -1097,64 +1097,15 @@ export default function Home() {
                       >
                         Previous
                       </button>
-                      {/* <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold hover:text-blue-800">
-                        Episode Navigation {tvShows[0].episode}{" "}
-                     
-                      </h2> */}
-                      {/* Displaying TV Shows with Episode Info */}
-                      <h2 className="text-center text-2xl font-bold mt-6">
-                        TV Shows
+
+                      <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold hover:text-blue-800">
+                        Episode Navigation{" "}
+                        {tvShows && tvShows.length > 0 && tvShows[0]?.episode
+                          ? tvShows[0].episode
+                          : "No episode information available"}
+                        {/* Or select the right show */}
                       </h2>
-                      {tvShowsWithEpisodes.length > 0 ? (
-                        tvShowsWithEpisodes.map((tvShow) => (
-                          <div key={tvShow.id} className="mt-4">
-                            <h3 className="text-xl font-semibold">
-                              {tvShow.name}
-                            </h3>
-                            <p className="text-lg">{tvShow.episode}</p>{" "}
-                            {/* Displaying the episode property */}
-                          </div>
-                        ))
-                      ) : (
-                        <p className="text-center mt-4">
-                          No TV Shows with episodes available.
-                        </p>
-                      )}
-                      {/* Displaying Movies */}
-                      <h2 className="text-center text-2xl font-bold mt-6">
-                        Movies
-                      </h2>
-                      {movies.length > 0 ? (
-                        movies.map((movie) => (
-                          <div key={movie.id} className="mt-4">
-                            <h3 className="text-xl font-semibold">
-                              {movie.name}
-                            </h3>
-                            {/* Add movie-related information here */}
-                          </div>
-                        ))
-                      ) : (
-                        <p className="text-center mt-4">No Movies available.</p>
-                      )}
-                      {/* Displaying Adult Movies */}
-                      <h2 className="text-center text-2xl font-bold mt-6">
-                        Adult Movies
-                      </h2>
-                      {adultMovies.length > 0 ? (
-                        adultMovies.map((movie) => (
-                          <div key={movie.id} className="mt-4">
-                            <h3 className="text-xl font-semibold">
-                              {movie.name}
-                            </h3>
-                            {/* Add adult movie-related information here */}
-                          </div>
-                        ))
-                      ) : (
-                        <p className="text-center mt-4">
-                          No Adult Movies available.
-                        </p>
-                      )}{" "}
-                      F
+
                       <button
                         onClick={handleNextEpisode}
                         disabled={false}
