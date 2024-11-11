@@ -171,7 +171,7 @@ export default function Home() {
   const itemsPerPage = 30;
   const [tvshow, setTvshow] = useState(null); // Or get it from an API or other state
   // Filter out adult content from regular movies
-  const tvShowsWithEpisodes = tvShows.filter((show) => show.episode);
+  // const tvShowsWithEpisodes = tvShows.filter((show) => show.episode);
 
   const regularMovies = movies.filter(
     (movie) => !movie.badge || !movie.badge.includes("[ Adult ]")
@@ -1088,7 +1088,8 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {tvshow?.badge === "TV Show" && (
+                  {/* This part is for TV Shows */}
+                  {popupContent.badge === "TV Show" && (
                     <div className="flex justify-between items-center w-full mt-4 px-2">
                       <button
                         onClick={handlePreviousEpisode}
@@ -1100,10 +1101,7 @@ export default function Home() {
 
                       <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold hover:text-blue-800">
                         Episode Navigation{" "}
-                        {tvShows && tvShows.length > 0 && tvShows[0]?.episode
-                          ? tvShows[0].episode
-                          : "No episode information available"}
-                        {/* Or select the right show */}
+                        {popupContent?.episode || "No episode information"}
                       </h2>
 
                       <button
