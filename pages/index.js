@@ -1204,22 +1204,20 @@ export default function Home() {
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
           }
-       
+        }
         .image-container {
-          width: 100%;
-          height: auto;
-          overflow: hidden; /* Prevents image from overflowing */
+          overflow: hidden; /* Hides the overflowed part when zoomed */
+          display: inline-block; /* Ensures the image maintains its size */
         }
 
         .zoom-image {
           width: 100%;
           height: auto;
-          transition: transform 0.3s ease; /* Smooth transition for zoom effect */
-          cursor: pointer;
+          transition: transform 0.3s ease-in-out; /* Smooth transition */
         }
 
         .zoom-image:hover {
-          transform: scale(1.1); /* Zoom effect on hover */
+          transform: scale(1.2); /* Zoom effect on hover */
         }
       `}</style>
     </div>
