@@ -44,10 +44,6 @@ const SearchComponent = () => {
             `https://embed.su/embed/${isItemMovies ? "tv" : "movie"}/${id}/${itemSeason || ""}/${itemEpisode || ""}`,
             `https://vidsrc.cc/v2/embed/${isItemMovies ? "tv" : "movie"}/${id}/${itemSeason || ""}/${itemEpisode || ""}`,
             
-            // New URLs added below
-            isItemMovies
-              ? `https://vidsrc.cc/v2/embed/tv/${id}/${itemSeason}/${itemEpisode}`
-              : `https://vidsrc.cc/v2/embed/movie/${id}`,
             isItemMovies
               ? `https://ffmovies.lol/series/?imdb=${id}`
               : `https://ffmovies.lol/movies/?imdb=${id}`,
