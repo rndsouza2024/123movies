@@ -674,7 +674,7 @@ export default function Home() {
                   <Image
                     src={movie.image}
                     alt={movie.title}
-                    className="rounded-xl"
+                    className="rounded-xl zoom-image"
                     width={500}
                     height={750}
                     quality={90}
@@ -687,7 +687,7 @@ export default function Home() {
                       filter:
                         "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
                     }}
-                    className="zoom-image" // Add a custom class
+                 
                   />
                   <h3 style={{ textShadow: "1px 1px 0px #000" }}>
                     {movie.title}{" "}
@@ -820,7 +820,7 @@ export default function Home() {
                   <Image
                     src={movie.image}
                     alt={movie.title}
-                    className="rounded-xl"
+                     className="rounded-xl zoom-image"
                     width={500}
                     height={750}
                     quality={90}
@@ -833,7 +833,7 @@ export default function Home() {
                       filter:
                         "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
                     }}
-                    className="zoom-image" // Add a custom class
+                
                   />
                   <h3 style={{ textShadow: "1px 1px 0px #000" }}>
                     {movie.title}{" "}
@@ -970,7 +970,7 @@ export default function Home() {
                     width={500}
                     height={750}
                     quality={90}
-                    className="rounded-xl"
+                     className="rounded-xl zoom-image"
                     layout="intrinsic"
                     style={{
                       width: "100%",
@@ -980,7 +980,7 @@ export default function Home() {
                       filter:
                         "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
                     }}
-                    className="zoom-image" // Add a custom class
+                   
                   />
                   <h3 style={{ textShadow: "1px 1px 0px #000" }}>
                     {show.title}
@@ -1208,9 +1208,16 @@ export default function Home() {
             gap: 10px;
           }
         }
+        .image-container {
+          overflow: hidden; 
+        }
+
+        .zoom-image {
+          transition: transform 0.3s ease; 
+        }
+
         .zoom-image:hover {
           transform: scale(1.1); 
-          filter: contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg); 
         }
       `}</style>
     </div>
