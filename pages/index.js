@@ -688,7 +688,7 @@ export default function Home() {
                         "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
                     }}
                   />
-                  <h3 style={{ textShadow: "1px 1px 0px #000" }}>
+                  <h3  className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-105" style={{ textShadow: "1px 1px 0px #000" }}>
                     {movie.title}{" "}
                   </h3>
                 </div>
@@ -833,7 +833,7 @@ export default function Home() {
                         "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
                     }}
                   />
-                  <h3 style={{ textShadow: "1px 1px 0px #000" }}>
+                  <h3  className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-105" style={{ textShadow: "1px 1px 0px #000" }}>
                     {movie.title}{" "}
                   </h3>
                 </div>
@@ -979,7 +979,7 @@ export default function Home() {
                         "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
                     }}
                   />
-                  <h3 style={{ textShadow: "1px 1px 0px #000" }}>
+                  <h3  className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-105" style={{ textShadow: "1px 1px 0px #000" }}>
                     {show.title}
                   </h3>
                 </div>
