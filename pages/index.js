@@ -1099,11 +1099,10 @@ export default function Home() {
                         Previous
                       </button>
 
-                      {tvShow && (
-                        <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold hover:text-blue-800">
-                          Episode Navigation: {episode}
-                        </h2>
-                      )}
+                      <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold hover:text-blue-800">
+                        Episode Navigation {tvShows[0].episode}{" "}
+                        {/* Or select the right show */}
+                      </h2>
 
                       <button
                         onClick={handleNextEpisode}
