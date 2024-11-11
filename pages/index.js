@@ -668,13 +668,13 @@ export default function Home() {
               {getPaginatedItems(regularMovies, moviePage).map((movie) => (
                 <div
                   key={movie.id}
-                  className="movie-item relative overflow-hidden"
+                  className="movie-item relative overflow-hidden  transform transition-transform duration-300 ease-in-out hover:scale-105"
                   onClick={() => handleImageClick(movie)}
                 >
                   <Image
                     src={movie.image}
                     alt={movie.title}
-                      className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-105"
+                      className="rounded-xl"
                     width={500}
                     height={750}
                     quality={90}
@@ -688,7 +688,7 @@ export default function Home() {
                         "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
                     }}
                   />
-                  <h3  className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-105" style={{ textShadow: "1px 1px 0px #000" }}>
+                  <h3 style={{ textShadow: "1px 1px 0px #000" }}>
                     {movie.title}{" "}
                   </h3>
                 </div>
@@ -813,13 +813,13 @@ export default function Home() {
               {getPaginatedItems(adultMovies, adultPage).map((movie) => (
                 <div
                   key={movie.id}
-                  className="movie-item relative overflow-hidden"
+                  className="movie-item relative overflow-hidden  transform transition-transform duration-300 ease-in-out hover:scale-105"
                   onClick={() => handleImageClick(movie)}
                 >
                   <Image
                     src={movie.image}
                     alt={movie.title}
-                    className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-105"
+                    className="rounded-xl"
                     width={500}
                     height={750}
                     quality={90}
@@ -833,7 +833,7 @@ export default function Home() {
                         "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
                     }}
                   />
-                  <h3  className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-105" style={{ textShadow: "1px 1px 0px #000" }}>
+                  <h3  style={{ textShadow: "1px 1px 0px #000" }}>
                     {movie.title}{" "}
                   </h3>
                 </div>
@@ -959,7 +959,7 @@ export default function Home() {
                 // <div key={show.id} className="tv-show-item">
                 <div
                   key={show.id}
-                  className="tv-show-item relative overflow-hidden rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-105"
+                  className="tv-show-item relative overflow-hidden  transform transition-transform duration-300 ease-in-out hover:scale-105"
                   onClick={() => handleImageClick(show)}
                 >
                   <Image
@@ -968,7 +968,7 @@ export default function Home() {
                     width={500}
                     height={750}
                     quality={90}
-                    // className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-105"
+                    className="rounded-xl "
                     layout="intrinsic"
                     style={{
                       width: "100%",
