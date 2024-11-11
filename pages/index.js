@@ -1035,239 +1035,178 @@ export default function Home() {
         )}
         {/* Repeat for Adult and TV Shows sections with similar structure */}
 
+    
         {showPopup && popupContent && (
-          <div
-            className="popup-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
-            style={{ zIndex: 9998 }} // Ensure overlay is in front of other elements
-          >
-            {/* Smaller container for better visibility */}
-            <div
-              className="popup-content bg-white rounded-lg p-4 w-full sm:w-3/4 lg:w-2/3 max-w-full max-h-[80vh] relative flex flex-col overflow-auto"
-              style={{ zIndex: 9999 }} // Ensure popup content is in front
-            >
-              {/* Close button with proper visibility and accessibility */}
-              <button
-                onClick={closePopup}
-                className="absolute top-4 right-4 text-3xl font-bold text-black"
-                style={{ zIndex: 10000 }} // Ensure close button stays on top of everything else
-              >
-                &#10005; {/* Close icon */}
-              </button>
+  <div className="popup-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[99999] overflow-auto">
+    <div
+      className="popup-content bg-white rounded-lg p-4 w-full sm:w-3/4 lg:w-2/3 xl:w-1/2 max-w-full max-h-[90vh] min-h-[50vh] relative flex flex-col overflow-y-auto z-[100000]"
+    >
+      <button
+        onClick={closePopup}
+        className="absolute top-4 right-4 text-2xl font-bold text-black z-[100001]"
+      >
+        &#10005;
+      </button>
 
-              {/* Check if the content is valid */}
-              {popupContent && (
-                <>
-                  {/* <VideoPlayerAds adTagUrl={adTagUrl} /> */}
-                  {/* Movie/Show title */}
-                  <h2 className="text-gray-800 mb-4 text-center flex-grow px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl hover:text-blue-800 font-bold mt-2">
-                    {popupContent.title}
-                  </h2>
+      {popupContent && (
+        <>
+          <h2 className="text-gray-800 mb-4 text-center px-2 text-2xl font-bold mt-2 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent hover:text-blue-800">
+            {popupContent.title}
+          </h2>
 
-                  {/* Iframe for video */}
-                  <iframe
-                    src={src}
-                    adTagUrl={adTagUrl}
-                    width="100%"
-                    height="auto"
-                    frameBorder="0"
-                    allowFullScreen
-                    className="max-w-full aspect-video mb-4"
-                    style={{
-                      aspectRatio: "16 / 9",
-                      maxHeight: "100%",
-                      boxShadow: "0 0 10px 0 #000",
-                      filter:
-                        "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
-                      borderRadius: "1%",
-                    }}
-                  />
+          <div className="aspect-w-16 aspect-h-9 w-full">
+            <iframe
+              src={src}
+              width="100%"
+              height="250"
+              frameBorder="0"
+              allowFullScreen
+              className="rounded-lg shadow-md"
+              style={{
+                filter: "contrast(1.2) saturate(1.3) brightness(1.1)",
+              }}
+            />
+          </div>
 
-                  {/* Player selection buttons */}
-                  <div className="flex flex-col items-center mt-4 gap-4">
-                    <div className="flex flex-wrap justify-center gap-4">
-                      {currentVideoSources.map((source, index) => (
-                        <button
-                          key={index}
-                          onClick={() => handlePlayerSelect(index)}
-                          className={`px-4 py-2 rounded-lg font-semibold ${
-                            currentPlayerIndex === index
-                              ? "bg-red-500 text-white"
-                              : "bg-gray-200 text-black"
-                          } hover:bg-green-500 hover:text-white transition duration-300 ease-in-out`}
-                          style={{
-                            border: "none",
-                            fontWeight: "bold",
-                            cursor: "pointer",
-                            textShadow: "1px 1px 0px #000",
-                          }}
-                        >
-                          Player {index + 1}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Conditionally render previous and next episode buttons if it's a TV show */}
-                  {tvshow?.badge === "TV Show" && (
-                    <div className="flex justify-between w-full mt-4 px-4 sm:px-8 mb-4">
-                      <button
-                        onClick={handlePreviousEpisode}
-                        disabled={currentEpisodeIndex === 0}
-                        className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50"
-                        style={{
-                          border: "none",
-                          fontWeight: "bold",
-                          cursor: "pointer",
-                          textShadow: "1px 1px 0px #000",
-                        }}
-                      >
-                        Previous
-                      </button>
-
-                      <h2 className="text-center flex-grow px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl hover:text-blue-800 font-bold mt-2">
-                        Use Only for Episode in TV Show
-                      </h2>
-
-                      <button
-                        onClick={handleNextEpisode}
-                        disabled={false}
-                        className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50"
-                        style={{
-                          border: "none",
-                          fontWeight: "bold",
-                          cursor: "pointer",
-                          textShadow: "1px 1px 0px #000",
-                        }}
-                      >
-                        Next
-                      </button>
-                    </div>
-                  )}
-                </>
-              )}
+          <div className="flex flex-col items-center mt-4 gap-4">
+            <div className="flex flex-wrap justify-center gap-2 w-full">
+              {currentVideoSources.map((source, index) => (
+                <button
+                  key={index}
+                  onClick={() => handlePlayerSelect(index)}
+                  className={`px-4 py-2 rounded-md font-semibold transition ${
+                    currentPlayerIndex === index
+                      ? "bg-red-500 text-white"
+                      : "bg-gray-200 text-black"
+                  } hover:bg-green-500 hover:text-white`}
+                >
+                  Player {index + 1}
+                </button>
+              ))}
             </div>
           </div>
-        )}
+
+          {tvshow?.badge === "TV Show" && (
+            <div className="flex justify-between items-center w-full mt-4 px-2">
+              <button
+                onClick={handlePreviousEpisode}
+                disabled={currentEpisodeIndex === 0}
+                className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-700 disabled:opacity-50 font-bold"
+              >
+                Previous
+              </button>
+
+              <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold hover:text-blue-800">
+                Episode Navigation
+              </h2>
+
+              <button
+                onClick={handleNextEpisode}
+                disabled={false}
+                className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-700 disabled:opacity-50 font-bold"
+              >
+                Next
+              </button>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  </div>
+)}
+
       </main>
 
       <style jsx>{`
-        main {
-          padding: 20px;
-        }
-        .tabs {
-          display: flex;
-          justify-content: center;
-          margin-bottom: 20px;
-        }
-        .tabs button {
-          padding: 10px 20px;
-          border: 1px solid #ddd;
-          margin-right: 10px;
-          // background: #f4f4f4;
-          cursor: pointer;
-        }
-        .tabs button.active {
-          background: #c0c0c0;
-          color: white;
-        }
-        .movie-list,
-        .tv-show-list {
-          display: grid;
-          gap: 20px;
-          grid-template-columns: repeat(
-            5,
-            1fr
-          ); /* Display 5 items per row on larger screens */
-        }
+  main {
+    padding: 20px;
+  }
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .tabs button {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .tabs button.active {
+    background: #c0c0c0;
+    color: white;
+  }
+  .movie-list,
+  .tv-show-list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .movie-item,
+  .tv-show-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .pagination button {
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+  }
+  .pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
 
-        .movie-item,
-        .tv-show-item {
-          border: 1px solid #ddd;
-          padding: 10px;
-          text-align: center;
-        }
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .movie-list,
+    .tv-show-list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  @media (max-width: 900px) {
+    .movie-list,
+    .tv-show-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .movie-list,
+    .tv-show-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
-        .pagination {
-          display: flex;
-          justify-content: center;
-          margin-top: 20px;
-        }
-        .pagination button {
-          padding: 10px;
-          margin: 0 5px;
-          cursor: pointer;
-          background-color: #0070f3;
-          color: white;
-          border: none;
-        }
+  .page-number {
+    margin: 0 10px;
+    font-weight: bold;
+  }
 
-        .pagination button:disabled {
-          background-color: #cccccc;
-          cursor: not-allowed;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 1200px) {
-          .movie-list,
-          .tv-show-list {
-            grid-template-columns: repeat(
-              4,
-              1fr
-            ); /* 4 items per row on large tablets */
-          }
-        }
-
-        @media (max-width: 900px) {
-          .movie-list,
-          .tv-show-list {
-            grid-template-columns: repeat(
-              3,
-              1fr
-            ); /* 3 items per row on smaller tablets */
-          }
-        }
-
-        @media (max-width: 600px) {
-          .movie-list,
-          .tv-show-list {
-            grid-template-columns: repeat(
-              2,
-              1fr
-            ); /* 2 items per row on mobile */
-          }
-        }
-
-        .page-number {
-          margin: 0 10px;
-          font-weight: bold;
-        }
-
-        /* Custom styles for mobile responsiveness */
-        @media (max-width: 600px) {
-          .popup-content {
-            width: 90%; /* Takes up most of the screen on small devices */
-            padding: 1rem; /* Less padding on small screens */
-          }
-
-          .popup-overlay {
-            padding: 10px;
-          }
-
-          .close-popup {
-            font-size: 1.2rem; /* Smaller close icon on mobile */
-          }
-
-          iframe {
-            max-height: 50vh; /* Smaller iframe height for mobile */
-          }
-
-          .popup-content .flex-wrap {
-            display: grid; /* Use grid to display buttons in rows */
-            grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
-            gap: 10px; /* Adjust spacing */
-          }
-        }
-      `}</style>
+  /* Popup responsiveness */
+  @media (max-width: 768px) {
+    .popup-content {
+      width: 95%;
+      padding: 1rem;
+    }
+    iframe {
+      max-height: 50vh;
+    }
+    .popup-content .flex-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+  }
+`}</style>
     </div>
   );
 }
