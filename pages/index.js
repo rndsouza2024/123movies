@@ -1088,7 +1088,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {tvshow?.badge === "TV Show" && tvShows[0]?.episode && (
+                  {tvshow?.badge === "TV Show" && (
                     <div className="flex justify-between items-center w-full mt-4 px-2">
                       <button
                         onClick={handlePreviousEpisode}
@@ -1099,9 +1099,7 @@ export default function Home() {
                       </button>
 
                       <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold hover:text-blue-800">
-                        Episode Navigation{" "}
-                        {tvShows[0]?.episode ||
-                          "No episode information available"}
+                        Episode Navigation
                       </h2>
 
                       <button
