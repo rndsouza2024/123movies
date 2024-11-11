@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from '@styles/SearchComponent.module.css';
-
 import movies from "../public/movies.json"; // Replace with correct path
-import tvShows from "../public/tvshow.json"; // Replace with correct path
-import adultMovies from "../public/adult.json"; // Replace with correct path
 
 const SearchComponent = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -29,27 +26,37 @@ const SearchComponent = () => {
     setPopupContent(null);
   };
 
-  // Check if the content is a TV show
-  const isTVShow = popupContent && popupContent.type === "TV";
-  const { videomovieitem, videomovies, image1, dailymovies, badge } = popupContent || {};
-
-  // Generate video sources for TV shows and Movies
-  const videoSources = videomovies
-    ? videomovies.map((item) => {
-        const isItemMovies = item.includes("/");
+  // Generate video sources for Movies
+  const videoSources = popupContent?.videomovies
+    ? popupContent.videomovies.map((item) => {
+        const isItemMovies = item.includes("/"); // Check if it's a movie
         const [id, itemSeason, itemEpisode] = isItemMovies
           ? item.split("/")
           : [item, null, null];
         return {
           name: isItemMovies ? `Episode ${itemEpisode}` : "Movie",
           urls: [
-            `https://short.ink/${videomovieitem[currentEpisodeIndex]}?thumbnail=${image1}`,
-            `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`,
+            `https://short.ink/${popupContent.videomovieitem[currentEpisodeIndex]}?thumbnail=${popupContent.image1}`,
+            `https://geo.dailymotion.com/player/xjrxe.html?video=${popupContent.dailymovies}&mute=true&Autoquality=1080p`,
             isItemMovies
               ? `https://vidsrc.me/embed/tv?imdb=${id}&season=${itemSeason}&episode=${itemEpisode}`
               : `https://vidsrc.me/embed/movie?imdb=${id}`,
             `https://embed.su/embed/${isItemMovies ? "tv" : "movie"}/${id}/${itemSeason || ""}/${itemEpisode || ""}`,
-            `https://vidsrc.cc/v2/embed/${isItemMovies ? "tv" : "movie"}/${id}/${itemSeason || ""}/${itemEpisode || ""}`
+            `https://vidsrc.cc/v2/embed/${isItemMovies ? "tv" : "movie"}/${id}/${itemSeason || ""}/${itemEpisode || ""}`,
+            
+            // New URLs added below
+            isItemMovies
+              ? `https://vidsrc.cc/v2/embed/tv/${id}/${itemSeason}/${itemEpisode}`
+              : `https://vidsrc.cc/v2/embed/movie/${id}`,
+            isItemMovies
+              ? `https://ffmovies.lol/series/?imdb=${id}`
+              : `https://ffmovies.lol/movies/?imdb=${id}`,
+            isItemMovies
+              ? `https://autoembed.co/tv/imdb/${id}-${itemSeason}-${itemEpisode}`
+              : `https://autoembed.co/movie/imdb/${id}`,
+            isItemMovies
+              ? `https://multiembed.mov/directstream.php?video_id=${id}&s=${itemSeason}&e=${itemEpisode}`
+              : `https://multiembed.mov/directstream.php?video_id=${id}`,
           ],
         };
       })
@@ -76,28 +83,8 @@ const SearchComponent = () => {
     setCurrentEpisodeIndex((prevIndex) => prevIndex + 1);
   };
 
-  // Fetch data from 'moviesfull.json' and filter results based on search query
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const homeRes = await fetch('/moviesfull.json');
-        if (!homeRes.ok) {
-          throw new Error('Network response was not ok.');
-        }
-        const homeData = await homeRes.json();
-        setResults(homeData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-
-  // Filter results based on the search query
-  const filteredResults = results.filter(item =>
+  // Filter movies based on the search query
+  const filteredResults = regularMovies.filter(item =>
     item.name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -106,7 +93,7 @@ const SearchComponent = () => {
       <input
         type="text"
         className={styles.searchInput}
-        placeholder="Search..."
+        placeholder="Search for movies..."
         value={searchQuery}
         onChange={e => setSearchQuery(e.target.value)}
       />
@@ -121,14 +108,14 @@ const SearchComponent = () => {
           ))}
         </div>
       )}
-      
+
       {popupContent && (
         <div
-          className="popup-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
           style={{ zIndex: 9998 }} // Ensure overlay is in front of other elements
         >
           <div
-            className="popup-content bg-white rounded-lg p-4 w-full sm:w-3/4 lg:w-2/3 max-w-full relative flex flex-col"
+            className="bg-white rounded-lg p-6 w-full sm:w-3/4 lg:w-2/3 max-w-full relative flex flex-col"
             style={{
               zIndex: 9999,
               maxHeight: '80vh',
@@ -142,61 +129,75 @@ const SearchComponent = () => {
             >
               &#10005;
             </button>
+
+            {/* Title */}
             <h2 className="text-gray-800 mb-4 text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold mt-2">
               {popupContent.title}
             </h2>
-            <iframe
-              src={src}
-              width="100%"
-              height="auto"
-              frameBorder="0"
-              allowFullScreen
-              className="max-w-full aspect-video mb-4"
-              style={{
-                aspectRatio: "16 / 9",
-                boxShadow: "0 0 10px 0 #000",
-                filter: "contrast(1.2) saturate(1.3) brightness(1.1)",
-                borderRadius: "1%",
-              }}
-            />
-            <div className="flex flex-wrap justify-center gap-4 mt-4">
-              {currentVideoSources.map((source, index) => (
-                <button
-                  key={index}
-                  onClick={() => handlePlayerSelect(index)}
-                  className={`px-4 py-2 rounded-lg font-semibold ${
-                    currentPlayerIndex === index
-                      ? "bg-red-500 text-white"
-                      : "bg-gray-200 text-black"
-                  } hover:bg-green-500 hover:text-white transition duration-300`}
-                >
-                  Player {index + 1}
-                </button>
-              ))}
+
+            {/* Video iframe */}
+            <div className="aspect-w-16 aspect-h-9 w-full mb-4">
+              <iframe
+                src={src}
+                width="100%"
+                height="250"
+                frameBorder="0"
+                allowFullScreen
+                className="rounded-lg shadow-md"
+                style={{
+                  filter: "contrast(1.2) saturate(1.3) brightness(1.1)",
+                }}
+              />
             </div>
-            {isTVShow && (
-              <div className="flex justify-between w-full mt-4 px-4 mb-4">
-                <button
-                  onClick={handlePreviousEpisode}
-                  disabled={currentEpisodeIndex === 0}
-                  className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50"
-                >
-                  Previous
-                </button>
-                <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold mt-2">
-                  Episode Controls
-                </h2>
-                <button
-                  onClick={handleNextEpisode}
-                  className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700"
-                >
-                  Next
-                </button>
+
+            {/* Player Select Buttons */}
+            <div className="flex flex-col items-center mt-4 gap-4">
+              <div className="flex flex-wrap justify-center gap-2 w-full">
+                {currentVideoSources.map((source, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handlePlayerSelect(index)}
+                    className={`px-4 py-2 rounded-md font-semibold transition ${
+                      currentPlayerIndex === index
+                        ? "bg-red-500 text-white"
+                        : "bg-gray-200 text-black"
+                    } hover:bg-green-500 hover:text-white`}
+                  >
+                    Player {index + 1}
+                  </button>
+                ))}
               </div>
-            )}
+            </div>
+
           </div>
         </div>
       )}
+
+      <style jsx>{`
+        @media (max-width: 1200px) {
+          .movie-list {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+
+        @media (max-width: 900px) {
+          .movie-list {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        @media (max-width: 600px) {
+          .movie-list {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 400px) {
+          .movie-list {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </div>
   );
 };
