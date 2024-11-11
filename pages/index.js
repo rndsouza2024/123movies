@@ -674,7 +674,7 @@ export default function Home() {
                   <Image
                     src={movie.image}
                     alt={movie.title}
-                      className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-110"
+                      className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-100"
                     width={500}
                     height={750}
                     quality={90}
@@ -819,7 +819,7 @@ export default function Home() {
                   <Image
                     src={movie.image}
                     alt={movie.title}
-                    className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-110"
+                    className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-100"
                     width={500}
                     height={750}
                     quality={90}
@@ -968,7 +968,7 @@ export default function Home() {
                     width={500}
                     height={750}
                     quality={90}
-                    className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-110"
+                    className="rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-100"
                     layout="intrinsic"
                     style={{
                       width: "100%",
