@@ -1088,31 +1088,31 @@ export default function Home() {
                     </div>
                   </div>
 
-               {/* Check if it's a TV Show */}
-          {popupContent.badge === "TV Show" && (
-            <div className="flex justify-between items-center w-full mt-4 px-2">
-              <button
-                onClick={handlePreviousEpisode}
-                disabled={currentEpisodeIndex === 0}
-                className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-700 disabled:opacity-50 font-bold"
-              >
-                Previous
-              </button>
+                  {tvshow?.badge === "TV Show" && tvShows[0]?.episode && (
+                    <div className="flex justify-between items-center w-full mt-4 px-2">
+                      <button
+                        onClick={handlePreviousEpisode}
+                        disabled={currentEpisodeIndex === 0}
+                        className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-700 disabled:opacity-50 font-bold"
+                      >
+                        Previous
+                      </button>
 
-              <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold hover:text-blue-800">
-                Episode Navigation {popupContent.episode}
-              </h2>
+                      <h2 className="text-center flex-grow bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold hover:text-blue-800">
+                        Episode Navigation{" "}
+                        {tvShows[0]?.episode ||
+                          "No episode information available"}
+                      </h2>
 
-              <button
-                onClick={handleNextEpisode}
-                disabled={false}
-                className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-700 disabled:opacity-50 font-bold"
-              >
-                Next
-              </button>
-            </div>
-          )}
-
+                      <button
+                        onClick={handleNextEpisode}
+                        disabled={false}
+                        className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-700 disabled:opacity-50 font-bold"
+                      >
+                        Next
+                      </button>
+                    </div>
+                  )}
                 </>
               )}
             </div>
