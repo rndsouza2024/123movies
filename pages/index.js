@@ -209,7 +209,7 @@ export default function Home() {
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
 
-  const { videomovieitem, videomovies, image1, dailymovies } =
+  const { videomovieitem, videomovies, image1, dailymovies, dailytvshow } =
     popupContent || {};
 
   const isMovies =
@@ -231,13 +231,27 @@ export default function Home() {
         const [id, itemSeason, itemEpisode] = isItemMovies
           ? item.split("/")
           : [item, null, null];
+
+        // TV Show daily URL
+        const dailyTvShowUrl = isItemMovies
+          ? `https://geo.dailymotion.com/player/xjrxe.html?video=${dailytvshow[currentEpisodeIndex]}&mute=true&Autoquality=1080p`
+          : null;
+
+        // Movie daily URL (for a single dailymovies string)
+        const dailyMovieUrl =
+          !isItemMovies && dailymovies
+            ? `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`
+            : null;
+
         return {
           name: isItemMovies ? `Episode ${itemEpisode}` : "Movie",
           urls: [
             `https://short.ink/${currentVideoId}?thumbnail=${image1}`,
+            // dailyTvShowUrl, // URL for TV Show only
+            // dailyMovieUrl, // URL for Movie only
             isItemMovies
-              ? `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`
-              : `https://geo.dailymotion.com/player/xjrxe.html?video=${dailymovies}&mute=true&Autoquality=1080p`,
+            ? dailyTvShowUrl
+            : dailyMovieUrl,  // This correctly switches between the TV show and movie URLs
             isItemMovies
               ? `https://vidsrc.me/embed/tv?imdb=${id}&season=${itemSeason}&episode=${itemEpisode}`
               : `https://vidsrc.me/embed/movie?imdb=${id}`,
