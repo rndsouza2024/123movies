@@ -336,6 +336,10 @@ export default function TvShowList({ tvshowData }) {
           </ul>
         </div>
         {/* Pagination Controls */}
+        <div
+  className="flex items-center justify-center mt-4 gap-2 relative"
+  style={{ zIndex: 1000 }}
+>
     <div className="flex items-center justify-center mt-4 gap-2">
         {/* Previous Button */}
         <button
@@ -407,7 +411,7 @@ export default function TvShowList({ tvshowData }) {
           }}>
         <span>{`Page ${currentPage} of ${totalPages}`}</span>
       </div>
-
+      </div>
 
         <ul style={styles.newsList}>
           {currenttvshowitems.map((tvshowitem, index) => (

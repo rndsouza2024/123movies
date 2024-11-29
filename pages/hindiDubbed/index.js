@@ -450,7 +450,11 @@ export default function hindiDubbed({ hindiDubbedData }) {
             </button>
           </ul>
         </div>
-         {/* Pagination Controls */}
+        {/* Pagination Controls */}
+        <div
+  className="flex items-center justify-center mt-4 gap-2 relative"
+  style={{ zIndex: 1000 }}
+>
     <div className="flex items-center justify-center mt-4 gap-2">
         {/* Previous Button */}
         <button
@@ -522,7 +526,7 @@ export default function hindiDubbed({ hindiDubbedData }) {
           }}>
         <span>{`Page ${currentPage} of ${totalPages}`}</span>
       </div>
-
+      </div>
 
         <ul style={styles.newsList}>
           {currenthindiDubbedItems.map((hindiDubbedItem, index) => (
