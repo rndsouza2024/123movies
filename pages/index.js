@@ -547,13 +547,13 @@ const styles = {
     borderRadius: "10px",
   },
   heroTitle: {
-    fontSize: "1.5rem",
+    fontSize: "2.5rem",
     fontWeight: "800",
     marginBottom: "5px",
     textShadow: "2px 2px 5px rgba(0, 0, 0, 0.7)",
   },
   heroDescription: {
-    fontSize: "1rem",
+    fontSize: "1.5rem",
     fontWeight: "400",
     textShadow: "1px 1px 4px rgba(0, 0, 0, 0.6)",
   },
