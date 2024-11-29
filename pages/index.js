@@ -391,16 +391,7 @@ export default function HomePage({ allData }) {
             id="menu-header-menu"
             className="menu flex flex-wrap justify-center"
           >
-            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
-              <li id="menu-item-35" className="menu-home active">
-                <a
-                  href="/"
-                  className="text-blue-500 font-bold text-xl hover:no-underline"
-                >
-                  Home<span className="p"></span>
-                </a>
-              </li>
-            </button>
+           
             <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
               <li id="menu-item-35" className="menu-home active">
                 <a
@@ -420,6 +411,16 @@ export default function HomePage({ allData }) {
                   Tv Show<span className="p"></span>
                 </a>
               </li>
+            </button>          
+            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
+              <li id="menu-item-11605" className="menu-3dcad">
+                <a
+                  href="../adult/"
+                  className="text-blue-500 font-bold text-xl hover:no-underline"
+                >
+                  Adult<span className="p"></span>
+                </a>
+              </li>
             </button>
             <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
               <li id="menu-item-248" className="menu-operating-systems">
@@ -428,16 +429,6 @@ export default function HomePage({ allData }) {
                   className="text-blue-500 font-bold text-xl hover:no-underline"
                 >
                   Hindi Dubed<span className="p"></span>
-                </a>
-              </li>
-            </button>
-            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
-              <li id="menu-item-11605" className="menu-3dcad">
-                <a
-                  href="../adult/"
-                  className="text-blue-500 font-bold text-xl hover:no-underline"
-                >
-                  Adult<span className="p"></span>
                 </a>
               </li>
             </button>
