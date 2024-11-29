@@ -1,19 +1,20 @@
-import React, { useEffect, useRef,useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import path from "path";
 import fs from "fs/promises";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import SocialSharing from "../../components/SocialSharing";
 import moviesStyles from "@styles/styles.module.css";
+import Script from "next/script";
 import Link from "next/link"; // Ensure you import Link from Next.js
 // Helper function to create a slug from a title
 function generateSlug(title) {
-  if (!title) return ''; // Return an empty string if title is undefined or falsy
+  if (!title) return ""; // Return an empty string if title is undefined or falsy
 
   return title
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-') // Replace non-alphanumeric characters with dashes
-    .replace(/^-+|-+$/g, ''); // Remove leading/trailing dashes
+    .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric characters with dashes
+    .replace(/^-+|-+$/g, ""); // Remove leading/trailing dashes
 }
 
 // This function generates the paths for static generation
@@ -97,7 +98,7 @@ const NewsSchema = (tvshowItem) =>
         actor: Array.isArray(tvshowItem.starring)
           ? tvshowItem.starring.map((actor) => ({
               "@type": "Person",
-              name: actor.replace(/,/, '').trim(), // Clean up actor names
+              name: actor.replace(/,/, "").trim(), // Clean up actor names
             }))
           : [],
         keywords: tvshowItem.keywords || "",
@@ -128,8 +129,12 @@ const NewsSchema = (tvshowItem) =>
       ...(tvshowItem.seasons || []).flatMap((season, index) =>
         (season.episodes || []).map((episode) => ({
           "@type": "TVEpisode",
-          "@id": `${tvshowItem.siteurl}/season-${season.number || index + 1}/episode-${episode.number}`,
-          url: `${tvshowItem.siteurl}/season-${season.number || index + 1}/episode-${episode.number}`,
+          "@id": `${tvshowItem.siteurl}/season-${
+            season.number || index + 1
+          }/episode-${episode.number}`,
+          url: `${tvshowItem.siteurl}/season-${
+            season.number || index + 1
+          }/episode-${episode.number}`,
           name: episode.title || `Episode ${episode.number}`,
           episodeNumber: episode.number || 1,
           partOfSeason: {
@@ -148,7 +153,9 @@ const NewsSchema = (tvshowItem) =>
           },
           potentialAction: {
             "@type": "WatchAction",
-            target: `${tvshowItem.siteurl}/season-${season.number || index + 1}/episode-${episode.number}`,
+            target: `${tvshowItem.siteurl}/season-${
+              season.number || index + 1
+            }/episode-${episode.number}`,
           },
         }))
       ),
@@ -174,7 +181,9 @@ const NewsSchema = (tvshowItem) =>
             {
               "@type": "ListItem",
               position: 2,
-              name: "Season " + (tvshowItem.seasons ? tvshowItem.seasons[0].number : "1"),
+              name:
+                "Season " +
+                (tvshowItem.seasons ? tvshowItem.seasons[0].number : "1"),
               item: `${tvshowItem.siteurl}/season-1`, // Adjust as needed based on season number
             },
           ],
@@ -182,7 +191,7 @@ const NewsSchema = (tvshowItem) =>
       },
     ],
   });
-  
+
 export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
   const schemaData = NewsSchema(tvshowItem);
   const router = useRouter();
@@ -192,15 +201,19 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
   const playerRef = useRef(null);
   const [playerReady, setPlayerReady] = useState(false);
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
-  const [currentPlayerIndex, setCurrentPlayerIndex] = useState(1);  // Default to the second player (tvshow2 URLs)
+  const [currentPlayerIndex, setCurrentPlayerIndex] = useState(1); // Default to the second player (tvshow2 URLs)
 
-  const { tvshow1, tvshow2, image1, downloadlink, } = tvshowItem || {};
+  const { tvshow1, tvshow2, image1, downloadlink } = tvshowItem || {};
 
   // Get the current video ID from tvshow1 (this is used for the short.ink URL)
-  const currentVideoId = Array.isArray(tvshow1) ? tvshow1[currentEpisodeIndex] || "" : "";
+  const currentVideoId = Array.isArray(tvshow1)
+    ? tvshow1[currentEpisodeIndex] || ""
+    : "";
 
   // Get the current episode details from tvshow2
-  const currentTvShowId = Array.isArray(tvshow2) ? tvshow2[currentEpisodeIndex] || "" : "";
+  const currentTvShowId = Array.isArray(tvshow2)
+    ? tvshow2[currentEpisodeIndex] || ""
+    : "";
   const [Id, season, episode] = currentTvShowId.split("/");
 
   // Define the URLs
@@ -220,7 +233,9 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
 
   // Handle navigating to the previous episode
   const handlePreviousEpisode = () => {
-    setCurrentEpisodeIndex((prevIndex) => (prevIndex - 1 + tvshow2.length) % tvshow2.length);
+    setCurrentEpisodeIndex(
+      (prevIndex) => (prevIndex - 1 + tvshow2.length) % tvshow2.length
+    );
   };
 
   // Handle selecting a specific player
@@ -228,7 +243,6 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
     setCurrentPlayerIndex(index);
   };
 
-  
   // Handle navigation back to main news section
   const goBackToMain = () => {
     router.push("/tvshow");
@@ -365,7 +379,6 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
     }
   }, [playerReady, tvshowItem.source]);
 
-  
   return (
     <>
       <Head>
@@ -406,7 +419,7 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
         />
         <meta
           name="keywords"
-         content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
+          content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
         />
         <meta
           property="og:description"
@@ -483,15 +496,16 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
         />
       </Head>
       <SocialSharing />
+      {/* <Script src="../../../propler/ads.js" defer />
+      <Script src="../../../propler/ads2.js" defer /> */}
 
-    
-        {/* Pagination Button to Return to Main Section */}
-        <div style={styles.paginationContainer}>
-          <button onClick={goBackToMain} style={styles.pageButton}>
-            Back to Tv Show Section
-          </button>
-        </div>
-        <div style={styles.container}>
+      {/* Pagination Button to Return to Main Section */}
+      <div style={styles.paginationContainer}>
+        <button onClick={goBackToMain} style={styles.pageButton}>
+          Back to Tv Show Section
+        </button>
+      </div>
+      <div style={styles.container}>
         <h1 style={styles.title}>{tvshowItem?.title}</h1>
         {/* <p style={styles.date}>
         {tvshowItem?.date} - {tvshowItem?.time}
@@ -502,7 +516,7 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
         {/* {tvshowItem?.description && <p style={styles.description}>{tvshowItem?.description}</p>} */}
 
         {/* Image Section */}
-       {tvshowItem?.image && (
+        {tvshowItem?.image && (
           <img
             src={tvshowItem?.image}
             alt={tvshowItem?.title}
@@ -516,9 +530,8 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
             textAlign: "center",
             textShadow: "1px 1px 0px #000",
           }}
-        >
-           </div>
-           {/* <p className={styles.year}>
+        ></div>
+        {/* <p className={styles.year}>
             <strong className=" text-xl font-semibold mt-2">
               Released Date: {tvshowItem?.year}
             </strong>
@@ -700,11 +713,8 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
               Watch Official Trailer.
             </h2>
             {/* <div id="player-0" style={styles.youtubePlayer}></div> */}
-            
-                 <div
-      id="youtube-player" style={styles.youtubePlayer}
-     
-    />
+
+            <div id="youtube-player" style={styles.youtubePlayer} />
           </div>
         )}
 
@@ -779,31 +789,25 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
             )}
           </div>
         )}
-    <div style={styles.iframeContainer}>
-  <iframe
-    style={styles.iframe}
-    src={urls[currentPlayerIndex] || ""}
-    allowFullScreen
-    scrolling="no"
-    title="Video Player"
-  ></iframe>
-</div>
+        <div style={styles.iframeContainer}>
+          <iframe
+            style={styles.iframe}
+            src={urls[currentPlayerIndex] || ""}
+            allowFullScreen
+            scrolling="no"
+            title="Video Player"
+          ></iframe>
+        </div>
 
-{/* Episode navigation buttons */}
-<div style={styles.buttonContainer}>
-  <button
-    onClick={handlePreviousEpisode}
-    style={styles.episodeButton}
-  >
-    Previous Episode
-  </button>
-  <button
-    onClick={handleNextEpisode}
-    style={styles.episodeButton}
-  >
-    Next Episode
-  </button>
-</div>
+        {/* Episode navigation buttons */}
+        <div style={styles.buttonContainer}>
+          <button onClick={handlePreviousEpisode} style={styles.episodeButton}>
+            Previous Episode
+          </button>
+          <button onClick={handleNextEpisode} style={styles.episodeButton}>
+            Next Episode
+          </button>
+        </div>
 
         {/* <div style={styles.iframeContainer}>
           <iframe
@@ -873,7 +877,7 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
         ))}
       </div> */}
       </div>
-   
+
       {/* Download Section */}
       <div className={styles.container}>
         <h2

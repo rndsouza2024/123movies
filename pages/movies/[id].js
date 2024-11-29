@@ -1,10 +1,11 @@
-import React, { useEffect, useRef,useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import path from "path";
 import fs from "fs/promises";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import SocialSharing from "../../components/SocialSharing";
 import moviesStyles from "@styles/styles.module.css";
+import Script from "next/script";
 import Link from "next/link"; // Ensure you import Link from Next.js
 // Helper function to create a slug from a title
 function generateSlug(title) {
@@ -69,97 +70,96 @@ const NewsSchema = (moviesItem) =>
     "@graph": [
       {
         "@type": "Movie",
-        "@id": `${moviesItem.siteurl || ''}/#movie`,
-        name: moviesItem.title || 'Untitled',
-        url: moviesItem.siteurl || '',
-        description: moviesItem.description || 'No description available.',
+        "@id": `${moviesItem.siteurl || ""}/#movie`,
+        name: moviesItem.title || "Untitled",
+        url: moviesItem.siteurl || "",
+        description: moviesItem.description || "No description available.",
         image: {
           "@type": "ImageObject",
-          url: moviesItem.image1 || '',
+          url: moviesItem.image1 || "",
           width: 1280,
           height: 720,
         },
-        datePublished: moviesItem.datePublished || '',
+        datePublished: moviesItem.datePublished || "",
         genre: Array.isArray(moviesItem.genre)
-          ? moviesItem.genre.map((g) => g.replace(/,/g, '').trim())
+          ? moviesItem.genre.map((g) => g.replace(/,/g, "").trim())
           : [],
-        aggregateRating:
-          moviesItem.aggregateRating || undefined, // Add only if present
+        aggregateRating: moviesItem.aggregateRating || undefined, // Add only if present
         director: {
           "@type": "Person",
-          name: (moviesItem.directorname || 'Unknown').trim(),
+          name: (moviesItem.directorname || "Unknown").trim(),
         },
         actor: Array.isArray(moviesItem.starring)
           ? moviesItem.starring.map((actor) => ({
               "@type": "Person",
-              name: actor.replace(/,/g, '').trim(),
+              name: actor.replace(/,/g, "").trim(),
             }))
           : [],
         creator: {
           "@type": "Organization",
-          name: (moviesItem.Originalnetwork || 'Unknown').trim(),
+          name: (moviesItem.Originalnetwork || "Unknown").trim(),
         },
-        keywords: moviesItem.keywords || '',
+        keywords: moviesItem.keywords || "",
       },
       {
         "@type": "WebPage",
-        "@id": `${moviesItem.siteurl || ''}/#webpage`,
-        url: moviesItem.siteurl || '',
-        name: moviesItem.title || 'Untitled',
+        "@id": `${moviesItem.siteurl || ""}/#webpage`,
+        url: moviesItem.siteurl || "",
+        name: moviesItem.title || "Untitled",
         isPartOf: {
-          "@id": `${moviesItem.siteurl || ''}/#website`,
+          "@id": `${moviesItem.siteurl || ""}/#website`,
         },
         primaryImageOfPage: {
-          "@id": `${moviesItem.siteurl || ''}/#primaryimage`,
+          "@id": `${moviesItem.siteurl || ""}/#primaryimage`,
         },
-        datePublished: moviesItem.datePublished || '',
-        dateModified: moviesItem.dateModified || '',
+        datePublished: moviesItem.datePublished || "",
+        dateModified: moviesItem.dateModified || "",
         breadcrumb: {
-          "@id": `${moviesItem.siteurl || ''}/#breadcrumb`,
+          "@id": `${moviesItem.siteurl || ""}/#breadcrumb`,
         },
         potentialAction: {
           "@type": "WatchAction",
-          target: [`${moviesItem.siteurl || ''}`],
+          target: [`${moviesItem.siteurl || ""}`],
         },
         inLanguage: "en-US",
       },
       {
         "@type": "WebSite",
-        "@id": `${moviesItem.siteurl || ''}/#website`,
-        url: moviesItem.siteurl || '',
+        "@id": `${moviesItem.siteurl || ""}/#website`,
+        url: moviesItem.siteurl || "",
         name: "Just Watch Free™ - Explore. Discover. Online.",
         publisher: {
           "@type": "Organization",
-          "@id": `${moviesItem.siteurl || ''}/#organization`,
+          "@id": `${moviesItem.siteurl || ""}/#organization`,
         },
         potentialAction: {
           "@type": "SearchAction",
-          target: `${moviesItem.siteurl || ''}/?s={search_term_string}`,
+          target: `${moviesItem.siteurl || ""}/?s={search_term_string}`,
           "query-input": "required name=search_term_string",
         },
         inLanguage: "en-US",
       },
       {
         "@type": "BreadcrumbList",
-        "@id": `${moviesItem.siteurl || ''}/#breadcrumb`,
+        "@id": `${moviesItem.siteurl || ""}/#breadcrumb`,
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: `${moviesItem.siteurl || ''}`,
+            item: `${moviesItem.siteurl || ""}`,
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: moviesItem.title || 'Untitled',
-            item: `${moviesItem.siteurl || ''}`,
+            name: moviesItem.title || "Untitled",
+            item: `${moviesItem.siteurl || ""}`,
           },
         ],
       },
     ],
   });
-  
+
 export default function MoviesArticle({ moviesItem, videoSources = [] }) {
   const schemaData = NewsSchema(moviesItem);
   const router = useRouter();
@@ -392,7 +392,7 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
         />
         <meta
           name="keywords"
-          content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free" 
+          content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
         />
         <meta
           property="og:description"
@@ -469,15 +469,16 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
         />
       </Head>
       <SocialSharing />
+      {/* <Script src="../../../propler/ads.js" defer />
+      <Script src="../../../propler/ads2.js" defer /> */}
 
-    
-        {/* Pagination Button to Return to Main Section */}
-        <div style={styles.paginationContainer}>
-          <button onClick={goBackToMain} style={styles.pageButton}>
-            Back to Movies Section
-          </button>
-        </div>
-        <div style={styles.container}>
+      {/* Pagination Button to Return to Main Section */}
+      <div style={styles.paginationContainer}>
+        <button onClick={goBackToMain} style={styles.pageButton}>
+          Back to Movies Section
+        </button>
+      </div>
+      <div style={styles.container}>
         <h1 style={styles.title}>{moviesItem.title}</h1>
         {/* <p style={styles.date}>
         {moviesItem.date} - {moviesItem.time}
@@ -488,7 +489,7 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
         {/* {moviesItem.description && <p style={styles.description}>{moviesItem.description}</p>} */}
 
         {/* Image Section */}
-       {moviesItem.image && (
+        {moviesItem.image && (
           <img
             src={moviesItem.image}
             alt={moviesItem.title}
@@ -502,9 +503,8 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
             textAlign: "center",
             textShadow: "1px 1px 0px #000",
           }}
-        >
-           </div>
-           {/* <p className={styles.year}>
+        ></div>
+        {/* <p className={styles.year}>
             <strong className=" text-xl font-semibold mt-2">
               Released Date: {moviesItem.year}
             </strong>
@@ -686,11 +686,8 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
               Watch Official Trailer.
             </h2>
             {/* <div id="player-0" style={styles.youtubePlayer}></div> */}
-            
-                 <div
-      id="youtube-player" style={styles.youtubePlayer}
-     
-    />
+
+            <div id="youtube-player" style={styles.youtubePlayer} />
           </div>
         )}
 
@@ -834,7 +831,7 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
         ))}
       </div> */}
       </div>
-   
+
       {/* Download Section */}
       <div className={styles.container}>
         <h2

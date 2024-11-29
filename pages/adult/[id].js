@@ -1,10 +1,12 @@
-import React, { useEffect, useRef,useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import path from "path";
 import fs from "fs/promises";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import SocialSharing from "../../components/SocialSharing";
+import AdultSkipAds from "../../components/AdultSkipAds";
 import moviesStyles from "@styles/styles.module.css";
+import Script from "next/script";
 import Link from "next/link"; // Ensure you import Link from Next.js
 // Helper function to create a slug from a title
 function generateSlug(title) {
@@ -80,7 +82,7 @@ const NewsSchema = (adultItem) =>
           height: 720,
         },
         datePublished: adultItem.datePublished,
-        genre: adultItem.genre.map((g) => g.replace(/,/, '').trim()), // Clean up genres
+        genre: adultItem.genre.map((g) => g.replace(/,/, "").trim()), // Clean up genres
         aggregateRating: adultItem.aggregateRating || undefined, // Use existing aggregateRating if present
         director: {
           "@type": "Person",
@@ -89,7 +91,7 @@ const NewsSchema = (adultItem) =>
         actor: Array.isArray(adultItem.starring)
           ? adultItem.starring.map((actor) => ({
               "@type": "Person",
-              name: actor.replace(/,/, '').trim(), // Clean up actor names
+              name: actor.replace(/,/, "").trim(), // Clean up actor names
             }))
           : [],
         creator: {
@@ -389,7 +391,7 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
         />
         <meta
           name="keywords"
-        content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
+          content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free"
         />
         <meta
           property="og:description"
@@ -466,15 +468,16 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
         />
       </Head>
       <SocialSharing />
-
-    
-        {/* Pagination Button to Return to Main Section */}
-        <div style={styles.paginationContainer}>
-          <button onClick={goBackToMain} style={styles.pageButton}>
-            Back to Adult Section
-          </button>
-        </div>
-        <div style={styles.container}>
+      <AdultSkipAds />
+      {/* <Script src="../../../propler/ads.js" defer />
+      <Script src="../../../propler/ads2.js" defer /> */}
+      {/* Pagination Button to Return to Main Section */}
+      <div style={styles.paginationContainer}>
+        <button onClick={goBackToMain} style={styles.pageButton}>
+          Back to Adult Section
+        </button>
+      </div>
+      <div style={styles.container}>
         <h1 style={styles.title}>{adultItem.title}</h1>
         {/* <p style={styles.date}>
         {adultItem.date} - {adultItem.time}
@@ -484,8 +487,8 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
         {/* Description Section */}
         {/* {adultItem.description && <p style={styles.description}>{adultItem.description}</p>} */}
 
-         {/* Image Section */}
-         {adultItem.image && (
+        {/* Image Section */}
+        {adultItem.image && (
           <img
             src={adultItem.image}
             alt={adultItem.title}
@@ -503,7 +506,7 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
           }}
         >
            </div> */}
-           {/* className={styles.year}>
+        {/* className={styles.year}>
             <strong className=" text-xl font-semibold mt-2">
               Released Date: {adultItem.year}
             </strong>
@@ -685,11 +688,8 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
               Watch Official Trailer.
             </h2>
             {/* <div id="player-0" style={styles.youtubePlayer}></div> */}
-            
-                 <div
-      id="youtube-player" style={styles.youtubePlayer}
-     
-    />
+
+            <div id="youtube-player" style={styles.youtubePlayer} />
           </div>
         )}
 

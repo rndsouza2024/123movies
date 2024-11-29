@@ -1,31 +1,29 @@
-import '@styles/globals.css';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
+import "@styles/globals.css";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import { PageTransition } from "../components/PageTransition";
-import DisableInteractions from '../components/DisableInteractions';
-import ThemeSwitch from '../components/ThemeSwitch';
+import DisableInteractions from "../components/DisableInteractions";
+import ThemeSwitch from "../components/ThemeSwitch";
 import GoogleAnalytics from "@bradgarropy/next-google-analytics";
 
-import { useEffect } from 'react';
-import Script from 'next/script';
-
+import { useEffect } from "react";
+import Script from "next/script";
 
 function Application({ Component, pageProps }) {
- 
   useEffect(() => {
     // Dynamically load the Ko-fi widget script
-    const kofiScript = document.createElement('script');
-    kofiScript.src = 'https://storage.ko-fi.com/cdn/scripts/overlay-widget.js';
+    const kofiScript = document.createElement("script");
+    kofiScript.src = "https://storage.ko-fi.com/cdn/scripts/overlay-widget.js";
     kofiScript.async = true;
 
     kofiScript.onload = () => {
       console.log("Ko-fi widget loaded.");
-      if (typeof kofiWidgetOverlay !== 'undefined') {
-        kofiWidgetOverlay.draw('payat', {
-          'type': 'floating-chat',
-          'floating-chat.donateButton.text': 'Support me',
-          'floating-chat.donateButton.background-color': '#00b9fe',
-          'floating-chat.donateButton.text-color': '#fff'
+      if (typeof kofiWidgetOverlay !== "undefined") {
+        kofiWidgetOverlay.draw("payat", {
+          type: "floating-chat",
+          "floating-chat.donateButton.text": "Support me",
+          "floating-chat.donateButton.background-color": "#00b9fe",
+          "floating-chat.donateButton.text-color": "#fff",
         });
       }
     };
@@ -37,24 +35,24 @@ function Application({ Component, pageProps }) {
     };
   }, []);
 
-
   return (
     <>
-      
       <div className="center">
         {/* Google Analytics */}
-        <GoogleAnalytics measurementId="G-RKFSE3C017" />
-        
+        <GoogleAnalytics measurementId="G-54K9PWC4GN" />
+
         <PageTransition>
           {/* Header */}
           <Header />
 
           {/* Main Content */}
           <main>
-          <DisableInteractions />  
-          <ThemeSwitch />
+            <DisableInteractions />
+            <ThemeSwitch />
+            <Script src="../../propler/ads.js" defer />
+            <Script src="../../propler/ads2.js" defer />
+
             <Component {...pageProps} />
-           
           </main>
 
           {/* Footer */}
