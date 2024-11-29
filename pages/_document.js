@@ -9,7 +9,7 @@ class MyDocument extends Document {
             rel='sitemap'
             type='application/xml'
             title='Sitemap'
-            href='http://localhost:3000/sitemap.xml'
+            href='https://moviefree.vercel.app/sitemap.xml'
           />
           <link
             rel='icon'
@@ -42,46 +42,43 @@ class MyDocument extends Document {
             name='robots'
             content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
           />
-          <meta
-            name='keywords'
-            content='download, software, freeware, shareware, trial versions, program, utilities, security, network, multimedia, movies, mobile, games, graphic design, file sharing, education, development, desktop, browser'
-          />
+          <meta name="keywords" content="moviefree, movies, watch movie online, free movies, free movies online, free movie streaming, moviefree movies free streaming, download free" />
           <meta
             name='description'
-            content='Explore. Discover. Download - Free Your Desired Software.'
+            content='Stream HD movies and TV series for free on MoviesFree™. Explore, stream, and download full-length movies and shows in HD quality without registration.'
           />
           <link
             rel='canonical'
-            href='http://localhost:3000/'
+            href='https://moviefree.vercel.app/'
           />
           <meta property='og:locale' content='en_US' />
           <meta property='og:type' content='website' />
           <meta
             property='og:title'
-            content='Softwarebay™ - Explore. Discover. Download.'
+            content='MoviesFree™ - Online. Stream. Download.'
           />
           <meta
             property='og:description'
-            content='SoftwareBay is the top platform for exploring and downloading software,the premier platform for the latest releases and secure downloads.'
+            content='Stream HD movies and TV series for free on MoviesFree™. Explore, stream, and download full-length movies and shows in HD quality without registration.'
           />
           <meta
             property='og:url'
-            content='http://localhost:3000/'
+            content='https://moviefree.vercel.app/'
           />  
           <meta
             property='og:site_name'
-            content='Softwarebay - Explore. Discover. Download.'
+            content='MoviesFree™ - Online. Stream. Download.'
           />
           <meta
             property='og:image'
-            content='http://localhost:3000/og_image.jpg'
+            content='https://moviefree.vercel.app/og_image.jpg'
           />
           <meta property='og:image:width' content='1280' />
           <meta property='og:image:height' content='720' />
           <meta property='og:image:type' content='image/webp' />
           <meta
             name='application-name'
-            content='Softwarebay - Explore. Discover. Download.'
+            content='MoviesFree™ - Online. Stream. Download.'
           />
           <meta
             property='article:modified_time'
@@ -91,7 +88,7 @@ class MyDocument extends Document {
             rel='sitemap'
             type='application/xml'
             title='Sitemap'
-            href='http://localhost:3000/sitemap.xml'
+            href='https://moviefree.vercel.app/sitemap.xml'
           />
           <meta name='twitter:card' content='summary_large_image' />
       
