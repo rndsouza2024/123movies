@@ -3,6 +3,7 @@ import path from "path";
 import fs from "fs/promises";
 import Link from "next/link";
 import Head from "next/head";
+import Image from 'next/image';
 import SocialSharing from "../components/SocialSharing";
 
 import mainStyles from "@styles/styles.module.css";
@@ -376,13 +377,23 @@ export default function HomePage({ allData }) {
   </Head>
   <SocialSharing />
     <div style={styles.container}>
-      <header style={styles.hero}>
-        <h1 style={styles.heroTitle}>Welcome to Movies Free™  </h1>
-        <p style={styles.heroDescription}>
-        Online. Stream. Download. Your source for the latest updates across various categories.
-        </p>
-     
-      </header>
+    <header style={styles.hero}>
+  <div style={styles.heroImageContainer}>
+    <Image
+      src="/og_image.jpg"
+      alt="Hero Background"
+      layout="fill"
+      objectFit="cover"
+      priority // Prioritize loading this image
+    />
+  </div>
+  <div style={styles.heroTextContainer}>
+    <h1 style={styles.heroTitle}>Welcome to Movies Free™</h1>
+    <p style={styles.heroDescription}>
+      Online. Stream. Download. Your source for the latest updates across various categories.
+    </p>
+  </div>
+</header>
       <div
           className="shadow-lg flex items-center justify-center"
           role="navigation"
@@ -485,21 +496,21 @@ const styles = {
     fontFamily: "'Poppins', sans-serif",
     color: "#333",
   },
-  hero: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    // minHeight: "100vh", // Full viewport height for the hero section
-    backgroundImage: "url(https://moviefree.vercel.app/og_image.jpg)", // Background image
-    backgroundSize: "cover", // Make the image cover the entire area
-    backgroundPosition: "center", // Center the image
-    backgroundRepeat: "no-repeat", // Prevent image repetition
-    color: "#fff", // White text for readability
-    textAlign: "center", // Center align text
-    padding: "20px", // Add padding for spacing
-    boxSizing: "border-box", // Include padding in element's total width/height
-  },
+  // hero: {
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   // minHeight: "100vh", // Full viewport height for the hero section
+  //   backgroundImage: "url(https://moviefree.vercel.app/og_image.jpg)", // Background image
+  //   backgroundSize: "cover", // Make the image cover the entire area
+  //   backgroundPosition: "center", // Center the image
+  //   backgroundRepeat: "no-repeat", // Prevent image repetition
+  //   color: "#fff", // White text for readability
+  //   textAlign: "center", // Center align text
+  //   padding: "20px", // Add padding for spacing
+  //   boxSizing: "border-box", // Include padding in element's total width/height
+  // },
 
   // Optional: Responsive tweaks for smaller screens
   "@media (max-width: 768px)": {
@@ -509,21 +520,42 @@ const styles = {
     },
   },
    
+  hero: {
+    position: "relative",
+    width: "100%",
+    height: "250px", // Reduced height for the hero section
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
+  },
+  heroImageContainer: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    zIndex: 1,
+  },
+  heroTextContainer: {
+    position: "relative",
+    zIndex: 2,
+    textAlign: "center",
+    color: "#fff",
+    padding: "10px",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background
+    borderRadius: "10px",
+  },
   heroTitle: {
-    fontSize: "3.5rem", // Increase font size for better visibility
-    fontWeight: "800", // Make the font bold
-    marginBottom: "15px",
-    color: "#0000FF", // Vibrant yellow for attention
-    textShadow: "2px 2px 5px rgba(0, 0, 0, 0.7)", // Add a subtle shadow for contrast
-    letterSpacing: "1.5px", // Slight spacing for readability
+    fontSize: "1.5rem",
+    fontWeight: "800",
+    marginBottom: "5px",
+    textShadow: "2px 2px 5px rgba(0, 0, 0, 0.7)",
   },
   heroDescription: {
-    fontSize: "1.75rem", // Slightly larger font size
-    maxWidth: "800px",
-    margin: "0 auto",
-    color: "#000", // Light grey for subtlety
-    textShadow: "1px 1px 4px rgba(0, 0, 0, 0.6)", // Subtle shadow for depth
-    fontWeight: "600", // Semi-bold for emphasis
+    fontSize: "1rem",
+    fontWeight: "400",
+    textShadow: "1px 1px 4px rgba(0, 0, 0, 0.6)",
   },
   categories: {
     display: "flex",
