@@ -21,7 +21,7 @@ const SocialSharing = ({ title, image1 }) => {
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   return (
-    <div className={styles.socialContainer}>
+    <div className={styles.socialContainer}   style={{ zIndex: 999 }}>
       <FacebookShareButton
         url={currentUrl}
         quote={title} // Share the title

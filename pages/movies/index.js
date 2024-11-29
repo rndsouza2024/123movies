@@ -336,6 +336,10 @@ export default function movies({ moviesData }) {
           </ul>
         </div>
     {/* Pagination Controls */}
+    <div
+  className="flex items-center justify-center mt-4 gap-2 relative"
+  style={{ zIndex: 1000 }}
+>
     <div className="flex items-center justify-center mt-4 gap-2">
         {/* Previous Button */}
         <button
@@ -396,7 +400,7 @@ export default function movies({ moviesData }) {
           Next
         </button>
       </div>
-
+      </div>
       {/* Current Page Info */}
       <div className="mt-4 text-center text-gray-700 text-xl"  style={{
             fontFamily: "Poppins, sans-serif",

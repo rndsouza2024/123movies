@@ -15,7 +15,7 @@
     align-items: center;
     transition: background-color 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* Ensures the button is on top */
+    z-index: 999; /* Ensures the button is on top */
 }
 
 .darkmode .themeSwitch {
