@@ -528,7 +528,7 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
             style={{
               width: "400px", // Ensures the image is displayed at this width
               height: "500px", // Ensures the image is displayed at this height
-              objectFit: "cover", // Ensures the image covers the dimensions
+              // objectFit: "cover", // Ensures the image covers the dimensions
               margin: "auto",
               borderRadius: "50px", // Rounded corners for the image
               boxShadow: "0 0 10px 0 #000", // Shadow effect
