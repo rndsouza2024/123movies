@@ -4,6 +4,7 @@ import fs from "fs/promises";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Image from 'next/image';
 import SocialSharing from "../../components/SocialSharing";
 import SearchComponent from "../../components/SearchComponent";
 import Script from "next/script";
@@ -420,9 +421,12 @@ export default function TvShowList({ tvshowData }) {
                   style={styles.card}
                   className="flex flex-col sm:flex-row gap-4"
                 >
-                  <img
+                  <Image
                     src={tvshowitem.image1 || tvshowitem.image}
                     alt={tvshowitem.title}
+                    width={500} // Adjust the width according to your needs
+                    height={750} // Adjust the height according to your needs
+                    quality={90}
                     style={{
                       height: "200px",
                       width: "100%",
