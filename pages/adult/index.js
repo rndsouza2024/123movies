@@ -332,8 +332,8 @@ export default function adult({ adultData }) {
             </button>
           </ul>
         </div>
-        {/* Pagination Controls */}
-        <div
+         {/* Pagination Controls */}
+    <div
   className="flex items-center justify-center mt-4 gap-2 relative"
   style={{ zIndex: 1000 }}
 >
@@ -397,7 +397,7 @@ export default function adult({ adultData }) {
           Next
         </button>
       </div>
-
+      </div>
       {/* Current Page Info */}
       <div className="mt-4 text-center text-gray-700 text-xl"  style={{
             fontFamily: "Poppins, sans-serif",
@@ -407,7 +407,6 @@ export default function adult({ adultData }) {
             textShadow: "1px 1px 0px #000",
           }}>
         <span>{`Page ${currentPage} of ${totalPages}`}</span>
-      </div>
       </div>
 
 
