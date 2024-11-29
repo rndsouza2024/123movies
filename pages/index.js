@@ -348,7 +348,7 @@ export default function HomePage({ allData }) {
     />
     <meta
       name="google-site-verification"
-      content="BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s"
+      content="4gdbnCGat0T4Ow3Y_RYzPM4vwtsXvhUel5Q-2yULK6k"
     />
 
     <meta
