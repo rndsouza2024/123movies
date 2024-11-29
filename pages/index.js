@@ -360,6 +360,7 @@ export default function HomePage({ allData }) {
       content="dm3bs67ukdegz9qik"
     />
     <meta name="monetag" content="98a412cb5612b9188cd76b9744304b6c" />
+    
     <script
     type="application/ld+json"
     dangerouslySetInnerHTML={{ __html: NewsSchema }}
@@ -433,33 +434,46 @@ const styles = {
     padding: "20px",
     fontFamily: "'Poppins', sans-serif",
     color: "#333",
-    
   },
   hero: {
-    textAlign: "center",
-    padding: "40px 20px",
-    backgroundColor: "#007bff", // Blue hero background
-    color: "white",
-    borderRadius: "8px",
-    marginBottom: "40px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    // minHeight: "100vh", // Full viewport height for the hero section
+    backgroundImage: "url(https://moviefree.vercel.app/og_image.jpg)", // Background image
+    backgroundSize: "cover", // Make the image cover the entire area
+    backgroundPosition: "center", // Center the image
+    backgroundRepeat: "no-repeat", // Prevent image repetition
+    color: "#fff", // White text for readability
+    textAlign: "center", // Center align text
+    padding: "20px", // Add padding for spacing
+    boxSizing: "border-box", // Include padding in element's total width/height
   },
+
+  // Optional: Responsive tweaks for smaller screens
+  "@media (max-width: 768px)": {
+    hero: {
+      padding: "15px", // Adjust padding for smaller screens
+      backgroundPosition: "top", // Focus on the top part of the image
+    },
+  },
+   
   heroTitle: {
-    fontSize: "3rem",
-    marginBottom: "10px",
+    fontSize: "3.5rem", // Increase font size for better visibility
+    fontWeight: "800", // Make the font bold
+    marginBottom: "15px",
+    color: "#0000FF", // Vibrant yellow for attention
+    textShadow: "2px 2px 5px rgba(0, 0, 0, 0.7)", // Add a subtle shadow for contrast
+    letterSpacing: "1.5px", // Slight spacing for readability
   },
   heroDescription: {
-    fontSize: "1.5rem",
+    fontSize: "1.75rem", // Slightly larger font size
     maxWidth: "800px",
     margin: "0 auto",
-  },
-  dateTime: {
-    marginTop: "20px",
-    fontSize: "1.2rem",
-    backgroundColor: "rgba(0, 0, 0, 0.5)", // Dark background for date/time
-    padding: "10px 15px",
-    borderRadius: "5px",
-    color: "white",
-    display: "inline-block",
+    color: "#000", // Light grey for subtlety
+    textShadow: "1px 1px 4px rgba(0, 0, 0, 0.6)", // Subtle shadow for depth
+    fontWeight: "600", // Semi-bold for emphasis
   },
   categories: {
     display: "flex",
@@ -526,107 +540,3 @@ const styles = {
     marginTop: "20px",
   },
 };
-
-
-
-// const styles = {
-//   container: {
-//     maxWidth: "1200px",
-//     margin: "0 auto",
-//     padding: "20px",
-//     fontFamily: "'Poppins', sans-serif",
-//     color: "var(--text-color)", // Dynamic text color
-//     backgroundColor: "var(--background-color)", // Dynamic background color
-//   },
-//   hero: {
-//     textAlign: "center",
-//     padding: "40px 20px",
-//     backgroundColor: "var(--primary-bg-color)", // Dynamic primary background
-//     color: "var(--primary-text-color)", // Dynamic primary text color
-//     borderRadius: "8px",
-//     marginBottom: "40px",
-//   },
-//   heroTitle: {
-//     fontSize: "3rem",
-//     marginBottom: "10px",
-//   },
-//   heroDescription: {
-//     fontSize: "1.5rem",
-//     maxWidth: "800px",
-//     margin: "0 auto",
-//   },
-//   dateTime: {
-//     marginTop: "20px",
-//     fontSize: "1.2rem",
-//     backgroundColor: "rgba(0, 0, 0, 0.5)", // Remains static
-//     padding: "10px 15px",
-//     borderRadius: "5px",
-//     color: "var(--primary-text-color)", // Dynamic text color for contrast
-//     display: "inline-block",
-//   },
-//   categories: {
-//     display: "flex",
-//     flexDirection: "column",
-//     gap: "40px",
-//   },
-//   categorySection: {
-//     backgroundColor: "var(--section-bg-color)", // Dynamic section background
-//     padding: "20px",
-//     borderRadius: "12px",
-//     boxShadow: "0 10px 20px var(--card-shadow-color)", // Dynamic shadow
-//   },
-//   categoryTitle: {
-//     fontSize: "2rem",
-//     fontWeight: "600",
-//     marginBottom: "20px",
-//     color: "var(--link-color)", // Dynamic link color
-//   },
-//   categoryContent: {
-//     display: "flex",
-//     flexDirection: "column",
-//     gap: "30px",
-//   },
-//   card: {
-//     backgroundColor: "var(--card-bg-color)", // Dynamic card background
-//     padding: "15px",
-//     borderRadius: "8px",
-//     boxShadow: "0 4px 8px var(--card-shadow-color)", // Dynamic shadow
-//     overflow: "hidden",
-//   },
-//   cardContent: {
-//     display: "flex",
-//     gap: "20px",
-//   },
-//   cardImage: {
-//     width: "120px",
-//     height: "80px",
-//     objectFit: "cover",
-//     borderRadius: "8px",
-//   },
-//   cardText: {
-//     display: "flex",
-//     flexDirection: "column",
-//   },
-//   cardTitle: {
-//     fontSize: "1.25rem",
-//     fontWeight: "600",
-//     margin: "0 0 10px",
-//     color: "var(--text-color)", // Dynamic text color
-//   },
-//   cardDescription: {
-//     fontSize: "1rem",
-//     color: "var(--text-secondary-color)", // Dynamic secondary text color
-//   },
-//   itemFooter: {
-//     fontSize: "0.9rem",
-//     color: "var(--text-secondary-color)", // Dynamic secondary text color
-//     marginTop: "10px",
-//   },
-//   viewAll: {
-//     fontSize: "1rem",
-//     fontWeight: "600",
-//     color: "var(--link-color)", // Dynamic link color
-//     textDecoration: "none",
-//     marginTop: "20px",
-//   },
-// };
