@@ -51,6 +51,18 @@ export default function TvShowList({ tvshowData }) {
     currentPage * itemsPerPage
   );
 
+  const getVisiblePages = () => {
+    const visiblePages = [];
+    const start = Math.max(1, currentPage - 1); // One page before the current
+    const end = Math.min(totalPages, currentPage + 1); // One page after the current
+    for (let i = start; i <= end; i++) {
+      visiblePages.push(i);
+    }
+    return visiblePages;
+  };
+
+  const visiblePages = getVisiblePages();
+
   const combinedSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
@@ -323,33 +335,79 @@ export default function TvShowList({ tvshowData }) {
             </button>
           </ul>
         </div>
-        {/* Pagination and Total Pages */}
-        <div className="flex flex-col items-center space-y-4 mt-4">
-          {/* Pagination Buttons */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {Array.from({ length: totalPages }, (_, index) => index + 1).map(
-              (page) => (
-                <button
-                  key={page}
-                  onClick={() => handlePageChange(page)}
-                  className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all 
-          ${
-            currentPage === page
-              ? "bg-blue-600 text-white border-blue-600"
+        {/* Pagination Controls */}
+    <div className="flex items-center justify-center mt-4 gap-2">
+        {/* Previous Button */}
+        <button
+          onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+          className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all ${
+            currentPage === 1
+              ? "bg-gray-300 text-gray-600 cursor-not-allowed"
               : "bg-white text-blue-600 border-gray-300 hover:bg-blue-100"
           }`}
-                >
-                  {page}
-                </button>
-              )
-            )}
-          </div>
+          disabled={currentPage === 1}  style={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: "bold",
+            textAlign: "center",
+            textShadow: "1px 1px 0px #000",
+            fontSize:"20px"
+          }}
+        >
+          Previous
+        </button>
 
-          {/* Current Page Info */}
-          <div style={styles.totalPages}>
-            <span>{`Page ${currentPage} of ${totalPages}`}</span>
-          </div>
-        </div>
+        {/* Visible Page Buttons */}
+        {visiblePages.map((page) => (
+          <button
+            key={page}
+            onClick={() => handlePageChange(page)}
+            className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all ${
+              currentPage === page
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-blue-600 border-gray-300 hover:bg-blue-100"
+            }`}  style={{
+              fontFamily: "Poppins, sans-serif",
+              fontWeight: "bold",
+              textAlign: "center",
+              textShadow: "1px 1px 0px #000",
+              fontSize:"20px"
+            }}
+          >
+            {page}
+          </button>
+        ))}
+
+        {/* Next Button */}
+        <button
+          onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
+          className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all ${
+            currentPage === totalPages
+              ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+              : "bg-white text-blue-600 border-gray-300 hover:bg-blue-100"
+          }`}
+          disabled={currentPage === totalPages}  style={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: "bold",
+            textAlign: "center",
+            textShadow: "1px 1px 0px #000",
+            fontSize:"20px"
+          }}
+        >
+          Next
+        </button>
+      </div>
+
+      {/* Current Page Info */}
+      <div className="mt-4 text-center text-gray-700 text-xl"  style={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: "bold",
+            textAlign: "center",
+            marginBottom:"20px",
+            textShadow: "1px 1px 0px #000",
+          }}>
+        <span>{`Page ${currentPage} of ${totalPages}`}</span>
+      </div>
+
 
         <ul style={styles.newsList}>
           {currenttvshowitems.map((tvshowitem, index) => (
@@ -395,34 +453,79 @@ export default function TvShowList({ tvshowData }) {
           ))}
         </ul>
 
-        {/* Pagination and Total Pages */}
-        {/* Pagination and Total Pages */}
-        <div className="flex flex-col items-center space-y-4 mt-4">
-          {/* Pagination Buttons */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {Array.from({ length: totalPages }, (_, index) => index + 1).map(
-              (page) => (
-                <button
-                  key={page}
-                  onClick={() => handlePageChange(page)}
-                  className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all 
-          ${
-            currentPage === page
-              ? "bg-blue-600 text-white border-blue-600"
+ {/* Pagination Controls */}
+    <div className="flex items-center justify-center mt-4 gap-2">
+        {/* Previous Button */}
+        <button
+          onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+          className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all ${
+            currentPage === 1
+              ? "bg-gray-300 text-gray-600 cursor-not-allowed"
               : "bg-white text-blue-600 border-gray-300 hover:bg-blue-100"
           }`}
-                >
-                  {page}
-                </button>
-              )
-            )}
-          </div>
+          disabled={currentPage === 1}  style={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: "bold",
+            textAlign: "center",
+            textShadow: "1px 1px 0px #000",
+            fontSize:"20px"
+          }}
+        >
+          Previous
+        </button>
 
-          {/* Current Page Info */}
-          <div style={styles.totalPages}>
-            <span>{`Page ${currentPage} of ${totalPages}`}</span>
-          </div>
-        </div>
+        {/* Visible Page Buttons */}
+        {visiblePages.map((page) => (
+          <button
+            key={page}
+            onClick={() => handlePageChange(page)}
+            className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all ${
+              currentPage === page
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-blue-600 border-gray-300 hover:bg-blue-100"
+            }`}  style={{
+              fontFamily: "Poppins, sans-serif",
+              fontWeight: "bold",
+              textAlign: "center",
+              textShadow: "1px 1px 0px #000",
+              fontSize:"20px"
+            }}
+          >
+            {page}
+          </button>
+        ))}
+
+        {/* Next Button */}
+        <button
+          onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
+          className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all ${
+            currentPage === totalPages
+              ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+              : "bg-white text-blue-600 border-gray-300 hover:bg-blue-100"
+          }`}
+          disabled={currentPage === totalPages}  style={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: "bold",
+            textAlign: "center",
+            textShadow: "1px 1px 0px #000",
+            fontSize:"20px"
+          }}
+        >
+          Next
+        </button>
+      </div>
+
+      {/* Current Page Info */}
+      <div className="mt-4 text-center text-gray-700 text-xl"  style={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: "bold",
+            textAlign: "center",
+            marginBottom:"20px",
+            textShadow: "1px 1px 0px #000",
+          }}>
+        <span>{`Page ${currentPage} of ${totalPages}`}</span>
+      </div>
+
       </div>
     </>
   );
