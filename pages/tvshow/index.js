@@ -354,7 +354,7 @@ export default function TvShowList({ tvshowData }) {
         <ul style={styles.newsList}>
           {currenttvshowitems.map((tvshowitem, index) => (
             <li key={index} style={styles.tvshowitem}>
-              <Link href={`/tvshow/${generateSlug(tvshowitem.title)}`}>
+              <Link href={`/tvshow/${generateSlug(tvshowitem.title)}`} className="no-underline hover:no-underline">
                 <div
                   style={styles.card}
                   className="flex flex-col sm:flex-row gap-4"

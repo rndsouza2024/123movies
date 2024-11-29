@@ -384,19 +384,19 @@ export default function HomePage({ allData }) {
      
       </header>
 
-      <div className="categories">
+      <div className="categories ">
   {Object.keys(allData).map((category) => (
-    <section key={category} className="category-section bg-gray-100 p-4 rounded-lg shadow-md"  style={{ marginBottom: "20px",}}> 
+    <section key={category} className="category-section bg-gray-100 p-4 rounded-lg shadow-md "  style={{ marginBottom: "20px",}}> 
       <h2 className="category-title text-4xl font-semibold text-blue-500 mb-5"
         style={{ textShadow: "3px 5px 5px #000", marginBottom:'20px'}}>
-        <Link href={`/${category}`}>
+        <Link href={`/${category}`} className="no-underline hover:no-underline">
           {category.charAt(0).toUpperCase() + category.slice(1)}
         </Link>
       </h2>
       <div className="category-content flex flex-col gap-8">
         {allData[category].map((item, index) => (
           <div key={index} className="card bg-white p-4 rounded-lg shadow-md">
-            <Link href={`/${category}/${generateSlug(item.title)}`}>
+            <Link href={`/${category}/${generateSlug(item.title)}`} className="no-underline hover:no-underline">
               <div className="card-content flex flex-col md:flex-row gap-4">
                 <img
                   src={item.image1 || item.image}
@@ -415,7 +415,7 @@ export default function HomePage({ allData }) {
           </div>
         ))}
       </div>
-      <Link href={`/${category}`}>
+      <Link href={`/${category}`} className="no-underline hover:no-underline">
             <div className="animate-pulse view-all text-red-500 text-2xl font-semibold mt-5">View All  {category.charAt(0).toUpperCase() + category.slice(1)} Articles →</div>
       </Link>
     </section>
@@ -491,6 +491,7 @@ const styles = {
     fontWeight: "600",
     marginBottom: "20px",
     color: "#007bff", // Blue color for category title
+    
   },
   categoryContent: {
     display: "flex",

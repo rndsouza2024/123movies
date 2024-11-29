@@ -351,7 +351,7 @@ export default function adult({ adultData }) {
         <ul style={styles.newsList}>
           {currentadultItems.map((adultItem, index) => (
             <li key={index} style={styles.adultItem}>
-              <Link href={`/adult/${generateSlug(adultItem.title)}`}>
+              <Link href={`/adult/${generateSlug(adultItem.title)}`} className="no-underline hover:no-underline">
                 <div
                   style={styles.card}
                   className="flex flex-col sm:flex-row gap-4"

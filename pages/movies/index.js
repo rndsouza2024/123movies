@@ -354,7 +354,7 @@ export default function movies({ moviesData }) {
         <ul style={styles.newsList}>
           {currentmoviesItems.map((moviesItem, index) => (
             <li key={index} style={styles.moviesItem}>
-              <Link href={`/movies/${generateSlug(moviesItem.title)}`}>
+              <Link href={`/movies/${generateSlug(moviesItem.title)}`} className="no-underline hover:no-underline">
                 <div
                   style={styles.card}
                   className="flex flex-col sm:flex-row gap-4"

@@ -469,7 +469,7 @@ export default function hindiDubbed({ hindiDubbedData }) {
           {currenthindiDubbedItems.map((hindiDubbedItem, index) => (
             <li key={index} style={styles.hindiDubbedItem}>
               <Link
-                href={`/hindiDubbed/${generateSlug(hindiDubbedItem.title)}`}
+                href={`/hindiDubbed/${generateSlug(hindiDubbedItem.title)}`} className="no-underline hover:no-underline"
               >
                 <div
                   style={styles.card}
