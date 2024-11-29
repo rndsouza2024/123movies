@@ -549,6 +549,7 @@ const styles = {
   heroTitle: {
     fontSize: "2.5rem",
     fontWeight: "800",
+    marginTop: "10px",
     marginBottom: "5px",
     textShadow: "2px 2px 5px rgba(0, 0, 0, 0.7)",
   },
