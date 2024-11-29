@@ -33,6 +33,8 @@ class MyDocument extends Document {
             sizes='16x16'
             href='/favicon-16x16.png'
           />
+          <link rel="preload" as="image" href="https://moviefree.vercel.app/og_image.jpg" />  
+
           <link rel='manifest' href='/site.webmanifest' />
           <meta name='googlebot' content='index,follow' />
           <meta name='revisit-after' content='1 days' />

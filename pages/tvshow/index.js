@@ -254,15 +254,75 @@ export default function TvShowList({ tvshowData }) {
       <Script src="../../propler/ads2.js" defer /> */}
       <div style={styles.container}>
         {/* Pagination Button to Return to Main Section */}
-        <div style={styles.paginationContainer}>
+        {/* <div style={styles.paginationContainer}>
           <button onClick={goBackToMain} style={styles.pageButton}>
             Back to Main Section
           </button>
-        </div>
+        </div> */}
         <h1 style={styles.title}>Movies Free™ Tv Show Section.</h1>
         {/* <span className="px-0 bg-clip-text text-sm text-black font-bold mt-2">
         <SearchComponent />
       </span>     */}
+     <div
+          className="shadow-lg flex items-center justify-center"
+          role="navigation"
+        >
+          <ul
+            id="menu-header-menu"
+            className="menu flex flex-wrap justify-center"
+          >
+            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
+              <li id="menu-item-35" className="menu-home active">
+                <a
+                  href="/"
+                  className="text-blue-500 font-bold text-xl hover:no-underline"
+                >
+                  Home<span className="p"></span>
+                </a>
+              </li>
+            </button>
+            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
+              <li id="menu-item-35" className="menu-home active">
+                <a
+                  href="../movies/"
+                  className="text-blue-500 font-bold text-xl hover:no-underline"
+                >
+                  Movies<span className="p"></span>
+                </a>
+              </li>
+            </button>
+            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
+              <li id="menu-item-248" className="menu-operating-systems">
+                <a
+                  href="../tvshow/"
+                  className="text-blue-500 font-bold text-xl hover:no-underline"
+                >
+                  Tv Show<span className="p"></span>
+                </a>
+              </li>
+            </button>
+            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
+              <li id="menu-item-248" className="menu-operating-systems">
+                <a
+                  href="../hindiDubbed/"
+                  className="text-blue-500 font-bold text-xl hover:no-underline"
+                >
+                  Hindi Dubed<span className="p"></span>
+                </a>
+              </li>
+            </button>
+            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
+              <li id="menu-item-11605" className="menu-3dcad">
+                <a
+                  href="../adult/"
+                  className="text-blue-500 font-bold text-xl hover:no-underline"
+                >
+                  Adult<span className="p"></span>
+                </a>
+              </li>
+            </button>
+          </ul>
+        </div>
         {/* Pagination and Total Pages */}
         <div className="flex flex-col items-center space-y-4 mt-4">
           {/* Pagination Buttons */}
@@ -381,6 +441,7 @@ const styles = {
     textAlign: "center",
     marginBottom: "40px",
     color: "#007bff",
+    fontWeight:"bold"
   },
   newsList: {
     listStyleType: "none",
