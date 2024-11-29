@@ -3,6 +3,7 @@ import path from "path";
 import fs from "fs/promises";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Image from 'next/image';
 import SocialSharing from "../../components/SocialSharing";
 import hindiDubbedStyles from "@styles/styles.module.css";
 import Link from "next/link"; // Ensure you import Link from Next.js
@@ -489,10 +490,23 @@ export default function hindiDubbedArticle({ hindiDubbedItem, videoSources = [] 
 
         {/* Image Section */}
        {hindiDubbedItem.image && (
-          <img
+          <Image
             src={hindiDubbedItem.image}
             alt={hindiDubbedItem.title}
-            style={styles.image}
+            // style={styles.image}
+            width={800} // Adjust the width according to your needs
+            height={450} // Adjust the height according to your needs
+            quality={90}
+            style={{
+              width: "400px", // Ensures the image is displayed at this width
+              height: "500px", // Ensures the image is displayed at this height
+              objectFit: "cover", // Ensures the image covers the dimensions
+              margin: "auto",
+              borderRadius: "50px", // Rounded corners for the image
+              boxShadow: "0 0 10px 0 #000", // Shadow effect
+              filter:
+                "contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)", // Image filter effects
+            }}
           />
         )}
         <div
