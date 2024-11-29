@@ -1,0 +1,32 @@
+
+
+
+.imageContainer {
+  display: flex;
+  justify-content: space-between; /* Distribute images evenly */
+  margin-top: 20px; /* Adjust margin top as needed */
+}
+
+/* .imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+} */
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns by default */
+  grid-gap: 10px; /* Gap between grid items */
+}
+
+@media (min-width: 768px) {
+  .imageGrid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on screens wider than 768px */
+  }
+}
+
+.image {
+  width: 200px; /* Adjust image size */
+  height: 200px;
+  border-radius: 50%; /* Make images circular */
+  border: 2px solid #15f4ee; /* Add border with color */
+}

@@ -1,0 +1,81 @@
+/* components/Marquee.module.css */
+.marquee {
+  display: inline-block;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+  vertical-align: middle;
+  width: 100%; /* Make sure the marquee takes up the full width */
+}
+
+.marqueeContent {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: -10s; /* Set animation delay to 0 seconds */
+}
+
+.marqueeItem {
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 20px;
+  color: #000;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+.marqueeItem:hover {
+  transform: scale(1.1);
+  color: #ff6347; /* Change color on hover */
+}
+
+.marqueeItem img {
+  width: 250px;
+  height: 150px;
+  margin-right: 10px;
+  vertical-align: middle; /* Align the image vertically with the text */
+}
+
+.marqueeItem p {
+  display: block; /* Ensure the text appears below the image */
+}
+
+.marquee:hover .marqueeContent {
+  animation-play-state: paused; /* Pause the animation on hover */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Hide the marquee on screens with a width of 768px or less */
+
+
+@media screen and (max-width: 768px) {
+  .marquee {
+    display: none;
+  }
+
+
+    /* Additional styles for smaller screens */
+    /* @media screen and (max-width: 768px) {
+      .marqueeItem {
+        font-size: 16px; 
+      }
+    
+      .marqueeItem img {
+        width: 250px; 
+        height: 150px; 
+      } */
+
+    }
+

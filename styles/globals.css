@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@media (max-width: 768px) {
+
+  
+    /* CSS styles for screens with a maximum width of 768px */
+    @media screen and (max-width: 600px) {
+      /* your CSS styles for smaller screens */
+      
+    }
+    @media screen and (min-width: 600px) and (max-width: 900px) {
+      /* your CSS styles for medium-sized screens */
+    }
+    @media screen and (min-width: 1200px) {
+      /* your CSS styles for larger screens */
+    }
+    @media (max-device-width: 768px) {
+      /* your CSS styles for smaller devices */
+    }
+    @media (min-device-width: 1024px) {
+      /* your CSS styles for larger devices */
+    }
+    @media (orientation: landscape) {
+      /* your CSS styles for landscape mode */
+    }
+    .container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }            
+  }
+  .img {
+    aspect-ratio: 16/9;
+  }
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .center {
+    text-align: center;
+  }
+  body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #ffffff; /* Light mode background */
+    color: #000000; /* Light mode text color */
+  }
+  
+  .darkmode {
+    background-color: #000000; /* Dark mode background */
+    color: #ffffff; /* Dark mode text color */
+  }
+  
+  /* Basic CSS reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Basic body styling */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Global link styling */
+  a {
+    text-decoration: none;
+    color: #0070f3;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Main content area styling */
+  main {
+    min-height: 80vh;
+    padding: 20px;
+  }
+

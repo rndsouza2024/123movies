@@ -1,0 +1,47 @@
+{
+  "name": "uwatchfreeonline",
+  "version": "1.0.0",
+  "description": "Best Movie package",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "postbuild": "next-sitemap --config next-sitemap.config.js"
+  },
+  "dependencies": {
+    "@bradgarropy/next-google-analytics": "^1.0.2",
+    "@popperjs/core": "^2.11.6",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "bootstrap": "^5.3.3",
+    "cloudinary-react": "^1.8.1",
+    "compression": "^1.7.4",
+    "express": "^4.18.2",
+    "framer-motion": "^9.0.7",
+    "lodash": "^4.17.21",
+    "next": "^13.2.4",
+    "next-optimized-images": "^2.6.2",
+    "next-seo": "^6.5.0",
+    "next-sitemap": "^3.1.52",
+    "popper.js": "^1.16.1",
+    "react": "^18.0.0",
+    "react-bootstrap": "^2.10.1",
+    "react-dom": "^18.0.0",
+    "react-icons": "^5.2.0",
+    "react-responsive-carousel": "^3.2.23",
+    "react-share": "^4.4.1",
+    "react-slick": "^0.29.0",
+    "react-tabs": "^6.0.2",
+    "sharethis-reactjs": "^1.6.0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.0.0-rc.1",
+    "swr": "^2.2.5",
+    "tw-elements": "^1.0.0-alpha13"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4"
+  }
+}
