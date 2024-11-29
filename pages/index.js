@@ -383,7 +383,66 @@ export default function HomePage({ allData }) {
         </p>
      
       </header>
-
+      <div
+          className="shadow-lg flex items-center justify-center"
+          role="navigation"
+        >
+          <ul
+            id="menu-header-menu"
+            className="menu flex flex-wrap justify-center"
+          >
+            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
+              <li id="menu-item-35" className="menu-home active">
+                <a
+                  href="/"
+                  className="text-blue-500 font-bold text-xl hover:no-underline"
+                >
+                  Home<span className="p"></span>
+                </a>
+              </li>
+            </button>
+            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
+              <li id="menu-item-35" className="menu-home active">
+                <a
+                  href="../movies/"
+                  className="text-blue-500 font-bold text-xl hover:no-underline"
+                >
+                  Movies<span className="p"></span>
+                </a>
+              </li>
+            </button>
+            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
+              <li id="menu-item-248" className="menu-operating-systems">
+                <a
+                  href="../tvshow/"
+                  className="text-blue-500 font-bold text-xl hover:no-underline"
+                >
+                  Tv Show<span className="p"></span>
+                </a>
+              </li>
+            </button>
+            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
+              <li id="menu-item-248" className="menu-operating-systems">
+                <a
+                  href="../hindiDubbed/"
+                  className="text-blue-500 font-bold text-xl hover:no-underline"
+                >
+                  Hindi Dubed<span className="p"></span>
+                </a>
+              </li>
+            </button>
+            <button className="border border-blue-500 p-2 m-1 hover:bg-blue-700">
+              <li id="menu-item-11605" className="menu-3dcad">
+                <a
+                  href="../adult/"
+                  className="text-blue-500 font-bold text-xl hover:no-underline"
+                >
+                  Adult<span className="p"></span>
+                </a>
+              </li>
+            </button>
+          </ul>
+        </div>
       <div className="categories ">
   {Object.keys(allData).map((category) => (
     <section key={category} className="category-section bg-gray-100 p-4 rounded-lg shadow-md "  style={{ marginBottom: "20px",}}> 
