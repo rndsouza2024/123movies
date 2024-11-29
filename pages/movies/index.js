@@ -51,6 +51,18 @@ export default function movies({ moviesData }) {
     currentPage * itemsPerPage
   );
 
+  const getVisiblePages = () => {
+    const visiblePages = [];
+    const start = Math.max(1, currentPage - 1); // One page before the current
+    const end = Math.min(totalPages, currentPage + 1); // One page after the current
+    for (let i = start; i <= end; i++) {
+      visiblePages.push(i);
+    }
+    return visiblePages;
+  };
+
+  const visiblePages = getVisiblePages();
+  
   const combinedSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
@@ -323,8 +335,8 @@ export default function movies({ moviesData }) {
             </button>
           </ul>
         </div>
-      {/* Pagination Controls */}
-      <div className="flex items-center justify-center mt-4 gap-2">
+    {/* Pagination Controls */}
+    <div className="flex items-center justify-center mt-4 gap-2">
         {/* Previous Button */}
         <button
           onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
@@ -441,8 +453,8 @@ export default function movies({ moviesData }) {
           ))}
         </ul>
 
- {/* Pagination Controls */}
- <div className="flex items-center justify-center mt-4 gap-2">
+       {/* Pagination Controls */}
+       <div className="flex items-center justify-center mt-4 gap-2">
         {/* Previous Button */}
         <button
           onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
