@@ -170,6 +170,7 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
   const playerRef = useRef(null);
+  const dailymotionPlayerRef = useRef(null); // Reference for Dailymotion player
   const [playerReady, setPlayerReady] = useState(false);
   const { movie1, movies2, image1, downloadlink, dailymovies } =
     moviesItem || {}; // Ensure `moviesItem` is defined
@@ -239,83 +240,19 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
     setAccordionExpanded(!accordionExpanded); // Toggle the accordion state
   };
 
-  const [imageSize, setImageSize] = useState({
-    width: "200px",
-    height: "200px",
-  });
-
-  useEffect(() => {
-    const updateSize = () => {
-      if (window.innerWidth <= 768) {
-        setImageSize({ width: "150px", height: "150px" });
-      } else {
-        setImageSize({ width: "200px", height: "200px" });
-      }
-    };
-
-    updateSize(); // Set size on initial render
-    window.addEventListener("resize", updateSize);
-
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-
-  // useEffect(() => {
-  //   const loadYouTubeAPI = () => {
-  //     return new Promise((resolve) => {
-  //       if (window.YT && window.YT.Player) {
-  //         resolve();
-  //       } else {
-  //         const tag = document.createElement("script");
-  //         tag.src = "https://www.youtube.com/iframe_api";
-  //         tag.onload = () => {
-  //           window.onYouTubeIframeAPIReady = resolve;
-  //         };
-  //         document.body.appendChild(tag);
-  //       }
-  //     });
-  //   };
-
-  //   loadYouTubeAPI().then(() => {
-  //     // Initialize first video player
-  //     if (moviesItem.source && moviesItem.source !== "#") {
-  //       new window.YT.Player("player-0", {
-  //         videoId: moviesItem.source,
-  //         playerVars: {
-  //           playsinline: 1,
-  //           autoplay: 1,
-  //           mute: 1,
-  //           loop: 1,
-  //           playlist: moviesItem.source,
-  //         },
-  //       });
-  //     }
-
-  //     // Initialize second video player
-  //     if (moviesItem.source1 && moviesItem.source1 !== "#") {
-  //       new window.YT.Player("player-1", {
-  //         videoId: moviesItem.source1,
-  //         playerVars: {
-  //           playsinline: 1,
-  //           autoplay: 1,
-  //           mute: 1,
-  //           loop: 1,
-  //           playlist: moviesItem.source1,
-  //         },
-  //       });
-  //     }
-  //   });
-  // },
-  //  [moviesItem]);
-
-  const loadYouTubeAPI = () => {
+   // Load YouTube API
+   const loadYouTubeAPI = () => {
     if (typeof window !== "undefined" && typeof window.YT === "undefined") {
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      const firstScriptTag = document.getElementsByTagName("script")[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      const script = document.createElement("script");
+      script.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(script);
 
-      window.onYouTubeIframeAPIReady = () => setPlayerReady(true);
-    } else if (window.YT) {
+      script.onload = () => {
+        if (window.YT && window.YT.Player) {
+          setPlayerReady(true);
+        }
+      };
+    } else if (window.YT && window.YT.Player) {
       setPlayerReady(true);
     }
   };
@@ -324,25 +261,24 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
     loadYouTubeAPI();
   }, []);
 
+  // Initialize YouTube Player
   useEffect(() => {
-    if (playerReady && moviesItem.source && moviesItem.source.length === 11) {
+    if (playerReady && moviesItem.source) {
       if (playerRef.current) {
         // Destroy the existing player if it exists
         playerRef.current.destroy();
       }
 
       playerRef.current = new window.YT.Player("youtube-player", {
-        width: "100%",
-        height: "100%",
         videoId: moviesItem.source,
+        width: "100%",
+        height: "360px",
         playerVars: {
-          playsinline: 1,
           autoplay: 1,
           mute: 1,
-          enablejsapi: 1,
           modestbranding: 1,
           loop: 1,
-          playlist: moviesItem.source, // Repeat the same video for looping
+          playsinline: 1,
         },
         events: {
           onReady: (event) => {
@@ -352,6 +288,32 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
       });
     }
   }, [playerReady, moviesItem.source]);
+
+  // Load Dailymotion Player
+  const loadDailymotionPlayer = () => {
+    if (!dailymotionPlayerRef.current) {
+      console.error("Dailymotion player container is not available.");
+      return;
+    }
+
+    dailymotionPlayerRef.current.innerHTML = ""; // Clear existing player
+
+    const player = document.createElement("iframe");
+    player.src = `https://geo.dailymotion.com/player/xjrxe.html?video=${moviesItem.dailysource}&mute&autoplay=1&autoquality=1080p`;
+    player.width = "100%";
+    player.height = "460px";
+    player.setAttribute("allowfullscreen", "true");
+    player.setAttribute("frameborder", "0");
+    player.setAttribute("allow", "autoplay");
+
+    dailymotionPlayerRef.current.appendChild(player);
+  };
+
+  useEffect(() => {
+    if (moviesItem.dailysource) {
+      loadDailymotionPlayer();
+    }
+  }, [moviesItem.dailysource]);
 
   return (
     <>
@@ -684,27 +646,46 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
         {/* first Description */}
         {/* {moviesItem.description1 && <p style={styles.description1}>{moviesItem.description1}</p>} */}
 
-        {/* First YouTube Video */}
-        {moviesItem.source && moviesItem.source !== "#" && (
-          <div style={styles.source}>
-            <h2
-              className="text-3xl mt-2"
-              style={{
-                fontFamily: "Poppins, sans-serif",
-                fontWeight: "bold",
-                textAlign: "center",
-                textShadow: "1px 1px 0px #000",
-              }}
-            >
-              {" "}
-              Watch Official Trailer.
-            </h2>
-            {/* <div id="player-0" style={styles.youtubePlayer}></div> */}
-
-            <div id="youtube-player" style={styles.youtubePlayer} />
-          </div>
-        )}
-
+        {moviesItem.source && moviesItem.source !== "#" ? (
+           <div style={styles.source}>
+           <h2
+             className="text-3xl mt-2"
+             style={{
+               fontFamily: "Poppins, sans-serif",
+               fontWeight: "bold",
+               textAlign: "center",
+               textShadow: "1px 1px 0px #000",
+               marginTop: "50px",
+               marginBottom: "50px",
+             }}
+           >
+             {" "}
+             Watch Official Trailer.
+           </h2>
+          <div id="youtube-player" style={styles.youtubePlayer}></div>
+        </div>
+      ) : moviesItem.dailysource ? (
+        <div style={styles.source}>
+        <h2
+          className="text-3xl mt-2"
+          style={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: "bold",
+            textAlign: "center",
+            textShadow: "1px 1px 0px #000",
+            marginTop: "50px",
+            marginBottom: "50px",
+         
+          }}
+        >
+          {" "}
+          Watch Official Trailer.
+        </h2>
+          <div ref={dailymotionPlayerRef} style={styles.dailymotionPlayer}></div>
+        </div>
+      ) : (
+        <p style={styles.noVideo}>No video available.</p>
+      )}
         {/* Image 1 Section */}
         {/* {moviesItem.image1 && <img src={moviesItem.image1} alt="Additional" style={styles.image} />} */}
 
@@ -1133,4 +1114,9 @@ const styles = {
     fontSize: "20px",
     fontWeight: "bold",
   },
+   // source: { margin: "20px" },
+  // title: { fontSize: "20px", textAlign: "center" },
+  youtubePlayer: { width: "100%", height: "460px",  filter: "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)", },
+  dailymotionPlayer: { width: "100%", height: "460px",  filter: "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)"},
+  noVideo: { color: "red", textAlign: "center" },
 };
