@@ -318,7 +318,7 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
   return (
     <>
       <Head>
-        <title>Movies Free™ – {moviesItem.title || "Default Title"}</title>
+        <title>{moviesItem.title || "Default Title"} | Movies Free™ </title>
 
         <link
           rel="sitemap"

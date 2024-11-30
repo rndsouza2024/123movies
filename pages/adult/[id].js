@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs/promises";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Image from 'next/image';
+import Image from "next/image";
 import SocialSharing from "../../components/SocialSharing";
 import AdultSkipAds from "../../components/AdultSkipAds";
 import moviesStyles from "@styles/styles.module.css";
@@ -169,6 +169,7 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
   const playerRef = useRef(null);
+  const dailymotionPlayerRef = useRef(null); // Reference for Dailymotion player
   const [playerReady, setPlayerReady] = useState(false);
   const { movie1, movies2, image1, downloadlink, dailymovies } =
     adultItem || {}; // Ensure `adultItem` is defined
@@ -238,83 +239,19 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
     setAccordionExpanded(!accordionExpanded); // Toggle the accordion state
   };
 
-  const [imageSize, setImageSize] = useState({
-    width: "200px",
-    height: "200px",
-  });
-
-  useEffect(() => {
-    const updateSize = () => {
-      if (window.innerWidth <= 768) {
-        setImageSize({ width: "150px", height: "150px" });
-      } else {
-        setImageSize({ width: "200px", height: "200px" });
-      }
-    };
-
-    updateSize(); // Set size on initial render
-    window.addEventListener("resize", updateSize);
-
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-
-  // useEffect(() => {
-  //   const loadYouTubeAPI = () => {
-  //     return new Promise((resolve) => {
-  //       if (window.YT && window.YT.Player) {
-  //         resolve();
-  //       } else {
-  //         const tag = document.createElement("script");
-  //         tag.src = "https://www.youtube.com/iframe_api";
-  //         tag.onload = () => {
-  //           window.onYouTubeIframeAPIReady = resolve;
-  //         };
-  //         document.body.appendChild(tag);
-  //       }
-  //     });
-  //   };
-
-  //   loadYouTubeAPI().then(() => {
-  //     // Initialize first video player
-  //     if (adultItem.source && adultItem.source !== "#") {
-  //       new window.YT.Player("player-0", {
-  //         videoId: adultItem.source,
-  //         playerVars: {
-  //           playsinline: 1,
-  //           autoplay: 1,
-  //           mute: 1,
-  //           loop: 1,
-  //           playlist: adultItem.source,
-  //         },
-  //       });
-  //     }
-
-  //     // Initialize second video player
-  //     if (adultItem.source1 && adultItem.source1 !== "#") {
-  //       new window.YT.Player("player-1", {
-  //         videoId: adultItem.source1,
-  //         playerVars: {
-  //           playsinline: 1,
-  //           autoplay: 1,
-  //           mute: 1,
-  //           loop: 1,
-  //           playlist: adultItem.source1,
-  //         },
-  //       });
-  //     }
-  //   });
-  // },
-  //  [adultItem]);
-
+  // Load YouTube API
   const loadYouTubeAPI = () => {
     if (typeof window !== "undefined" && typeof window.YT === "undefined") {
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      const firstScriptTag = document.getElementsByTagName("script")[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      const script = document.createElement("script");
+      script.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(script);
 
-      window.onYouTubeIframeAPIReady = () => setPlayerReady(true);
-    } else if (window.YT) {
+      script.onload = () => {
+        if (window.YT && window.YT.Player) {
+          setPlayerReady(true);
+        }
+      };
+    } else if (window.YT && window.YT.Player) {
       setPlayerReady(true);
     }
   };
@@ -323,25 +260,24 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
     loadYouTubeAPI();
   }, []);
 
+  // Initialize YouTube Player
   useEffect(() => {
-    if (playerReady && adultItem.source && adultItem.source.length === 11) {
+    if (playerReady && adultItem.source) {
       if (playerRef.current) {
         // Destroy the existing player if it exists
         playerRef.current.destroy();
       }
 
       playerRef.current = new window.YT.Player("youtube-player", {
-        width: "100%",
-        height: "100%",
         videoId: adultItem.source,
+        width: "100%",
+        height: "360px",
         playerVars: {
-          playsinline: 1,
           autoplay: 1,
           mute: 1,
-          enablejsapi: 1,
           modestbranding: 1,
           loop: 1,
-          playlist: adultItem.source, // Repeat the same video for looping
+          playsinline: 1,
         },
         events: {
           onReady: (event) => {
@@ -352,10 +288,36 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
     }
   }, [playerReady, adultItem.source]);
 
+  // Load Dailymotion Player
+  const loadDailymotionPlayer = () => {
+    if (!dailymotionPlayerRef.current) {
+      console.error("Dailymotion player container is not available.");
+      return;
+    }
+
+    dailymotionPlayerRef.current.innerHTML = ""; // Clear existing player
+
+    const player = document.createElement("iframe");
+    player.src = `https://geo.dailymotion.com/player/xjrxe.html?video=${adultItem.dailysource}&mute&autoplay=1&autoquality=1080p`;
+    player.width = "100%";
+    player.height = "460px";
+    player.setAttribute("allowfullscreen", "true");
+    player.setAttribute("frameborder", "0");
+    player.setAttribute("allow", "autoplay");
+
+    dailymotionPlayerRef.current.appendChild(player);
+  };
+
+  useEffect(() => {
+    if (adultItem.dailysource) {
+      loadDailymotionPlayer();
+    }
+  }, [adultItem.dailysource]);
+
   return (
     <>
       <Head>
-        <title>MoviesFree™ – {adultItem.title || "Default Title"}</title>
+        <title>{adultItem.title || "Default Title"} | Movies Free™</title>
 
         <link
           rel="sitemap"
@@ -494,19 +456,19 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
             src={adultItem.image}
             alt={adultItem.title}
             // style={styles.image}
-             width={800} // Adjust the width according to your needs
-             height={450} // Adjust the height according to your needs
-             quality={90}
-             style={{
-               width: "400px", // Ensures the image is displayed at this width
-               height: "500px", // Ensures the image is displayed at this height
+            width={250} // Adjust the width according to your needs
+            height={450} // Adjust the height according to your needs
+            quality={90}
+            style={{
+              //  width: "400px", // Ensures the image is displayed at this width
+              //  height: "500px", // Ensures the image is displayed at this height
               //  objectFit: "cover", // Ensures the image covers the dimensions
-               margin: "auto",
-               borderRadius: "50px", // Rounded corners for the image
-               boxShadow: "0 0 10px 0 #000", // Shadow effect
-               filter:
-                 "contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)", // Image filter effects
-             }}
+              margin: "auto",
+              borderRadius: "50px", // Rounded corners for the image
+              boxShadow: "0 0 10px 0 #000", // Shadow effect
+              filter:
+                "contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)", // Image filter effects
+            }}
           />
         )}
         {/* <div
@@ -687,7 +649,8 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
         {/* {adultItem.description1 && <p style={styles.description1}>{adultItem.description1}</p>} */}
 
         {/* First YouTube Video */}
-        {adultItem.source && adultItem.source !== "#" && (
+
+        {adultItem.source && adultItem.source !== "#" ? (
           <div style={styles.source}>
             <h2
               className="text-3xl mt-2"
@@ -696,17 +659,39 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
                 fontWeight: "bold",
                 textAlign: "center",
                 textShadow: "1px 1px 0px #000",
+                marginTop: "50px",
+                marginBottom: "50px",
               }}
             >
               {" "}
               Watch Official Trailer.
             </h2>
-            {/* <div id="player-0" style={styles.youtubePlayer}></div> */}
-
-            <div id="youtube-player" style={styles.youtubePlayer} />
+            <div id="youtube-player" style={styles.youtubePlayer}></div>
           </div>
+        ) : adultItem.dailysource ? (
+          <div style={styles.source}>
+            <h2
+              className="text-3xl mt-2"
+              style={{
+                fontFamily: "Poppins, sans-serif",
+                fontWeight: "bold",
+                textAlign: "center",
+                textShadow: "1px 1px 0px #000",
+                marginTop: "50px",
+                marginBottom: "50px",
+              }}
+            >
+              {" "}
+              Watch Official Trailer.
+            </h2>
+            <div
+              ref={dailymotionPlayerRef}
+              style={styles.dailymotionPlayer}
+            ></div>
+          </div>
+        ) : (
+          <p style={styles.noVideo}>No video available.</p>
         )}
-
         {/* Image 1 Section */}
         {/* {adultItem.image1 && <img src={adultItem.image1} alt="Additional" style={styles.image} />} */}
 
