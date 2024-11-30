@@ -457,12 +457,12 @@ export default function MoviesArticle({ moviesItem, videoSources = [] }) {
             src={moviesItem.image}
             alt={moviesItem.title}
            // style={styles.image}
-           width={800} // Adjust the width according to your needs
+           width={250} // Adjust the width according to your needs
            height={450} // Adjust the height according to your needs
            quality={90}
            style={{
-             width: "400px", // Ensures the image is displayed at this width
-             height: "500px", // Ensures the image is displayed at this height
+            //  width: "400px", // Ensures the image is displayed at this width
+            //  height: "500px", // Ensures the image is displayed at this height
             //  objectFit: "cover", // Ensures the image covers the dimensions
              margin: "auto",
              borderRadius: "50px", // Rounded corners for the image
