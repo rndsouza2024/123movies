@@ -326,7 +326,7 @@ export default function MoviesArticle({ tvshowItem, videoSources = [] }) {
     dailymotionPlayerRef.current.innerHTML = ""; // Clear existing player
 
     const player = document.createElement("iframe");
-    player.src = `https://geo.dailymotion.com/player/xjrxe.html?video=${tvshowItem.dailysource}&mute&autoplay=1&autoquality=1080p`;
+    player.src = `https://geo.dailymotion.com/player/xjrxe.html?video=${tvshowItem.dailysource}&mute=true&autoplay=1&autoquality=1080p`;
     player.width = "100%";
     player.height = "460px";
     player.setAttribute("allowfullscreen", "true");
