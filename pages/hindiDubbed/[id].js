@@ -1122,4 +1122,9 @@ const styles = {
     fontSize: "20px",
     fontWeight: "bold",
   },
+  // source: { margin: "20px" },
+  // title: { fontSize: "20px", textAlign: "center" },
+  youtubePlayer: { width: "100%", height: "460px",  filter: "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)", },
+  dailymotionPlayer: { width: "100%", height: "460px",  filter: "contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)"},
+  noVideo: { color: "red", textAlign: "center" },
 };
