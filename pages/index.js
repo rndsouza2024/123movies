@@ -705,132 +705,6 @@ export async function getStaticProps() {
   };
 }
 
-const NewsSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "NewsMediaOrganization",
-  name: "MoviesFree™ - Online. Stream. Download.",
-  url: "https://moviefree.vercel.app",
-  sameAs: [
-    "https://www.facebook.com/news24channel",
-    "https://twitter.com/WorldNews24",
-    "https://www.youtube.com/@News24thinkfirst",
-    "https://www.instagram.com/WorldNews24official/",
-  ],
-  logo: {
-    "@type": "ImageObject",
-    url: "https://moviefree.vercel.app/logo.png",
-    width: "150",
-    height: "60",
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "World News 24 Broadcast India Limited,FC-23",
-    addressLocality: "Sector 16A, Film City Mumbai",
-    addressRegion: "Mumbai, India",
-    postalCode: "400099",
-    addressCountry: "IN",
-  },
-});
-
-const rankMathSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://moviefree.vercel.app/author/watchnewsonline/",
-      name: "Dr Trailer",
-      url: "https://moviefree.vercel.app/author/watchnewsonline/",
-      image: {
-        "@type": "ImageObject",
-        "@id": "https://gravatar.com/drtrailer2022",
-        url: "https://gravatar.com/drtrailer2022",
-        caption: "Dr Trailer",
-        inLanguage: "en-US",
-      },
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://moviefree.vercel.app/#organization",
-      name: "MoviesFree™ - Online. Stream. Download.",
-      url: "https://moviefree.vercel.app/",
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://moviefree.vercel.app/#website",
-      url: "https://moviefree.vercel.app/",
-      name: "MoviesFree™ - Online. Stream. Download.",
-      publisher: {
-        "@type": "Organization",
-        "@id": "https://moviefree.vercel.app/#organization",
-      },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: "https://moviefree.vercel.app/?s={search_term_string}",
-        "query-input": "required name=search_term_string",
-      },
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://moviefree.vercel.app/#webpage",
-      url: "https://moviefree.vercel.app/",
-      name: "News",
-      datePublished: "2024-01-13T13:00:00+00:00",
-      dateModified: "2024-01-13T13:13:00+00:00",
-      about: {
-        "@type": "Person",
-        "@id": "https://moviefree.vercel.app/author/uwatchfreeonline/",
-        name: "Dr Trailer",
-        url: "https://moviefree.vercel.app/author/uwatchfreeonline/",
-        image: {
-          "@type": "ImageObject",
-          "@id": "https://gravatar.com/drtrailer2022",
-          url: "https://gravatar.com/drtrailer2022",
-          caption: "Dr Trailer",
-          inLanguage: "en-US",
-        },
-      },
-      isPartOf: {
-        "@id": "https://moviefree.vercel.app/#website",
-      },
-      inLanguage: "en-US",
-      mainEntity: [
-        {
-          "@type": "Article",
-          "@id": "https://moviefree.vercel.app/",
-          url: "https://moviefree.vercel.app/",
-          headline: "News",
-          datePublished: "2024-01-13T13:00:00+00:00",
-          dateModified: "2024-01-13T13:13:00+00:00",
-          author: {
-            "@type": "Person",
-            "@id": "https://moviefree.vercel.app/author/watchnewsonline/",
-            name: "Dr Trailer",
-            url: "https://moviefree.vercel.app/author/watchnewsonline/",
-            image: {
-              "@type": "ImageObject",
-              "@id": "https://gravatar.com/drtrailer2022",
-              url: "https://gravatar.com/drtrailer2022",
-              caption: "Dr Trailer",
-              inLanguage: "en-US",
-            },
-          },
-          publisher: {
-            "@type": "Organization",
-            "@id": "https://moviefree.vercel.app/#organization",
-            name: "MoviesFree™ - Online. Stream. Download.",
-            url: "https://moviefree.vercel.app/",
-          },
-        },
-      ],
-      sameAs: [
-        "https://www.facebook.com/news24channel",
-        "https://twitter.com/WorldNews24",
-        "https://www.youtube.com/@News24thinkfirst",
-        "https://www.instagram.com/WorldNews24official/",
-      ],
-    },
-  ],
-});
 
 const soap2daySchema = JSON.stringify({
   "@context": "https://schema.org",
@@ -1022,14 +896,7 @@ export default function HomePage({ allData }) {
     />
     <meta name="monetag" content="98a412cb5612b9188cd76b9744304b6c" />
     
-    <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: NewsSchema }}
-  />
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: rankMathSchema }}
-  />
+  
    <script
     type="application/ld+json"
     dangerouslySetInnerHTML={{ __html: soap2daySchema }}
