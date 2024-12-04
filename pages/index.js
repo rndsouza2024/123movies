@@ -337,13 +337,27 @@ export default function HomePage({ allData }) {
     <div style={styles.container}>
     <header style={styles.hero}>
   <div style={styles.heroImageContainer}>
+  <div style={styles.heroImageContainer}>
     <Image
-      src="/og_image.jpg"
-      alt="Hero Background"
-      layout="fill"
-      objectFit="cover"
-      priority // Prioritize loading this image
-    />
+        src="/og_image.jpg"
+        alt="Hero Background"
+        // layout="fill"
+        objectFit="cover"
+        priority // Prioritize loading this image
+        width={1200} // Adjust the width according to your needs
+        height={750} // Adjust the height according to your needs
+        quality={90}
+        style={{
+          // height: "200px",
+          // width: "100%",
+          // objectFit: "cover",
+         
+          filter:
+          "contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)",
+        }}
+        // className="w-full sm:w-32 sm:h-20 rounded-md mb-4 sm:mb-0"
+      />
+    </div>
   </div>
   <div style={styles.heroTextContainer}>
     <h1 style={styles.heroTitle}>Welcome to Movies Free™</h1>
