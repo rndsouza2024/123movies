@@ -46,84 +46,172 @@ export async function getStaticProps() {
   };
 }
 
-
-const soap2daySchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://moviefree.vercel.app/",
-      url: "https://moviefree.vercel.app/",
-      name: "MoviesFree™ - Online. Stream. Download.",
-      isPartOf: { "@id": "https://moviefree.vercel.app/#website" },
-      about: { "@id": "https://moviefree.vercel.app/#organization" },
-      primaryImageOfPage: { "@id": "https://moviefree.vercel.app/#primaryimage" },
-      image: { "@id": "https://moviefree.vercel.app/#primaryimage" },
-      thumbnailUrl: "https://moviefree.vercel.app/og_image.jpg",
-      datePublished: "2023-07-02T18:30:00+00:00",
-      dateModified: "2024-09-24T05:11:20+00:00",
-      breadcrumb: { "@id": "https://moviefree.vercel.app/#breadcrumb" },
-      inLanguage: "en-US",
-      potentialAction: [
-        { "@type": "ReadAction", target: ["https://moviefree.vercel.app/"] },
-      ],
-    },
-    {
-      "@type": "ImageObject",
-      inLanguage: "en-US",
-      "@id": "https://moviefree.vercel.app/#primaryimage",
-      url: "https://moviefree.vercel.app/og_image.jpg",
-      contentUrl: "https://moviefree.vercel.app/og_image.jpg",
-      width: 1280,
-      height: 720,
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://moviefree.vercel.app/#breadcrumb",
-      itemListElement: [{ "@type": "ListItem", position: 1, name: "Home" }],
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://moviefree.vercel.app/#website",
-      url: "https://moviefree.vercel.app/",
-      name: "MoviesFree™ - Online. Stream. Download.",
-      description: "",
-      publisher: { "@id": "https://moviefree.vercel.app/#organization" },
-      potentialAction: [
-        {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: "https://moviefree.vercel.app/?s={search_term_string}",
-          },
-          "query-input": {
-            "@type": "PropertyValueSpecification",
-            valueRequired: true,
-            valueName: "search_term_string",
-          },
-        },
-      ],
-      inLanguage: "en-US",
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://moviefree.vercel.app/#organization",
-      name: "MoviesFree™ - Online. Stream. Download.",
-      url: "https://moviefree.vercel.app/",
-      logo: {
-        "@type": "ImageObject",
-        inLanguage: "en-US",
-        "@id": "https://moviefree.vercel.app/#/schema/logo/image/",
-        url: "https://moviefree.vercel.app/logo.png",
-        contentUrl: "https://moviefree.vercel.app/logo.png",
-        width: 280,
-        height: 100,
-        caption: "MoviesFree™ - Online. Stream. Download.",
+const uwatchfreeSchema = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'MoviesFree™ - Online. Stream. Download. ',
+    url: 'https://moviefree.vercel.app/',
+    image: ['https://moviefree.vercel.app/favicon.ico'],
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://moviefree.vercel.app/logo.png',
+      width: 280,
+      height: 80
+    }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: 'https://moviefree.vercel.app/',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://moviefree.vercel.app/search?q={search_term_string}'
       },
-      image: { "@id": "https://moviefree.vercel.app/#/schema/logo/image/" },
+      'query-input': 'required name=search_term_string'
+    }
+  }
+])
+
+const rankMathSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://gravatar.com/drtrailer2022',
+      name: 'Dr Trailer',
+      url: 'https://gravatar.com/drtrailer2022',
+      image: {
+        '@type': 'ImageObject',
+        '@id': 'https://gravatar.com/drtrailer2022',
+        url: 'https://gravatar.com/drtrailer2022',
+        caption: 'Dr Trailer',
+        inLanguage: 'en-US'
+      }
     },
-  ],
-});
+    {
+      '@type': 'Organization',
+      '@id': 'https://moviefree.vercel.app/#organization',
+      name: 'MoviesFree™ - Online. Stream. Download. ',
+      url: 'https://moviefree.vercel.app'
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://moviefree.vercel.app/#website',
+      url: 'https://moviefree.vercel.app',
+      name: 'MoviesFree™ - Online. Stream. Download. ',
+      publisher: {
+        '@type': 'Organization',
+        '@id': 'https://moviefree.vercel.app/#organization'
+      },
+   
+    },
+    {
+      '@type': 'WebPage',
+      '@id': 'https://moviefree.vercel.app/#webpage',
+      url: 'https://moviefree.vercel.app/',
+      name: 'Movie',
+      datePublished: '2024-01-13T13:00:00+00:00',
+      dateModified: '2024-01-13T13:13:00+00:00',
+      about: {
+        '@type': 'Person',
+        '@id': 'https://gravatar.com/drtrailer2022',
+        name: 'Dr Trailer',
+        url: 'https://gravatar.com/drtrailer2022',
+        image: {
+          '@type': 'ImageObject',
+          '@id': 'https://gravatar.com/drtrailer2022',
+          url: 'https://gravatar.com/drtrailer2022',
+          caption: 'Dr Trailer',
+          inLanguage: 'en-US'
+        }
+      },
+      isPartOf: {
+        '@id': 'https://moviefree.vercel.app/#website'
+      },
+      inLanguage: 'en-US',
+      mainEntity: [
+        {
+          '@type': 'Article',
+          '@id': 'https://moviefree.vercel.app/',
+          url: 'https://moviefree.vercel.app/',
+          headline: 'MoviesFree™ - Online. Stream. Download. ',
+          datePublished: '2024-01-13T13:00:00+00:00',
+          dateModified: '2024-01-13T13:13:00+00:00',
+          author: {
+            '@type': 'Person',
+            '@id': 'https://gravatar.com/drtrailer2022',
+            name: 'Dr Trailer',
+            url: 'https://gravatar.com/drtrailer2022',
+            image: {
+              '@type': 'ImageObject',
+              '@id': 'https://gravatar.com/drtrailer2022',
+              url: 'https://gravatar.com/drtrailer2022',
+              caption: 'Dr Trailer',
+              inLanguage: 'en-US'
+            }
+          },
+          publisher: {
+            '@type': 'Organization',
+            '@id': 'https://moviefree.vercel.app/#organization',
+            name: 'MoviesFree™ - Online. Stream. Download. ',
+            url: 'https://moviefree.vercel.app'
+          }
+        },
+        {
+          '@type': 'Article',
+          '@id': 'https://moviefree.vercel.app/',
+          url: 'https://moviefree.vercel.app/',
+          headline: 'MoviesFree™ - Online. Stream. Download. ',
+          datePublished: '2024-01-13T13:00:00+00:00',
+          dateModified: '2024-01-13T13:13:00+00:00',
+          author: {
+            '@type': 'Person',
+            '@id': 'https://gravatar.com/drtrailer2022',
+            name: 'Dr Trailer',
+            url: 'https://gravatar.com/drtrailer2022',
+            image: {
+              '@type': 'ImageObject',
+              '@id': 'https://gravatar.com/drtrailer2022',
+              url: 'https://gravatar.com/drtrailer2022',
+              caption: 'Dr Trailer',
+              inLanguage: 'en-US'
+            }
+          },
+          publisher: {
+            '@type': 'Organization',
+            '@id': 'https://moviefree.vercel.app/#organization',
+            name: 'MoviesFree™ - Online. Stream. Download. ',
+            url: 'https://moviefree.vercel.app'
+          }
+        },
+        {
+          '@type': 'Article',
+          '@id': 'https://moviefree.vercel.app/',
+          url: 'https://moviefree.vercel.app/',
+          headline: 'MoviesFree™ - Online. Stream. Download. ',
+          datePublished: '2024-01-13T13:00:00+00:00',
+          dateModified: '2024-01-13T13:13:00+00:00',
+          author: {
+            '@type': 'Person',
+            '@id': 'https://gravatar.com/drtrailer2022',
+            name: 'Dr Trailer',
+            url: 'https://gravatar.com/drtrailer2022',
+            image: {
+              '@type': 'ImageObject',
+              '@id': 'https://gravatar.com/drtrailer2022',
+              url: 'https://gravatar.com/drtrailer2022',
+              caption: 'Dr Trailer',
+              inLanguage: 'en-US'
+            }
+          }
+        }
+      ]
+    }
+  ]
+})
 
 export default function HomePage({ allData }) {
  
@@ -236,11 +324,13 @@ export default function HomePage({ allData }) {
       content="dm3bs67ukdegz9qik"
     />
     <meta name="monetag" content="98a412cb5612b9188cd76b9744304b6c" />
-    
-  
+    <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: uwatchfreeSchema }}
+  />  
    <script
     type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: soap2daySchema }}
+    dangerouslySetInnerHTML={{ __html: rankMathSchema }}
   />
   </Head>
   <SocialSharing />
